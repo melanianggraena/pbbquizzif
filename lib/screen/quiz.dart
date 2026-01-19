@@ -7,12 +7,8 @@ class QuizScreen extends StatefulWidget {
   final String? category;
   final String? level;
 
-  const QuizScreen({
-    Key? key,
-    required this.mode,
-    this.category,
-    this.level,
-  }) : super(key: key);
+  const QuizScreen({Key? key, required this.mode, this.category, this.level})
+      : super(key: key);
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -21,10 +17,10 @@ class QuizScreen extends StatefulWidget {
 class _QuizScreenState extends State<QuizScreen> {
   int _currentQuestionIndex = 0;
   int _score = 0;
-  int _timeLeft = 30; // For arcade mode
+  int _timeLeft = 30; // Hanya untuk arcade mode
   Timer? _timer;
 
-  // Dummy questions data (in a real app, this would come from a database or API)
+  // Dummy questions data (dalam app nyata, ambil dari database atau API)
   final List<Map<String, dynamic>> _questions = [
     {
       'question': 'What is the capital of France?',
@@ -91,7 +87,7 @@ class _QuizScreenState extends State<QuizScreen> {
       setState(() {
         _currentQuestionIndex++;
         if (widget.mode == 'arcade') {
-          _timeLeft = 30; // Reset timer for next question
+          _timeLeft = 30; // Reset timer untuk pertanyaan berikutnya
         }
       });
     } else {
@@ -159,10 +155,7 @@ class _QuizScreenState extends State<QuizScreen> {
                       ),
                     Text(
                       '${_currentQuestionIndex + 1}/${_questions.length}',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
+                      style: const TextStyle(color: Colors.white, fontSize: 16),
                     ),
                   ],
                 ),
@@ -254,11 +247,7 @@ class ResultScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(
-                  Icons.emoji_events,
-                  size: 100,
-                  color: Colors.white,
-                ),
+                const Icon(Icons.emoji_events, size: 100, color: Colors.white),
                 const SizedBox(height: 24),
                 const Text(
                   'Quiz Completed!',
@@ -271,10 +260,7 @@ class ResultScreen extends StatelessWidget {
                 const SizedBox(height: 16),
                 Text(
                   'Your Score: $score / $totalQuestions',
-                  style: const TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                  ),
+                  style: const TextStyle(fontSize: 24, color: Colors.white),
                 ),
                 const SizedBox(height: 8),
                 Text(
@@ -289,9 +275,7 @@ class ResultScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () => Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => const MainScreen(),
-                    ),
+                    MaterialPageRoute(builder: (context) => const MainScreen()),
                     (route) => false,
                   ),
                   style: ElevatedButton.styleFrom(
