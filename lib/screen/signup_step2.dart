@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'signin.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 
 
 class SignUpStep2Screen extends StatefulWidget {
@@ -243,8 +245,12 @@ class _SignUpStep2ScreenState extends State<SignUpStep2Screen> {
                   color: Color(0xFFEFF4FF),
                   shape: BoxShape.circle,
                 ),
-                child: const Icon(Icons.smart_toy,
-                    size: 48, color: Color(0xFF2563EB)),
+                child: SvgPicture.asset(
+                  'assets/sukses.svg',
+                  width: 48,
+                  height: 48,
+                ),
+
               ),
               const SizedBox(height: 16),
               const Text(
