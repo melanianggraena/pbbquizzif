@@ -5,6 +5,7 @@ import 'signin.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
+
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
@@ -57,7 +58,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
     // --- 2. LAYAR INTRO (BIRU) ---
     return Scaffold(
-      backgroundColor: const Color(0xFF1976D2),
+      // UPDATE: Warna Background Baru
+      backgroundColor: const Color(0xFF2563EB), 
       body: SafeArea(
         child: Column(
           children: [
@@ -100,7 +102,6 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           const Spacer(),
           
-          // UPDATE: Nama file tanpa spasi
           SvgPicture.asset(
             'assets/intro1.svg', 
             height: 320, 
@@ -115,7 +116,8 @@ class _SplashScreenState extends State<SplashScreen> {
               onPressed: _nextPage,
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
-                foregroundColor: const Color(0xFF1976D2),
+                // UPDATE: Warna teks tombol disesuaikan dengan background baru
+                foregroundColor: const Color(0xFF2563EB), 
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
@@ -146,7 +148,6 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           const SizedBox(height: 40),
           
-          // UPDATE: Nama file tanpa spasi
           Expanded(
             flex: 6,
             child: SvgPicture.asset(
@@ -190,7 +191,6 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           const SizedBox(height: 40),
           
-          // UPDATE: Nama file tanpa spasi
           Expanded(
             flex: 6,
             child: SvgPicture.asset(
@@ -267,7 +267,8 @@ class _SplashScreenState extends State<SplashScreen> {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
-          foregroundColor: const Color(0xFF1976D2),
+          // UPDATE: Warna teks tombol disesuaikan dengan background baru
+          foregroundColor: const Color(0xFF2563EB), 
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
         ),
         child: Text(text, style: const TextStyle(fontWeight: FontWeight.bold)),
