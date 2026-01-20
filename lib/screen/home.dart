@@ -1,156 +1,177 @@
 import 'package:flutter/material.dart';
-import '../main.dart'; // Untuk MainScreen jika perlu
-import 'classic.dart'; // Untuk navigasi ke Classic
-import 'arcade.dart'; // Untuk navigasi ke Arcade
-import 'quiz.dart'; // Untuk QuizScreen
+import 'quiz.dart';
+import 'arcade.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Color(0xFF1E3A8A), Color(0xFF3B82F6)],
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Color(0xFF0F3C91), Color(0xFF1E6BFF)],
+          ),
+        ),
+        child: SafeArea(
+          child: Column(
+            children: [
+              // ================= PROFILE HEADER =================
+Padding(
+  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      // LEFT PROFILE
+      Row(
+        children: [
+          const CircleAvatar(
+            radius: 18,
+            backgroundImage: AssetImage('assets/avatar.png'), // ganti sesuai aset
+          ),
+          const SizedBox(width: 10),
+          const Text(
+            'John Brown',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
+      ),
+
+      // RIGHT INFO
+      Row(
+        children: [
+          // COIN
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Row(
+              children: const [
+                Icon(Icons.monetization_on, color: Color(0xFFFFC107), size: 18),
+                SizedBox(width: 4),
+                Text(
+                  '301',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(width: 10),
+
+          // BADGE
+          const Icon(Icons.emoji_events, color: Colors.amber, size: 22),
+
+          const SizedBox(width: 10),
+        ],
+      ),
+    ],
+  ),
+),
+
+              
+              const SizedBox(height: 30),
+
+              // ================= AI CARD =================
+              Center(
+              child: SvgPicture.asset(
+                'assets/quiz.svg',
+                width: 500  ,   
+                height: 500,
+                fit: BoxFit.contain,
+              ),
+            ),
+
+
+              const SizedBox(height: 40),
+
+              // ================= TEXT CARD =================
+Container(
+  margin: const EdgeInsets.symmetric(horizontal: 24),
+  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+  decoration: BoxDecoration(
+    color: Colors.white.withOpacity(0.15),
+    borderRadius: BorderRadius.circular(30),
+  ),
+  child: Column(
+    children: [
+      const Text(
+        'Test your knowledge in Informatics',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
+        textAlign: TextAlign.center,
+      ),
+      const SizedBox(height: 8),
+      const Text(
+        'Learn, play, and improve your skills!',
+        style: TextStyle(
+          color: Colors.white70,
+          fontSize: 13,
+        ),
+        textAlign: TextAlign.center,
+      ),
+
+      const SizedBox(height: 20),
+
+      // ===== PLAY NOW (SMALL, INSIDE CARD) =====
+      SizedBox(
+        width: 300,
+        height: 50,
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const ModeSelectionScreen(),
+              ),
+            );
+          },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFF4ADE80),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            elevation: 6,
+          ),
+          child: const Text(
+            'Play Now',
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
         ),
       ),
-      child: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.menu, color: Colors.white),
-                    onPressed: () {},
-                  ),
-                  const Text(
-                    'QUIZZIF',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  IconButton(
-                    icon: const Icon(
-                      Icons.notifications_outlined,
-                      color: Colors.white,
-                    ),
-                    onPressed: () {},
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 20),
-            Container(
-              width: 120,
-              height: 140,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 20,
-                    spreadRadius: 5,
-                  ),
-                ],
-              ),
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.smart_toy, size: 60, color: Colors.blue),
-                  SizedBox(height: 8),
-                  Text(
-                    'AI',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 20),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 40),
-              child: Column(
-                children: [
-                  Text(
-                    'I am Your AI Assistant',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(height: 12),
-                  Text(
-                    'Choose your quiz mode below',
-                    style: TextStyle(color: Colors.white70, fontSize: 14),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 40),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Column(
-                children: [
-                  SizedBox(
-                    width: double.infinity,
-                    height: 56,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ModeSelectionScreen(),
-                          ),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                      ),
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.quiz, color: Colors.white),
-                          SizedBox(width: 10),
-                          Text(
-                            'Start Quiz',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const Spacer(),
-          ],
+    ],
+  ),
+),
+
+              const Spacer(),
+            ],
+          ),
         ),
       ),
     );
   }
 }
 
-// ==================== MODE SELECTION ====================
 class ModeSelectionScreen extends StatelessWidget {
   const ModeSelectionScreen({Key? key}) : super(key: key);
 
@@ -160,51 +181,148 @@ class ModeSelectionScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFF1976D2), Color(0xFF2196F3)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Color(0xFF0F3C91), Color(0xFF1E6BFF)],
           ),
         ),
         child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Choose Your Mode',
-                  style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+          child: Column(
+            children: [
+              // BACK BUTTON
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: IconButton(
+                    icon: const Icon(Icons.arrow_back, color: Colors.white),
+                    onPressed: () => Navigator.pop(context),
                   ),
                 ),
-                const SizedBox(height: 60),
-                _ModeCard(
-                  title: 'Classic',
-                  description: 'Traditional quiz mode with mixed questions',
-                  icon: Icons.quiz,
-                  color: const Color(0xFF2196F3),
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const QuizScreen(mode: 'classic'),
+              ),
+
+              const SizedBox(height: 20),
+
+              // ROBOT ICON
+              // ROBOT ICON (SVG)
+              SvgPicture.asset(
+                'assets/quiz.svg',
+                width: 500,
+                height: 500,
+              ),
+
+              const SizedBox(height: 20),
+
+
+              // CARD
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 24),
+                padding: const EdgeInsets.all(24),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.15),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Column(
+                  children: [
+                    const Text(
+                      'Pick your path Classic, or Arcade. Dive in!',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                  ),
-                ),
-                const SizedBox(height: 24),
-                _ModeCard(
-                  title: 'Arcade',
-                  description: 'Choose category and difficulty level',
-                  icon: Icons.sports_esports,
-                  color: const Color(0xFF00BCD4),
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ArcadeCategoryScreen(),
+                    const SizedBox(height: 24),
+
+                    // CLASSIC
+                    _modeButton(
+                      text: 'Classic',
+                      color: const Color(0xFFFFC107),
+                      icon: Icons.quiz,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const QuizScreen(mode: 'classic'),
+                          ),
+                        );
+                      },
                     ),
-                  ),
+
+                    const SizedBox(height: 16),
+
+                    // ARCADE
+                    _modeButton(
+                      text: 'Arcade',
+                      color: const Color(0xFF4ADE80),
+                      icon: Icons.sports_esports,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const ArcadeCategoryScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
+          ),
+        ),
+      ),
+        bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: const Color(0xFF1E6BFF),
+        unselectedItemColor: Colors.grey,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            label: 'Profile',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.emoji_events_outlined),
+            label: 'Leaderboard',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings_outlined),
+            label: 'Settings',
+          ),
+        ],
+      ),
+    );
+  }
+
+  
+  Widget _modeButton({
+    required String text,
+    required Color color,
+    required IconData icon,
+    required VoidCallback onTap,
+  }) {
+    return SizedBox(
+      width: 210,
+      height: 50,
+      child: ElevatedButton.icon(
+        onPressed: onTap,
+        icon: Icon(icon, color: Colors.white),
+        label: Text(
+          text,
+          style: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: color,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(28),
           ),
         ),
       ),
@@ -212,72 +330,4 @@ class ModeSelectionScreen extends StatelessWidget {
   }
 }
 
-class _ModeCard extends StatelessWidget {
-  final String title, description;
-  final IconData icon;
-  final Color color;
-  final VoidCallback onTap;
 
-  const _ModeCard({
-    required this.title,
-    required this.description,
-    required this.icon,
-    required this.color,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.all(24),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: color.withOpacity(0.3),
-              blurRadius: 20,
-              offset: const Offset(0, 10),
-            ),
-          ],
-        ),
-        child: Row(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: color.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Icon(icon, color: color, size: 40),
-            ),
-            const SizedBox(width: 20),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: color,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    description,
-                    style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-                  ),
-                ],
-              ),
-            ),
-            Icon(Icons.arrow_forward_ios, color: color),
-          ],
-        ),
-      ),
-    );
-  }
-}
