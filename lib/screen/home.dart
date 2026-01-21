@@ -89,8 +89,8 @@ Padding(
               Center(
               child: SvgPicture.asset(
                 'assets/quiz.svg',
-                width: 500  ,   
-                height: 500,
+                width: 450  ,   
+                height: 450,
                 fit: BoxFit.contain,
               ),
             ),
@@ -206,9 +206,9 @@ class ModeSelectionScreen extends StatelessWidget {
               // ROBOT ICON
               // ROBOT ICON (SVG)
               SvgPicture.asset(
-                'assets/quiz.svg',
-                width: 500,
-                height: 500,
+                'assets/home2.svg',
+                width: 400,
+                height: 400,
               ),
 
               const SizedBox(height: 20),
