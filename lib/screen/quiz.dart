@@ -200,8 +200,12 @@ class _QuizScreenState extends State<QuizScreen> {
                     ),
 
                     const SizedBox(height: 24),
-                    const Icon(Icons.smart_toy,
-                        size: 64, color: Color(0xFF2563EB)),
+                    // ===== SVG ICON (GANTI ROBOT) =====
+                    SvgPicture.asset(
+                      'assets/intro2.svg',
+                      height: 90,
+                    ),
+                    
                     const SizedBox(height: 24),
 
                     Text(

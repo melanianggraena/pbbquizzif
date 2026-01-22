@@ -143,7 +143,7 @@ Container(
             );
           },
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFF4ADE80),
+            backgroundColor: const Color(0xFF22C55E),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
@@ -238,7 +238,7 @@ class ModeSelectionScreen extends StatelessWidget {
                     _modeButton(
                       text: 'Classic',
                       color: const Color(0xFFFFC107),
-                      icon: Icons.quiz,
+                      svgPath: 'assets/btn_classic.svg',
                       onTap: () {
                         Navigator.push(
                           context,
@@ -249,13 +249,14 @@ class ModeSelectionScreen extends StatelessWidget {
                       },
                     ),
 
+
                     const SizedBox(height: 16),
 
                     // ARCADE
                     _modeButton(
                       text: 'Arcade',
-                      color: const Color(0xFF4ADE80),
-                      icon: Icons.sports_esports,
+                      color: const Color(0xFF22C55E),
+                      svgPath: 'assets/btn_arcade.svg', // kalau ada
                       onTap: () {
                         Navigator.push(
                           context,
@@ -265,6 +266,7 @@ class ModeSelectionScreen extends StatelessWidget {
                         );
                       },
                     ),
+
                   ],
                 ),
               ),
@@ -300,34 +302,52 @@ class ModeSelectionScreen extends StatelessWidget {
   }
 
   
-  Widget _modeButton({
+    Widget _modeButton({
     required String text,
     required Color color,
-    required IconData icon,
+    required String svgPath,
     required VoidCallback onTap,
   }) {
     return SizedBox(
       width: 210,
       height: 50,
-      child: ElevatedButton.icon(
+      child: ElevatedButton(
         onPressed: onTap,
-        icon: Icon(icon, color: Colors.white),
-        label: Text(
-          text,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
         style: ElevatedButton.styleFrom(
           backgroundColor: color,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(28),
           ),
         ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // ===== SVG ICON =====
+            SvgPicture.asset(
+              svgPath,
+              height: 22,
+              colorFilter: const ColorFilter.mode(
+                Colors.white,
+                BlendMode.srcIn,
+              ),
+            ),
+            const SizedBox(width: 10),
+
+            // ===== TEXT =====
+            Text(
+              text,
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
+
 }
 
 
