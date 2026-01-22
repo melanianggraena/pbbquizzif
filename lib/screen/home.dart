@@ -31,7 +31,7 @@ Padding(
         children: [
           const CircleAvatar(
             radius: 18,
-            backgroundImage: AssetImage('assets/avatar.png'), // ganti sesuai aset
+            backgroundImage: AssetImage('assets/iq.png'), // ganti sesuai aset
           ),
           const SizedBox(width: 10),
           const Text(
@@ -89,8 +89,8 @@ Padding(
               Center(
               child: SvgPicture.asset(
                 'assets/quiz.svg',
-                width: 450  ,   
-                height: 450,
+                width: 350,   
+                height: 350,
                 fit: BoxFit.contain,
               ),
             ),
@@ -256,7 +256,7 @@ class ModeSelectionScreen extends StatelessWidget {
                     _modeButton(
                       text: 'Arcade',
                       color: const Color(0xFF22C55E),
-                      svgPath: 'assets/btn_arcade.svg', // kalau ada
+                      svgPath: 'assets/btn_arcade.svg',
                       onTap: () {
                         Navigator.push(
                           context,
