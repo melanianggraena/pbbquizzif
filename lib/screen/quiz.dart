@@ -4,7 +4,7 @@ import 'package:hive/hive.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'home.dart';
 import '../models/question_model.dart';
-//tes
+
 class QuizScreen extends StatefulWidget {
   final String mode;
   final String? category;
@@ -48,46 +48,51 @@ class _QuizScreenState extends State<QuizScreen> {
     _loadQuestions();
   }
 
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
   // ================= LOAD SOAL =================
   void _loadQuestions() {
     final box = Hive.box<QuestionModel>('questionsBox');
 
-  // ================= Classic Campuran =================
-  if (widget.mode == 'classic') {
-    // Ambil semua kategori yang ada
-    final categories = box.values.map((q) => q.category).toSet();
+    // ================= Classic Campuran =================
+    if (widget.mode == 'classic') {
+      // Ambil semua kategori yang ada
+      final categories = box.values.map((q) => q.category).toSet();
 
-    List<QuestionModel> selectedQuestions = [];
+      List<QuestionModel> selectedQuestions = [];
 
-    for (final cat in categories) {
-      // Filter: kategori sesuai, level Easy
-      final easyQuestions = box.values
-          .where((q) => q.category == cat && q.level == 'Easy')
+      for (final cat in categories) {
+        // Filter: kategori sesuai, level Easy
+        final easyQuestions = box.values
+            .where((q) => q.category == cat && q.level == 'Easy')
+            .toList();
+        
+        easyQuestions.shuffle(); // acak soal
+
+        // Ambil max 4 soal dari tiap kategori
+        selectedQuestions.addAll(
+          easyQuestions.take(4)
+        );
+      }
+
+      selectedQuestions.shuffle(); // acak total soal
+      _questions = selectedQuestions;
+    } else {
+      // ================= Arcade / mode biasa =================
+      final filtered = box.values
+          .where((q) => q.category == widget.category && q.level == widget.level)
           .toList();
-      
-      easyQuestions.shuffle(); // acak soal
 
-      // Ambil max 4 soal dari tiap kategori
-      selectedQuestions.addAll(
-        easyQuestions.take(4)
-      );
+      filtered.shuffle();
+      _questions = filtered.length > 20 ? filtered.take(20).toList() : filtered;
     }
 
-    selectedQuestions.shuffle(); // acak total soal
-    _questions = selectedQuestions;
-  } else {
-    // ================= Arcade / mode biasa =================
-    final filtered = box.values
-        .where((q) => q.category == widget.category && q.level == widget.level)
-        .toList();
-
-    filtered.shuffle();
-    _questions = filtered.length > 20 ? filtered.take(20).toList() : filtered;
+    if (_questions.isNotEmpty) _startTimer();
   }
-
-  if (_questions.isNotEmpty) _startTimer();
-}
-
 
   // ================= TIMER =================
   void _startTimer() {
@@ -122,8 +127,7 @@ class _QuizScreenState extends State<QuizScreen> {
   void _saveQuestionTime() {
     if (_questionStartTime == null) return;
     final end = DateTime.now();
-    final duration =
-        end.difference(_questionStartTime!).inSeconds;
+    final duration = end.difference(_questionStartTime!).inSeconds;
     _timePerQuestion.add(duration);
   }
 
@@ -165,12 +169,10 @@ class _QuizScreenState extends State<QuizScreen> {
 
   // ================= RESULT ==========================
   void _showResult() {
-    final totalTime =
-        _timePerQuestion.fold(0, (a, b) => a + b);
-    final avgTime =
-        _timePerQuestion.isNotEmpty
-            ? (totalTime / _timePerQuestion.length).round()
-            : 0;
+    final totalTime = _timePerQuestion.fold(0, (a, b) => a + b);
+    final avgTime = _timePerQuestion.isNotEmpty
+        ? (totalTime / _timePerQuestion.length).round()
+        : 0;
 
     Navigator.pushReplacement(
       context,
@@ -183,6 +185,70 @@ class _QuizScreenState extends State<QuizScreen> {
           level: widget.level,
           avgTime: avgTime, // 🔥 REAL DATA
         ),
+      ),
+    );
+  }
+
+  // ================= KONFIRMASI KELUAR =================
+  void _showExitConfirmation() {
+    // Pause timer sementara
+    _timer?.cancel();
+
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        title: Row(
+          children: [
+            Icon(Icons.warning_amber_rounded, color: Colors.orange, size: 28),
+            SizedBox(width: 10),
+            Text('Keluar Quiz?'),
+          ],
+        ),
+        content: Text(
+          'Progress kamu akan hilang. Yakin ingin keluar?',
+          style: TextStyle(fontSize: 16),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context); // Tutup dialog
+              // Resume timer
+              if (!_answered) {
+                _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+                  if (_timeLeft > 0) {
+                    setState(() => _timeLeft--);
+                  } else {
+                    _handleTimeout();
+                  }
+                });
+              }
+            },
+            child: Text(
+              'Batal',
+              style: TextStyle(fontSize: 16, color: Colors.grey),
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context); // Tutup dialog
+              Navigator.pop(context); // Keluar dari quiz
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.red,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            child: Text(
+              'Keluar',
+              style: TextStyle(fontSize: 16, color: Colors.white),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -245,7 +311,7 @@ class _QuizScreenState extends State<QuizScreen> {
                         ),
                         IconButton(
                           icon: const Icon(Icons.close),
-                          onPressed: () => Navigator.pop(context),
+                          onPressed: _showExitConfirmation, // 🔥 KONFIRMASI KELUAR
                         ),
                       ],
                     ),
