@@ -6,7 +6,6 @@ import 'screen/settings.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'models/question_model.dart';
 import 'package:hive/hive.dart';
-import '../models/question_model.dart';
 import 'data/seed_question.dart';
 
 
@@ -21,7 +20,7 @@ void main() async {
 
   final box = Hive.box<QuestionModel>('questionsBox');
 
-  await seedQuestions();
+  await seedAllQuestions();
 
   runApp(const MyApp());
 }

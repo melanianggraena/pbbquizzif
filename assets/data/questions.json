@@ -1,0 +1,16 @@
+[
+  {
+    "question": "Bahasa pemrograman yang bersifat interpreted adalah …",
+    "options": ["C++", "Java", "Python", "Assembly"],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  },
+  {
+    "question": "IDE adalah singkatan dari …",
+    "options": ["Integrated Development Environment", "Internet Data Engine", "Internal Design Editor", "Integrated Device Engine"],
+    "answerIndex": 0,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  }
+]

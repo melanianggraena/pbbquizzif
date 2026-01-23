@@ -28,13 +28,13 @@ class _QuizScreenState extends State<QuizScreen> {
   bool _showBanner = false;
   bool _isCorrect = false;
 
-  late List<QuestionModel> _questions;
+  List<QuestionModel> _questions = []; // 🔑 WAJIB INIT KOSONG
 
   final List<Color> optionColors = [
-    const Color(0xFF3B82F6),
-    const Color(0xFFEF4444),
-    const Color(0xFFF97316),
-    const Color(0xFF22C55E),
+    Color(0xFF3B82F6),
+    Color(0xFFEF4444),
+    Color(0xFFF97316),
+    Color(0xFF22C55E),
   ];
 
   @override
@@ -43,15 +43,17 @@ class _QuizScreenState extends State<QuizScreen> {
     _loadQuestions();
   }
 
+  // ================= LOAD SOAL DARI HIVE =================
   void _loadQuestions() {
     final box = Hive.box<QuestionModel>('questionsBox');
 
-    final filtered = box.values.where((q) {
-      return q.category == widget.category && q.level == widget.level;
-    }).toList();
+    final filtered = box.values
+        .where((q) => q.category == widget.category && q.level == widget.level)
+        .toList();
 
     filtered.shuffle();
 
+    // 🔒 maksimal 20 soal
     _questions = filtered.length > 20 ? filtered.take(20).toList() : filtered;
 
     if (_questions.isNotEmpty) {
@@ -59,6 +61,7 @@ class _QuizScreenState extends State<QuizScreen> {
     }
   }
 
+  // ================= TIMER =================
   void _startTimer() {
     _timer?.cancel();
     _timeLeft = 30;
@@ -84,6 +87,7 @@ class _QuizScreenState extends State<QuizScreen> {
     Future.delayed(const Duration(seconds: 1), _nextQuestion);
   }
 
+  // ================= JAWAB =================
   void _answerQuestion(int index) {
     if (_answered) return;
 
@@ -100,6 +104,7 @@ class _QuizScreenState extends State<QuizScreen> {
     Future.delayed(const Duration(seconds: 1), _nextQuestion);
   }
 
+  // ================= NEXT =================
   void _nextQuestion() {
     _timer?.cancel();
 
@@ -116,6 +121,7 @@ class _QuizScreenState extends State<QuizScreen> {
     }
   }
 
+  // ================= RESULT =================
   void _showResult() {
     Navigator.pushReplacement(
       context,
@@ -131,6 +137,7 @@ class _QuizScreenState extends State<QuizScreen> {
     );
   }
 
+  // ================= UI =================
   @override
   Widget build(BuildContext context) {
     if (_questions.isEmpty) {
@@ -149,6 +156,7 @@ class _QuizScreenState extends State<QuizScreen> {
       body: SafeArea(
         child: Column(
           children: [
+            // ===== BANNER =====
             if (_showBanner)
               Container(
                 width: double.infinity,
@@ -172,6 +180,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 padding: const EdgeInsets.all(24),
                 child: Column(
                   children: [
+                    // ===== TOP BAR =====
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -205,6 +214,7 @@ class _QuizScreenState extends State<QuizScreen> {
                     SvgPicture.asset('assets/intro2.svg', height: 90),
                     const SizedBox(height: 24),
 
+                    // ===== QUESTION =====
                     Text(
                       q.question,
                       textAlign: TextAlign.center,
@@ -216,6 +226,7 @@ class _QuizScreenState extends State<QuizScreen> {
 
                     const SizedBox(height: 32),
 
+                    // ===== OPTIONS =====
                     ...List.generate(q.options.length, (i) {
                       Color bg = optionColors[i];
 
@@ -261,8 +272,7 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 }
 
-// ================= RESULT SCREEN =================
-
+// ==================== RESULT SCREEN ====================
 class ResultScreen extends StatelessWidget {
   final int score;
   final int totalQuestions;
@@ -271,48 +281,238 @@ class ResultScreen extends StatelessWidget {
   final String? level;
 
   const ResultScreen({
-    super.key,
+    Key? key,
     required this.score,
     required this.totalQuestions,
     required this.mode,
     this.category,
     this.level,
-  });
+  }) : super(key: key);
+
+  // =======================
+  // 📦 ACHIEVEMENT CARD (SVG)
+  // =======================
+  Widget _achievementCardSvg({
+    required String svgPath,
+    required String value,
+    required String label,
+  }) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.black12),
+        color: Colors.white,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // ===== SVG ICON =====
+          SvgPicture.asset(svgPath, width: 26, height: 26),
+
+          const Spacer(),
+
+          // ===== VALUE =====
+          Text(
+            value,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+
+          // ===== LABEL =====
+          Text(label, style: const TextStyle(color: Colors.grey, fontSize: 13)),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    final int xp = score * 10;
-    final int coins = score * 75;
+    // =======================
+    // 📊 HITUNG HASIL
+    // =======================
+    final correctQuestions = score;
+    final xp = score * 10;
+    final coins = score * 75;
+    final avgTime = 72; // dummy dulu
+    final iq = 3234; // placeholder UI
+    final rank = 269; // placeholder UI
 
     return Scaffold(
       backgroundColor: const Color(0xFFFFF7ED),
       body: SafeArea(
-        child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'Score: $score / $totalQuestions',
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+              // =======================
+              // ❌ CLOSE BUTTON + TITLE
+              // =======================
+              Row(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.close, color: Colors.blue),
+                    onPressed: () => Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (_) => const MainScreen()),
+                      (_) => false,
+                    ),
+                  ),
+                  const Spacer(),
+                  const Text(
+                    'Result',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.blue,
+                    ),
+                  ),
+                  const Spacer(),
+                ],
+              ),
+
+              const SizedBox(height: 20),
+
+              // =======================
+              // 🏆 PIALA SVG BESAR
+              // =======================
+              SizedBox(
+                height: 350,
+                child: SvgPicture.asset(
+                  'assets/piala.svg',
+                  fit: BoxFit.contain,
                 ),
               ),
-              const SizedBox(height: 16),
-              Text('XP: $xp'),
-              Text('Coins: $coins'),
+
               const SizedBox(height: 24),
-              ElevatedButton(
-                onPressed: () => Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(builder: (_) => const MainScreen()),
-                  (_) => false,
+
+              // =======================
+              // 🏅 YOUR ACHIEVEMENTS
+              // =======================
+              const Text(
+                'Your Achievements',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+              ),
+
+              const SizedBox(height: 24),
+
+              // =======================
+              // 📦 GRID ACHIEVEMENT (SVG ICONS)
+              // =======================
+              Expanded(
+                child: GridView.count(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 16,
+                  childAspectRatio: 1.6,
+                  children: [
+                    _achievementCardSvg(
+                      svgPath: 'assets/iq.svg',
+                      value: iq.toString(),
+                      label: 'IQ',
+                    ),
+                    _achievementCardSvg(
+                      svgPath: 'assets/point.svg',
+                      value: coins.toString(),
+                      label: 'Coins Earned',
+                    ),
+                    _achievementCardSvg(
+                      svgPath: 'assets/xp.svg',
+                      value: xp.toString(),
+                      label: 'XP',
+                    ),
+                    _achievementCardSvg(
+                      svgPath: 'assets/centang.svg',
+                      value: correctQuestions.toString(),
+                      label: 'Correct Questions',
+                    ),
+                    _achievementCardSvg(
+                      svgPath: 'assets/bumi.svg',
+                      value: rank.toString(),
+                      label: 'Rank',
+                    ),
+                    _achievementCardSvg(
+                      svgPath: 'assets/jam.svg',
+                      value: avgTime.toString(),
+                      label: 'Avg time',
+                    ),
+                  ],
                 ),
-                child: const Text('Back to Home'),
+              ),
+
+              // =======================
+              // 🔘 BUTTONS
+              // =======================
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.home, color: Colors.white),
+                      label: const Text('Home'),
+                      onPressed: () => Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (_) => const MainScreen()),
+                        (_) => false,
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF2563EB),
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.send, color: Colors.white),
+                      label: const Text('Share'),
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF2563EB),
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  // =======================
+  // 📦 CARD WIDGET
+  // =======================
+  Widget _achievementCard({
+    required IconData icon,
+    required String value,
+    required String label,
+    Color iconColor = Colors.orange,
+  }) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.black12),
+        color: Colors.white,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(icon, color: iconColor),
+          const Spacer(),
+          Text(
+            value,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          Text(label, style: const TextStyle(color: Colors.grey)),
+        ],
       ),
     );
   }

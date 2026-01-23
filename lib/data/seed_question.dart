@@ -3,24 +3,25 @@ import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 import '../models/question_model.dart';
 
-Future<void> seedQuestions() async {
+Future<void> seedAllQuestions() async {
   final box = Hive.box<QuestionModel>('questionsBox');
+
+  // 🔒 biar ga dobel insert
   if (box.isNotEmpty) return;
 
-  final jsonString = await rootBundle.loadString('lib/data/questions.json');
-  final List data = json.decode(jsonString);
+  // ✅ AMBIL DARI ASSETS
+  final jsonString = await rootBundle.loadString('assets/data/questions.json');
+  final List<dynamic> data = json.decode(jsonString);
 
-  final questions = data
-      .map(
-        (e) => QuestionModel(
-          question: e['question'],
-          options: List<String>.from(e['options']),
-          answerIndex: e['answerIndex'],
-          category: e['category'],
-          level: e['level'],
-        ),
-      )
-      .toList();
-
-  await box.addAll(questions);
+  for (final item in data) {
+    box.add(
+      QuestionModel(
+        question: item['question'],
+        options: List<String>.from(item['options']),
+        answerIndex: item['answerIndex'],
+        category: item['category'],
+        level: item['level'],
+      ),
+    );
+  }
 }

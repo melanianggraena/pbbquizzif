@@ -9,12 +9,12 @@ import 'quiz.dart';
 class ArcadeCategoryScreen extends StatelessWidget {
   const ArcadeCategoryScreen({Key? key}) : super(key: key);
 
-  final List<Map<String, dynamic>> categories = const [
-    {'title': 'C++', 'color': Color(0xFFFACC15)},
+final List<Map<String, dynamic>> categories = const [
+    {'title': 'Bahasa Pemrograman', 'color': Color(0xFFFACC15)},
     {'title': 'Database', 'color': Color(0xFF22C55E)},
-    {'title': 'Java', 'color': Color(0xFFF97316)},
-    {'title': 'Flutter', 'color': Color(0xFF3B82F6)},
-    {'title': 'RPL', 'color': Color(0xFFEC4899)},
+    {'title': 'Network', 'color': Color(0xFF3B82F6)},
+    {'title': 'UI / UX', 'color': Color(0xFFEC4899)},
+    {'title': 'Sejarah', 'color': Color(0xFFF97316)},
   ];
 
   @override
