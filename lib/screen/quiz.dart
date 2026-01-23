@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import '../main.dart';
+import 'package:hive/hive.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../main.dart';
+import '../models/question_model.dart';
 
 class QuizScreen extends StatefulWidget {
   final String mode;
@@ -25,34 +28,41 @@ class _QuizScreenState extends State<QuizScreen> {
   bool _showBanner = false;
   bool _isCorrect = false;
 
-  final List<Color> optionColors = [
-    Color(0xFF3B82F6), // blue
-    Color(0xFFEF4444), // red
-    Color(0xFFF97316), // orange
-    Color(0xFF22C55E), // green
-  ];
+  late List<QuestionModel> _questions;
 
-  final List<Map<String, dynamic>> _questions = [
-    {
-      'question': 'Which spell is used to disarm an opponent in Harry Potter?',
-      'options': [
-        'Expelliarmus',
-        'Stupefy',
-        'Petrificus Totalus',
-        'Confringo'
-      ],
-      'correctAnswer': 0,
-    },
+  final List<Color> optionColors = [
+    const Color(0xFF3B82F6),
+    const Color(0xFFEF4444),
+    const Color(0xFFF97316),
+    const Color(0xFF22C55E),
   ];
 
   @override
   void initState() {
     super.initState();
-    _startTimer();
+    _loadQuestions();
+  }
+
+  void _loadQuestions() {
+    final box = Hive.box<QuestionModel>('questionsBox');
+
+    final filtered = box.values.where((q) {
+      return q.category == widget.category && q.level == widget.level;
+    }).toList();
+
+    filtered.shuffle();
+
+    _questions = filtered.length > 20 ? filtered.take(20).toList() : filtered;
+
+    if (_questions.isNotEmpty) {
+      _startTimer();
+    }
   }
 
   void _startTimer() {
     _timer?.cancel();
+    _timeLeft = 30;
+
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_timeLeft > 0) {
         setState(() => _timeLeft--);
@@ -64,6 +74,7 @@ class _QuizScreenState extends State<QuizScreen> {
 
   void _handleTimeout() {
     if (_answered) return;
+
     setState(() {
       _answered = true;
       _showBanner = true;
@@ -76,7 +87,7 @@ class _QuizScreenState extends State<QuizScreen> {
   void _answerQuestion(int index) {
     if (_answered) return;
 
-    final correct = _questions[_currentQuestionIndex]['correctAnswer'];
+    final correct = _questions[_currentQuestionIndex].answerIndex;
 
     setState(() {
       _selectedAnswer = index;
@@ -98,7 +109,6 @@ class _QuizScreenState extends State<QuizScreen> {
         _selectedAnswer = null;
         _answered = false;
         _showBanner = false;
-        _timeLeft = 30;
       });
       _startTimer();
     } else {
@@ -114,6 +124,8 @@ class _QuizScreenState extends State<QuizScreen> {
           score: _score,
           totalQuestions: _questions.length,
           mode: widget.mode,
+          category: widget.category,
+          level: widget.level,
         ),
       ),
     );
@@ -121,15 +133,22 @@ class _QuizScreenState extends State<QuizScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (_questions.isEmpty) {
+      return const Scaffold(
+        body: Center(
+          child: Text('Soal belum tersedia', style: TextStyle(fontSize: 18)),
+        ),
+      );
+    }
+
     final q = _questions[_currentQuestionIndex];
-    final correct = q['correctAnswer'];
+    final correct = q.answerIndex;
 
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
-            // ===== STATUS BANNER =====
             if (_showBanner)
               Container(
                 width: double.infinity,
@@ -137,30 +156,14 @@ class _QuizScreenState extends State<QuizScreen> {
                 color: _isCorrect
                     ? const Color(0xFF22C55E)
                     : const Color(0xFFEF4444),
-                child: Column(
-                  children: [
-                    Text(
-                      _isCorrect ? 'Correct!' : 'Incorrect!',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 6),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 14, vertical: 6),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Text(
-                        _isCorrect ? '+945' : 'That was close',
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                    )
-                  ],
+                child: Text(
+                  _isCorrect ? 'Correct!' : 'Incorrect!',
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
 
@@ -169,7 +172,6 @@ class _QuizScreenState extends State<QuizScreen> {
                 padding: const EdgeInsets.all(24),
                 child: Column(
                   children: [
-                    // ===== TOP BAR =====
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -195,30 +197,26 @@ class _QuizScreenState extends State<QuizScreen> {
                         IconButton(
                           icon: const Icon(Icons.close),
                           onPressed: () => Navigator.pop(context),
-                        )
+                        ),
                       ],
                     ),
 
                     const SizedBox(height: 24),
-                    // ===== SVG ICON (GANTI ROBOT) =====
-                    SvgPicture.asset(
-                      'assets/intro2.svg',
-                      height: 90,
-                    ),
-                    
+                    SvgPicture.asset('assets/intro2.svg', height: 90),
                     const SizedBox(height: 24),
 
                     Text(
-                      q['question'],
+                      q.question,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
-                          fontSize: 22, fontWeight: FontWeight.w700),
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
 
                     const SizedBox(height: 32),
 
-                    // ===== OPTIONS =====
-                    ...List.generate(q['options'].length, (i) {
+                    ...List.generate(q.options.length, (i) {
                       Color bg = optionColors[i];
 
                       if (_answered) {
@@ -227,7 +225,7 @@ class _QuizScreenState extends State<QuizScreen> {
                         } else if (i == _selectedAnswer) {
                           bg = const Color(0xFFEF4444);
                         } else {
-                          bg = const Color(0xFFEF4444);
+                          bg = Colors.grey;
                         }
                       }
 
@@ -237,17 +235,17 @@ class _QuizScreenState extends State<QuizScreen> {
                           onPressed: () => _answerQuestion(i),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: bg,
-                            minimumSize:
-                                const Size(double.infinity, 56),
+                            minimumSize: const Size(double.infinity, 56),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(28),
                             ),
                           ),
                           child: Text(
-                            q['options'][i],
+                            q.options[i],
                             style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600),
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                       );
@@ -263,10 +261,8 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 }
 
-// ==================== RESULT SCREEN ====================
-// ====================
-// 🎉 RESULT SCREEN
-// ====================
+// ================= RESULT SCREEN =================
+
 class ResultScreen extends StatelessWidget {
   final int score;
   final int totalQuestions;
@@ -285,238 +281,38 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // =======================
-    // 📊 HITUNG HASIL (LOGIC)
-    // =======================
-    final int correctQuestions = score;
     final int xp = score * 10;
     final int coins = score * 75;
-    final int avgTime = 12; // dummy dulu
-    final int iq = 120; // dummy UI
-    final int rank = 269; // dummy UI
 
     return Scaffold(
       backgroundColor: const Color(0xFFFFF7ED),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-
+        child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // =======================
-              // ❌ CLOSE + TITLE
-              // =======================
-              Row(
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.close, color: Color(0xFF2563EB)),
-                    onPressed: () => Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const MainScreen(),
-                      ),
-                      (_) => false,
-                    ),
-                  ),
-                  const Spacer(),
-                  const Text(
-                    'Result',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                      color: Color(0xFF2563EB),
-                    ),
-                  ),
-                  const Spacer(),
-                ],
-              ),
-
-              const SizedBox(height: 20),
-
-              // =======================
-              // 🏆 PIALA SVG BESAR
-              // =======================
-              SizedBox(
-                height: 260,
-                child: SvgPicture.asset(
-                  'assets/piala.svg',
-                  fit: BoxFit.contain,
+              Text(
+                'Score: $score / $totalQuestions',
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-
-              const SizedBox(height: 24),
-
-              // =======================
-              // 🏅 TITLE ACHIEVEMENT
-              // =======================
-              const Text(
-                'Your Achievements',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-
-              const SizedBox(height: 24),
-
-              // =======================
-              // 📦 GRID ACHIEVEMENTS
-              // =======================
-              Expanded(
-                child: GridView.count(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 16,
-                  mainAxisSpacing: 16,
-                  childAspectRatio: 1.6,
-                  children: [
-                    _achievementCardSvg(
-                      svgPath: 'assets/iq.svg',
-                      value: iq.toString(),
-                      label: 'IQ',
-                    ),
-                    _achievementCardSvg(
-                      svgPath: 'assets/point.svg',
-                      value: coins.toString(),
-                      label: 'Coins Earned',
-                    ),
-                    _achievementCardSvg(
-                      svgPath: 'assets/xp.svg',
-                      value: xp.toString(),
-                      label: 'XP',
-                    ),
-                    _achievementCardSvg(
-                      svgPath: 'assets/centang.svg',
-                      value: correctQuestions.toString(),
-                      label: 'Correct Questions',
-                      iconColor: Colors.green,
-                    ),
-                    _achievementCardSvg(
-                      svgPath: 'assets/bumi.svg',
-                      value: rank.toString(),
-                      label: 'Rank',
-                    ),
-                    _achievementCardSvg(
-                      svgPath: 'assets/jam.svg',
-                      value: avgTime.toString(),
-                      label: 'Avg Time',
-                      iconColor: Colors.red,
-                    ),
-                  ],
-                ),
-              ),
-
               const SizedBox(height: 16),
-
-              // =======================
-              // 🔘 BUTTONS
-              // =======================
-              Row(
-                children: [
-                  Expanded(
-                    child: ElevatedButton.icon(
-                      icon: const Icon(Icons.home, color: Colors.white),
-                      label: const Text('Home',),
-                      onPressed: () => Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const MainScreen(),
-                        ),
-                        (_) => false,
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF2563EB),
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: ElevatedButton.icon(
-                      icon: const Icon(Icons.send, color: Colors.white),
-                      label: const Text('Share'),
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF2563EB),
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+              Text('XP: $xp'),
+              Text('Coins: $coins'),
+              const SizedBox(height: 24),
+              ElevatedButton(
+                onPressed: () => Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (_) => const MainScreen()),
+                  (_) => false,
+                ),
+                child: const Text('Back to Home'),
               ),
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  // =====================================================
-  // 📦 ACHIEVEMENT CARD (SVG | ICON SEJAJAR ANGKA)
-  // =====================================================
-  Widget _achievementCardSvg({
-    required String svgPath,
-    required String value,
-    required String label,
-    Color iconColor = Colors.blue,
-  }) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 8,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // =======================
-          // 🔢 ICON + ANGKA (ROW)
-          // =======================
-          Row(
-            children: [
-              SvgPicture.asset(
-                svgPath,
-                width: 40,
-                height: 40,
-              ),
-              const SizedBox(width: 8),
-              Text(
-                value,
-                style: const TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-
-          const SizedBox(height: 6),
-
-          // =======================
-          // 🏷 LABEL
-          // =======================
-          Text(
-            label,
-            style: const TextStyle(
-              fontSize: 13,
-              color: Colors.grey,
-            ),
-          ),
-        ],
       ),
     );
   }
