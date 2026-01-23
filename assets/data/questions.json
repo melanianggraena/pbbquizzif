@@ -7,10 +7,2010 @@
     "level": "Easy"
   },
   {
-    "question": "IDE adalah singkatan dari …",
-    "options": ["Integrated Development Environment", "Internet Data Engine", "Internal Design Editor", "Integrated Device Engine"],
+    "question": "Bahasa pemrograman yang digunakan untuk web sisi klien adalah …",
+    "options": ["PHP", "JavaScript", "Python", "MySQL"],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  },
+  {
+    "question": "Ekstensi file Python adalah …",
+    "options": [".java", ".py", ".php", ".exe"],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  },
+  {
+    "question": "Fungsi utama variabel dalam pemrograman adalah …",
+    "options": ["Menyimpan data", "Menampilkan data", "Menghapus data", "Menjalankan OS"],
     "answerIndex": 0,
     "category": "Bahasa Pemrograman",
     "level": "Easy"
+  },
+  {
+    "question": "IDE adalah singkatan dari …",
+    "options": [
+      "Integrated Development Environment",
+      "Internet Data Engine",
+      "Internal Design Editor",
+      "Integrated Device Engine"
+    ],
+    "answerIndex": 0,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  },
+  {
+    "question": "Perintah untuk menampilkan teks di Python adalah …",
+    "options": ["echo", "print()", "cout", "printf()"],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  },
+  {
+    "question": "Bahasa pemrograman yang digunakan untuk styling web adalah …",
+    "options": ["HTML", "JavaScript", "CSS", "PHP"],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  },
+  {
+    "question": "Bahasa pemrograman Android native saat ini adalah …",
+    "options": ["Swift", "Kotlin", "PHP", "Ruby"],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  },
+  {
+    "question": "Tipe data boolean memiliki nilai …",
+    "options": ["0 dan 1", "Ya dan Tidak", "True dan False", "On dan Off"],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  },
+  {
+    "question": "Perulangan digunakan untuk …",
+    "options": ["Menyimpan data", "Mengulang instruksi", "Menghapus data", "Menghentikan program"],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  },
+  {
+    "question": "Bahasa pemrograman low-level adalah …",
+    "options": ["Python", "Java", "Assembly", "PHP"],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  },
+  {
+    "question": "Simbol komentar satu baris pada JavaScript adalah …",
+    "options": ["/* */", "<!-- -->", "//", "#"],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  },
+  {
+    "question": "Bahasa pemrograman yang dikembangkan oleh Sun Microsystems adalah …",
+    "options": ["Python", "Java", "C#", "Ruby"],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  },
+  {
+    "question": "File HTML biasanya berekstensi …",
+    "options": [".css", ".js", ".html", ".php"],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  },
+  {
+    "question": "Error karena salah penulisan kode disebut …",
+    "options": ["Runtime error", "Logical error", "Syntax error", "System error"],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  },
+  {
+    "question": "Operator logika AND ditulis sebagai …",
+    "options": ["||", "&&", "!=", "=="],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  },
+  {
+    "question": "Framework JavaScript untuk frontend adalah …",
+    "options": ["Laravel", "Django", "React", "Flask"],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  },
+  {
+    "question": "Bahasa pemrograman untuk data science yang populer adalah …",
+    "options": ["Python", "C", "HTML", "CSS"],
+    "answerIndex": 0,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  },
+  {
+    "question": "Statement IF digunakan untuk …",
+    "options": ["Perulangan", "Percabangan", "Penyimpanan", "Output"],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  },
+  {
+    "question": "Compiler berfungsi untuk …",
+    "options": [
+      "Menjalankan program",
+      "Mengedit kode",
+      "Menerjemahkan kode ke bahasa mesin",
+      "Menyimpan data"
+    ],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Easy"
+  },
+  
+  {
+    "question": "Perbedaan utama compiler dan interpreter adalah …",
+    "options": [
+      "Compiler menerjemahkan sekaligus, interpreter baris per baris",
+      "Interpreter lebih cepat dari compiler",
+      "Compiler hanya untuk Python",
+      "Interpreter menghasilkan file .exe"
+    ],
+    "answerIndex": 0,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+  {
+    "question": "Tipe data yang digunakan untuk bilangan pecahan adalah …",
+    "options": ["int", "char", "float", "boolean"],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+  {
+    "question": "Konsep OOP yang menyembunyikan detail implementasi disebut …",
+    "options": ["Inheritance", "Polymorphism", "Abstraction", "Compilation"],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+  {
+    "question": "Keyword untuk membuat fungsi di Python adalah …",
+    "options": ["func", "def", "function", "lambda"],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+  {
+    "question": "Array digunakan untuk …",
+    "options": [
+      "Menyimpan satu nilai",
+      "Menyimpan banyak nilai sejenis",
+      "Menyimpan file",
+      "Menjalankan perintah"
+    ],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+  {
+    "question": "Bahasa pemrograman yang berjalan di JVM adalah …",
+    "options": ["C", "Kotlin", "JavaScript", "PHP"],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+  {
+    "question": "Proses menemukan dan memperbaiki bug disebut …",
+    "options": ["Compiling", "Debugging", "Running", "Testing"],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+  {
+    "question": "Library dalam pemrograman berfungsi untuk …",
+    "options": [
+      "Menambah hardware",
+      "Menyimpan database",
+      "Menggunakan kembali kode",
+      "Menghapus error"
+    ],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+  {
+    "question": "Operator perbandingan \"sama dengan\" ditulis …",
+    "options": ["=", "==", "===", "!="],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+  {
+    "question": "Loop yang akan dijalankan minimal satu kali adalah …",
+    "options": ["for", "while", "do while", "if"],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+  {
+    "question": "Bahasa yang sering digunakan untuk backend web adalah …",
+    "options": ["HTML", "CSS", "PHP", "XML"],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+  {
+    "question": "Git digunakan untuk …",
+    "options": ["Desain UI", "Version control", "Database", "Hosting"],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+  {
+    "question": "Variabel lokal hanya dapat diakses di …",
+    "options": [
+      "Seluruh program",
+      "File lain",
+      "Fungsi tempat dibuat",
+      "Database"
+    ],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+  {
+    "question": "Exception handling bertujuan untuk …",
+    "options": [
+      "Mempercepat program",
+      "Menangani error runtime",
+      "Menghapus bug",
+      "Mengompilasi kode"
+    ],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+  {
+    "question": "Bahasa Swift digunakan untuk pengembangan …",
+    "options": ["Android", "Web", "iOS", "Game PC"],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+  {
+    "question": "Statement return berfungsi untuk …",
+    "options": [
+      "Mengulang fungsi",
+      "Menghentikan program",
+      "Mengembalikan nilai fungsi",
+      "Menampilkan output"
+    ],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+  {
+    "question": "Stack bersifat …",
+    "options": ["FIFO", "LIFO", "Random", "Linear"],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+  {
+    "question": "Queue bersifat …",
+    "options": ["LIFO", "LILO", "FIFO", "FILO"],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+  {
+    "question": "Casting digunakan untuk …",
+    "options": [
+      "Mengubah tipe data",
+      "Menghapus variabel",
+      "Menyimpan data",
+      "Menjalankan fungsi"
+    ],
+    "answerIndex": 0,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+  {
+    "question": "Bahasa pemrograman yang bersifat statically typed adalah …",
+    "options": ["Python", "JavaScript", "Java", "PHP"],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Medium"
+  },
+
+  {
+    "question": "Polymorphism memungkinkan …",
+    "options": [
+      "Banyak kelas satu metode",
+      "Satu interface banyak implementasi",
+      "Variabel global",
+      "Pewarisan tunggal"
+    ],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+  {
+    "question": "Immutable object berarti …",
+    "options": [
+      "Tidak bisa dibuat",
+      "Tidak bisa diubah setelah dibuat",
+      "Selalu bernilai null",
+      "Bersifat private"
+    ],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+  {
+    "question": "Big-O notation digunakan untuk mengukur …",
+    "options": [
+      "Ukuran file",
+      "Kompleksitas algoritma",
+      "Jumlah variabel",
+      "Kecepatan internet"
+    ],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+  {
+    "question": "Rekursi adalah …",
+    "options": [
+      "Loop tanpa henti",
+      "Fungsi memanggil dirinya sendiri",
+      "Error runtime",
+      "Algoritma sorting"
+    ],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+  {
+    "question": "Deadlock terjadi ketika …",
+    "options": [
+      "Program selesai",
+      "Dua proses saling menunggu",
+      "Memori penuh",
+      "CPU idle"
+    ],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+  {
+    "question": "Garbage collection bertujuan untuk …",
+    "options": [
+      "Menghapus file",
+      "Mengelola memori otomatis",
+      "Menangani error",
+      "Mengompilasi kode"
+    ],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+  {
+    "question": "Concurrency berarti …",
+    "options": [
+      "Program tunggal",
+      "Proses berurutan",
+      "Beberapa proses berjalan bersamaan",
+      "Error sistem"
+    ],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+  {
+    "question": "Thread adalah …",
+    "options": [
+      "Program utama",
+      "Unit eksekusi terkecil",
+      "Sistem operasi",
+      "Compiler"
+    ],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+  {
+    "question": "Lambda expression digunakan untuk …",
+    "options": [
+      "Membuat class",
+      "Fungsi anonim",
+      "Variabel global",
+      "Loop"
+    ],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+  {
+    "question": "REST API umumnya menggunakan format data …",
+    "options": ["XML saja", "CSV", "JSON", "TXT"],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+  {
+    "question": "Dependency injection bertujuan untuk …",
+    "options": [
+      "Menambah dependensi",
+      "Mengurangi coupling",
+      "Memperbesar kode",
+      "Menghapus class"
+    ],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+  {
+    "question": "Memory leak terjadi karena …",
+    "options": [
+      "Syntax error",
+      "Memori tidak dibebaskan",
+      "Loop terbatas",
+      "Variabel lokal"
+    ],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+  {
+    "question": "Event-driven programming berfokus pada …",
+    "options": [
+      "Algoritma",
+      "Event atau kejadian",
+      "Database",
+      "Hardware"
+    ],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+  {
+    "question": "Refactoring bertujuan untuk …",
+    "options": [
+      "Menambah fitur",
+      "Memperbaiki struktur kode",
+      "Menghapus bug runtime",
+      "Mengganti bahasa"
+    ],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+  {
+    "question": "Pure function adalah fungsi yang …",
+    "options": [
+      "Mengubah state global",
+      "Selalu sama hasilnya untuk input sama",
+      "Mengakses database",
+      "Menghasilkan error"
+    ],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+  {
+    "question": "Multithreading berisiko menyebabkan …",
+    "options": [
+      "Syntax error",
+      "Race condition",
+      "Compilation error",
+      "Logic sederhana"
+    ],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+  {
+    "question": "Interface dalam OOP berisi …",
+    "options": [
+      "Implementasi method",
+      "Deklarasi method",
+      "Variabel global",
+      "Constructor"
+    ],
+    "answerIndex": 1,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+  {
+    "question": "Overloading berarti …",
+    "options": [
+      "Method sama parameter beda",
+      "Method beda nama",
+      "Class sama",
+      "Constructor tunggal"
+    ],
+    "answerIndex": 0,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+  {
+    "question": "Overriding berarti …",
+    "options": [
+      "Method sama di class berbeda",
+      "Method static",
+      "Variabel global",
+      "Function lokal"
+    ],
+    "answerIndex": 0,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+  {
+    "question": "Functional programming menghindari …",
+    "options": [
+      "Pure function",
+      "Immutable data",
+      "Side effect",
+      "Lambda"
+    ],
+    "answerIndex": 2,
+    "category": "Bahasa Pemrograman",
+    "level": "Hard"
+  },
+
+  {
+    "question": "Database adalah …",
+    "options": ["Program desain", "Kumpulan data terstruktur", "Sistem operasi", "Bahasa pemrograman"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Easy"
+  },
+  {
+    "question": "DBMS singkatan dari …",
+    "options": [
+      "Data Base Management System",
+      "Data Binary Main System",
+      "Database Manual System",
+      "Data Basic Model System"
+    ],
+    "answerIndex": 0,
+    "category": "Database",
+    "level": "Easy"
+  },
+  {
+    "question": "Contoh DBMS adalah …",
+    "options": ["MySQL", "HTML", "Python", "CSS"],
+    "answerIndex": 0,
+    "category": "Database",
+    "level": "Easy"
+  },
+  {
+    "question": "Tabel dalam database terdiri dari …",
+    "options": ["Baris dan kolom", "File dan folder", "Sheet dan cell", "Field saja"],
+    "answerIndex": 0,
+    "category": "Database",
+    "level": "Easy"
+  },
+  {
+    "question": "Primary key berfungsi untuk …",
+    "options": ["Menyimpan data", "Menghubungkan tabel", "Identitas unik data", "Menghapus data"],
+    "answerIndex": 2,
+    "category": "Database",
+    "level": "Easy"
+  },
+  {
+    "question": "SQL digunakan untuk …",
+    "options": ["Mendesain UI", "Mengelola database", "Membuat server", "Menjalankan OS"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Easy"
+  },
+  {
+    "question": "Perintah untuk menampilkan data adalah …",
+    "options": ["INSERT", "UPDATE", "SELECT", "DELETE"],
+    "answerIndex": 2,
+    "category": "Database",
+    "level": "Easy"
+  },
+  {
+    "question": "Perintah untuk menambah data adalah …",
+    "options": ["SELECT", "INSERT", "UPDATE", "DROP"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Easy"
+  },
+  {
+    "question": "Perintah untuk menghapus tabel adalah …",
+    "options": ["DELETE", "DROP", "REMOVE", "CLEAR"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Easy"
+  },
+  {
+    "question": "Field adalah …",
+    "options": ["Baris data", "Kolom data", "Tabel", "Database"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Easy"
+  },
+  {
+    "question": "Record adalah …",
+    "options": ["Kolom", "Baris", "Tabel", "Database"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Easy"
+  },
+  {
+    "question": "Database relasional menggunakan konsep …",
+    "options": ["Dokumen", "Tabel", "Grafik", "Objek"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Easy"
+  },
+  {
+    "question": "Foreign key digunakan untuk …",
+    "options": ["Identitas tabel", "Relasi antar tabel", "Menghapus data", "Menampilkan data"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Easy"
+  },
+  {
+    "question": "Perintah UPDATE digunakan untuk …",
+    "options": ["Menambah data", "Mengubah data", "Menghapus data", "Menampilkan data"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Easy"
+  },
+  {
+    "question": "Perintah DELETE digunakan untuk …",
+    "options": ["Menghapus data", "Menghapus tabel", "Menambah data", "Mengubah struktur"],
+    "answerIndex": 0,
+    "category": "Database",
+    "level": "Easy"
+  },
+  {
+    "question": "Tipe data untuk teks adalah …",
+    "options": ["INT", "CHAR", "VARCHAR", "BOOLEAN"],
+    "answerIndex": 2,
+    "category": "Database",
+    "level": "Easy"
+  },
+  {
+    "question": "NULL berarti …",
+    "options": ["Nol", "Kosong", "Salah", "Benar"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Easy"
+  },
+  {
+    "question": "Database digunakan untuk …",
+    "options": [
+      "Menyimpan sementara",
+      "Menyimpan data secara terstruktur",
+      "Menjalankan aplikasi",
+      "Mendesain web"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Easy"
+  },
+  {
+    "question": "Query adalah …",
+    "options": ["Tabel", "Permintaan data", "Baris", "Kolom"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Easy"
+  },
+  {
+    "question": "Contoh database non-relasional adalah …",
+    "options": ["MySQL", "PostgreSQL", "MongoDB", "Oracle"],
+    "answerIndex": 2,
+    "category": "Database",
+    "level": "Easy"
+  },
+
+  {
+    "question": "Normalisasi bertujuan untuk …",
+    "options": ["Menambah tabel", "Mengurangi redundansi", "Menghapus database", "Menambah data"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Medium"
+  },
+  {
+    "question": "Bentuk normal pertama (1NF) mensyaratkan …",
+    "options": ["Tidak ada primary key", "Data atomik", "Tidak ada relasi", "Banyak tabel"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Medium"
+  },
+  {
+    "question": "JOIN digunakan untuk …",
+    "options": ["Menggabungkan tabel", "Menghapus tabel", "Menambah kolom", "Mengubah data"],
+    "answerIndex": 0,
+    "category": "Database",
+    "level": "Medium"
+  },
+  {
+    "question": "INNER JOIN menghasilkan …",
+    "options": [
+      "Semua data",
+      "Data yang cocok di kedua tabel",
+      "Data tabel kiri saja",
+      "Data tabel kanan saja"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Medium"
+  },
+  {
+    "question": "Index berfungsi untuk …",
+    "options": [
+      "Menambah ukuran database",
+      "Mempercepat pencarian",
+      "Menghapus data",
+      "Menggabungkan tabel"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Medium"
+  },
+  {
+    "question": "View adalah …",
+    "options": ["Tabel fisik", "Query tersimpan", "Database", "Index"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Medium"
+  },
+  {
+    "question": "Constraint digunakan untuk …",
+    "options": ["Membatasi data", "Menambah data", "Menghapus tabel", "Menampilkan data"],
+    "answerIndex": 0,
+    "category": "Database",
+    "level": "Medium"
+  },
+  {
+    "question": "UNIQUE constraint memastikan …",
+    "options": ["Data boleh sama", "Data tidak duplikat", "Data kosong", "Data null"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Medium"
+  },
+  {
+    "question": "NOT NULL berarti …",
+    "options": ["Data boleh kosong", "Data wajib diisi", "Data duplikat", "Data opsional"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Medium"
+  },
+  {
+    "question": "Transaction bertujuan untuk …",
+    "options": ["Keamanan", "Konsistensi data", "Backup", "Tampilan"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Medium"
+  },
+  {
+    "question": "COMMIT digunakan untuk …",
+    "options": ["Membatalkan transaksi", "Menyimpan transaksi", "Menghapus tabel", "Menambah data"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Medium"
+  },
+  {
+    "question": "ROLLBACK digunakan untuk …",
+    "options": ["Menyimpan data", "Membatalkan transaksi", "Menambah tabel", "Mengubah struktur"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Medium"
+  },
+  {
+    "question": "ACID adalah singkatan dari …",
+    "options": [
+      "Atomicity, Consistency, Isolation, Durability",
+      "Access, Control, Index, Data",
+      "Action, Commit, Insert, Delete",
+      "Array, Column, Index, Data"
+    ],
+    "answerIndex": 0,
+    "category": "Database",
+    "level": "Medium"
+  },
+  {
+    "question": "LEFT JOIN menampilkan …",
+    "options": [
+      "Data tabel kanan saja",
+      "Data tabel kiri dan yang cocok",
+      "Data tabel kanan dan cocok",
+      "Data cocok saja"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Medium"
+  },
+  {
+    "question": "RIGHT JOIN menampilkan …",
+    "options": [
+      "Data tabel kanan dan cocok",
+      "Data tabel kiri saja",
+      "Data cocok saja",
+      "Semua data"
+    ],
+    "answerIndex": 0,
+    "category": "Database",
+    "level": "Medium"
+  },
+  {
+    "question": "Stored procedure adalah …",
+    "options": ["Query tersimpan", "Tabel", "Database", "Index"],
+    "answerIndex": 0,
+    "category": "Database",
+    "level": "Medium"
+  },
+  {
+    "question": "Trigger dijalankan saat …",
+    "options": [
+      "Database dibuat",
+      "Event tertentu terjadi",
+      "Server mati",
+      "Query SELECT"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Medium"
+  },
+  {
+    "question": "Backup database bertujuan untuk …",
+    "options": [
+      "Menambah data",
+      "Keamanan data",
+      "Mempercepat query",
+      "Mendesain UI"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Medium"
+  },
+  {
+    "question": "Schema adalah …",
+    "options": ["Struktur database", "Data", "Query", "View"],
+    "answerIndex": 0,
+    "category": "Database",
+    "level": "Medium"
+  },
+  {
+    "question": "Relasi one-to-many berarti …",
+    "options": [
+      "Satu ke satu",
+      "Satu ke banyak",
+      "Banyak ke banyak",
+      "Tidak ada relasi"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Medium"
+  },
+
+  {
+    "question": "Denormalisasi bertujuan untuk …",
+    "options": ["Mengurangi tabel", "Meningkatkan performa", "Menghapus data", "Mengamankan data"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Hard"
+  },
+  {
+    "question": "Deadlock pada database terjadi saat …",
+    "options": [
+      "Server mati",
+      "Dua transaksi saling mengunci",
+      "Query cepat",
+      "Data kosong"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Hard"
+  },
+  {
+    "question": "Isolation level tertinggi adalah …",
+    "options": ["Read Uncommitted", "Read Committed", "Repeatable Read", "Serializable"],
+    "answerIndex": 3,
+    "category": "Database",
+    "level": "Hard"
+  },
+  {
+    "question": "Sharding adalah …",
+    "options": [
+      "Backup data",
+      "Pembagian database",
+      "Penghapusan data",
+      "Indexing"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Hard"
+  },
+  {
+    "question": "Replication digunakan untuk …",
+    "options": [
+      "Menghapus data",
+      "Menyalin data ke server lain",
+      "Menggabungkan tabel",
+      "Mendesain database"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Hard"
+  },
+  {
+    "question": "CAP theorem menyatakan …",
+    "options": [
+      "3 hal bisa dicapai bersamaan",
+      "Hanya 2 dari 3 yang bisa dicapai",
+      "Database selalu konsisten",
+      "Database selalu available"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Hard"
+  },
+  {
+    "question": "NoSQL cocok untuk …",
+    "options": [
+      "Data terstruktur sederhana",
+      "Data besar dan tidak terstruktur",
+      "Data kecil",
+      "Aplikasi offline"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Hard"
+  },
+  {
+    "question": "MongoDB menggunakan model …",
+    "options": ["Tabel", "Dokumen", "Grafik", "Relasional"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Hard"
+  },
+  {
+    "question": "Index B-Tree cocok untuk …",
+    "options": ["Range query", "Data teks", "Data gambar", "Backup"],
+    "answerIndex": 0,
+    "category": "Database",
+    "level": "Hard"
+  },
+  {
+    "question": "Query optimizer berfungsi untuk …",
+    "options": [
+      "Mendesain UI",
+      "Memilih rencana eksekusi terbaik",
+      "Menghapus data",
+      "Backup database"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Hard"
+  },
+  {
+    "question": "Materialized view adalah …",
+    "options": [
+      "View virtual",
+      "View fisik tersimpan",
+      "Tabel biasa",
+      "Index"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Hard"
+  },
+  {
+    "question": "OLTP fokus pada …",
+    "options": [
+      "Analisis data",
+      "Transaksi harian",
+      "Data warehouse",
+      "Reporting"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Hard"
+  },
+  {
+    "question": "OLAP fokus pada …",
+    "options": [
+      "Transaksi",
+      "Analisis data",
+      "Insert data",
+      "Update data"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Hard"
+  },
+  {
+    "question": "Star schema digunakan pada …",
+    "options": [
+      "Database operasional",
+      "Data warehouse",
+      "Aplikasi mobile",
+      "Website"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Hard"
+  },
+  {
+    "question": "Fact table berisi …",
+    "options": [
+      "Data deskriptif",
+      "Data transaksi",
+      "Metadata",
+      "Index"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Hard"
+  },
+  {
+    "question": "Dimension table berisi …",
+    "options": [
+      "Data transaksi",
+      "Data deskriptif",
+      "Log",
+      "Index"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Hard"
+  },
+  {
+    "question": "Write-ahead logging bertujuan untuk …",
+    "options": ["Backup", "Recovery", "Query cepat", "UI"],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Hard"
+  },
+  {
+    "question": "Consistency database berarti …",
+    "options": [
+      "Data selalu sama",
+      "Aturan selalu terjaga",
+      "Data cepat",
+      "Data besar"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Hard"
+  },
+  {
+    "question": "Horizontal scaling berarti …",
+    "options": [
+      "Menambah RAM",
+      "Menambah server",
+      "Mengganti DBMS",
+      "Menghapus data"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Hard"
+  },
+  {
+    "question": "Vertical scaling berarti …",
+    "options": [
+      "Menambah server",
+      "Menambah resource server",
+      "Membagi database",
+      "Backup data"
+    ],
+    "answerIndex": 1,
+    "category": "Database",
+    "level": "Hard"
+  },
+
+  {
+    "question": "Informatika adalah bidang ilmu yang mempelajari tentang …",
+    "options": [
+      "Mesin industri",
+      "Pengolahan informasi",
+      "Alat komunikasi",
+      "Jaringan listrik"
+    ],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Easy"
+  },
+  {
+    "question": "Komputer generasi pertama menggunakan …",
+    "options": [
+      "Transistor",
+      "IC",
+      "Tabung vakum",
+      "Mikroprosesor"
+    ],
+    "answerIndex": 2,
+    "category": "Sejarah Informatika",
+    "level": "Easy"
+  },
+  {
+    "question": "Contoh komputer generasi pertama adalah …",
+    "options": ["ENIAC", "IBM PC", "Macintosh", "Laptop"],
+    "answerIndex": 0,
+    "category": "Sejarah Informatika",
+    "level": "Easy"
+  },
+  {
+    "question": "Komputer generasi kedua ditandai dengan penggunaan …",
+    "options": [
+      "Tabung vakum",
+      "Transistor",
+      "IC",
+      "CPU"
+    ],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Easy"
+  },
+  {
+    "question": "Komputer generasi ketiga menggunakan …",
+    "options": [
+      "Transistor",
+      "Tabung vakum",
+      "Integrated Circuit (IC)",
+      "Mikroprosesor"
+    ],
+    "answerIndex": 2,
+    "category": "Sejarah Informatika",
+    "level": "Easy"
+  },
+  {
+    "question": "Komputer generasi keempat menggunakan …",
+    "options": [
+      "IC",
+      "Transistor",
+      "Mikroprosesor",
+      "Tabung vakum"
+    ],
+    "answerIndex": 2,
+    "category": "Sejarah Informatika",
+    "level": "Easy"
+  },
+  {
+    "question": "Bahasa mesin menggunakan kode …",
+    "options": ["Huruf", "Angka desimal", "Biner", "Simbol"],
+    "answerIndex": 2,
+    "category": "Sejarah Informatika",
+    "level": "Easy"
+  },
+  {
+    "question": "Bahasa assembly merupakan bahasa …",
+    "options": [
+      "Tingkat tinggi",
+      "Mesin",
+      "Tingkat rendah",
+      "Alami"
+    ],
+    "answerIndex": 2,
+    "category": "Sejarah Informatika",
+    "level": "Easy"
+  },
+  {
+    "question": "Bahasa pemrograman tingkat tinggi pertama adalah …",
+    "options": ["Python", "Java", "Fortran", "C++"],
+    "answerIndex": 2,
+    "category": "Sejarah Informatika",
+    "level": "Easy"
+  },
+  {
+    "question": "Algoritma adalah …",
+    "options": [
+      "Bahasa pemrograman",
+      "Langkah-langkah penyelesaian masalah",
+      "Perangkat keras",
+      "Database"
+    ],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Easy"
+  },
+
+  {
+    "question": "Perbedaan utama komputer analog dan digital adalah …",
+    "options": [
+      "Ukuran",
+      "Cara pengolahan data",
+      "Harga",
+      "Warna"
+    ],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Medium"
+  },
+  {
+    "question": "Arsitektur komputer modern didasarkan pada konsep …",
+    "options": ["Harvard", "Von Neumann", "Turing", "Pascal"],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Medium"
+  },
+  {
+    "question": "Bahasa C diciptakan oleh …",
+    "options": [
+      "Dennis Ritchie",
+      "Ken Thompson",
+      "Bjarne Stroustrup",
+      "James Gosling"
+    ],
+    "answerIndex": 0,
+    "category": "Sejarah Informatika",
+    "level": "Medium"
+  },
+  {
+    "question": "Python dikembangkan oleh …",
+    "options": [
+      "Linus Torvalds",
+      "Guido van Rossum",
+      "Bill Gates",
+      "Steve Jobs"
+    ],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Medium"
+  },
+  {
+    "question": "Java dikembangkan oleh …",
+    "options": [
+      "Microsoft",
+      "Sun Microsystems",
+      "Google",
+      "IBM"
+    ],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Medium"
+  },
+  {
+    "question": "Linux dikembangkan oleh …",
+    "options": [
+      "Steve Jobs",
+      "Linus Torvalds",
+      "Mark Zuckerberg",
+      "Dennis Ritchie"
+    ],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Medium"
+  },
+  {
+    "question": "GUI pertama kali populer pada komputer …",
+    "options": [
+      "IBM PC",
+      "Apple Macintosh",
+      "ENIAC",
+      "Mainframe"
+    ],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Medium"
+  },
+  {
+    "question": "Istilah Artificial Intelligence diperkenalkan oleh …",
+    "options": [
+      "Alan Turing",
+      "John McCarthy",
+      "Marvin Minsky",
+      "Bill Gates"
+    ],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Medium"
+  },
+  {
+    "question": "Turing Test digunakan untuk mengukur …",
+    "options": [
+      "Kecepatan komputer",
+      "Kecerdasan mesin",
+      "Kapasitas memori",
+      "Jaringan"
+    ],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Medium"
+  },
+  {
+    "question": "Moore’s Law menyatakan bahwa …",
+    "options": [
+      "Harga komputer naik",
+      "Transistor bertambah dua kali lipat",
+      "Memori berkurang",
+      "CPU melambat"
+    ],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Medium"
+  },
+
+  {
+    "question": "ENIAC menggunakan sekitar … tabung vakum",
+    "options": ["1.000", "5.000", "18.000", "50.000"],
+    "answerIndex": 2,
+    "category": "Sejarah Informatika",
+    "level": "Hard"
+  },
+  {
+    "question": "Difference Engine dirancang untuk …",
+    "options": [
+      "Komunikasi",
+      "Perhitungan matematika",
+      "Penyimpanan data",
+      "Game"
+    ],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Hard"
+  },
+  {
+    "question": "Konsep stored-program diperkenalkan oleh …",
+    "options": [
+      "Turing",
+      "Von Neumann",
+      "Babbage",
+      "Leibniz"
+    ],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Hard"
+  },
+  {
+    "question": "Bahasa Lisp sangat berpengaruh pada pengembangan …",
+    "options": ["Sistem operasi", "AI", "Database", "Jaringan"],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Hard"
+  },
+  {
+    "question": "TCP/IP mulai digunakan secara luas pada tahun …",
+    "options": ["1970", "1983", "1990", "2000"],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Hard"
+  },
+  {
+    "question": "HTML pertama kali diperkenalkan pada tahun …",
+    "options": ["1985", "1991", "1998", "2005"],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Hard"
+  },
+  {
+    "question": "IBM PC pertama dirilis pada tahun …",
+    "options": ["1975", "1981", "1989", "1995"],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Hard"
+  },
+  {
+    "question": "GNU Project diprakarsai oleh …",
+    "options": [
+      "Linus Torvalds",
+      "Richard Stallman",
+      "Dennis Ritchie",
+      "Ken Thompson"
+    ],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Hard"
+  },
+  {
+    "question": "Quantum computer memanfaatkan prinsip …",
+    "options": [
+      "Mekanika klasik",
+      "Mekanika kuantum",
+      "Elektronika analog",
+      "Gelombang radio"
+    ],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Hard"
+  },
+  {
+    "question": "Sejarah informatika penting dipelajari untuk …",
+    "options": [
+      "Menghafal tanggal",
+      "Memahami perkembangan teknologi",
+      "Mendesain UI",
+      "Membuat database"
+    ],
+    "answerIndex": 1,
+    "category": "Sejarah Informatika",
+    "level": "Hard"
+  },
+
+
+  {
+    "question": "Jaringan komputer adalah …",
+    "options": [
+      "Kumpulan komputer yang berdiri sendiri",
+      "Kumpulan komputer yang saling terhubung",
+      "Satu komputer besar",
+      "Sistem operasi"
+    ],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Easy"
+  },
+  {
+    "question": "Tujuan utama jaringan komputer adalah …",
+    "options": [
+      "Memperbesar ukuran komputer",
+      "Berbagi sumber daya",
+      "Mengganti sistem operasi",
+      "Mendesain UI"
+    ],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Easy"
+  },
+  {
+    "question": "Contoh perangkat jaringan adalah …",
+    "options": ["Printer", "Scanner", "Router", "Keyboard"],
+    "answerIndex": 2,
+    "category": "Network",
+    "level": "Easy"
+  },
+  {
+    "question": "LAN adalah singkatan dari …",
+    "options": [
+      "Local Area Network",
+      "Large Area Network",
+      "Long Area Network",
+      "Light Area Network"
+    ],
+    "answerIndex": 0,
+    "category": "Network",
+    "level": "Easy"
+  },
+  {
+    "question": "Jaringan dengan jangkauan sangat luas disebut …",
+    "options": ["LAN", "MAN", "WAN", "PAN"],
+    "answerIndex": 2,
+    "category": "Network",
+    "level": "Easy"
+  },
+  {
+    "question": "Internet termasuk jenis jaringan …",
+    "options": ["LAN", "MAN", "WAN", "PAN"],
+    "answerIndex": 2,
+    "category": "Network",
+    "level": "Easy"
+  },
+  {
+    "question": "Topologi jaringan yang menggunakan satu kabel utama adalah …",
+    "options": ["Star", "Ring", "Bus", "Mesh"],
+    "answerIndex": 2,
+    "category": "Network",
+    "level": "Easy"
+  },
+  {
+    "question": "Topologi star memiliki ciri …",
+    "options": [
+      "Tanpa pusat",
+      "Semua node terhubung ke pusat",
+      "Satu kabel utama",
+      "Loop tertutup"
+    ],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Easy"
+  },
+  {
+    "question": "Perangkat yang menghubungkan jaringan berbeda adalah …",
+    "options": ["Hub", "Switch", "Router", "NIC"],
+    "answerIndex": 2,
+    "category": "Network",
+    "level": "Easy"
+  },
+  {
+    "question": "IP address berfungsi sebagai …",
+    "options": ["Nama komputer", "Alamat perangkat", "Sistem operasi", "Kabel jaringan"],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Easy"
+  },
+  {
+    "question": "Contoh IP address adalah …",
+    "options": ["256.10.1.1", "192.168.1.1", "999.1.1.1", "123.456.78.9"],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Easy"
+  },
+  {
+    "question": "Protokol adalah …",
+    "options": ["Perangkat keras", "Aturan komunikasi", "Sistem operasi", "Software desain"],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Easy"
+  },
+  {
+    "question": "HTTP digunakan untuk …",
+    "options": ["Mengirim email", "Transfer file", "Akses web", "Remote server"],
+    "answerIndex": 2,
+    "category": "Network",
+    "level": "Easy"
+  },
+  {
+    "question": "FTP digunakan untuk …",
+    "options": ["Chat", "Transfer file", "Streaming", "Gaming"],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Easy"
+  },
+  {
+    "question": "DNS berfungsi untuk …",
+    "options": ["Mengamankan jaringan", "Mengubah domain ke IP", "Mengirim email", "Mengatur bandwidth"],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Easy"
+  },
+  {
+    "question": "Perangkat yang memperkuat sinyal jaringan adalah …",
+    "options": ["Router", "Switch", "Repeater", "Bridge"],
+    "answerIndex": 2,
+    "category": "Network",
+    "level": "Easy"
+  },
+  {
+    "question": "Switch bekerja pada layer … OSI",
+    "options": ["Layer 1", "Layer 2", "Layer 3", "Layer 7"],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Easy"
+  },
+  {
+    "question": "Router bekerja pada layer … OSI",
+    "options": ["Layer 2", "Layer 3", "Layer 4", "Layer 1"],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Easy"
+  },
+  {
+    "question": "MAC address bersifat …",
+    "options": ["Dinamis", "Berubah-ubah", "Permanen", "Sementara"],
+    "answerIndex": 2,
+    "category": "Network",
+    "level": "Easy"
+  },
+  {
+    "question": "NIC adalah singkatan dari …",
+    "options": [
+      "Network Internet Card",
+      "Network Interface Card",
+      "Network Internal Cable",
+      "Node Interface Connector"
+    ],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Easy"
+  },
+
+  {
+    "question": "Model OSI terdiri dari … layer",
+    "options": ["5", "6", "7", "8"],
+    "answerIndex": 2,
+    "category": "Network",
+    "level": "Medium"
+  },
+  {
+    "question": "Layer OSI yang menangani routing adalah …",
+    "options": ["Data Link", "Network", "Transport", "Session"],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Medium"
+  },
+  {
+    "question": "TCP bersifat …",
+    "options": ["Connectionless", "Tidak andal", "Connection-oriented", "Cepat tanpa jaminan"],
+    "answerIndex": 2,
+    "category": "Network",
+    "level": "Medium"
+  },
+  {
+    "question": "UDP cocok digunakan untuk …",
+    "options": ["Email", "Streaming video", "File transfer", "Database"],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Medium"
+  },
+  {
+    "question": "Port default HTTP adalah …",
+    "options": ["20", "21", "80", "443"],
+    "answerIndex": 2,
+    "category": "Network",
+    "level": "Medium"
+  },
+  {
+    "question": "Port default HTTPS adalah …",
+    "options": ["80", "21", "25", "443"],
+    "answerIndex": 3,
+    "category": "Network",
+    "level": "Medium"
+  },
+  {
+    "question": "Subnetting bertujuan untuk …",
+    "options": ["Menghapus IP", "Membagi jaringan", "Menambah bandwidth", "Mengganti router"],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Medium"
+  },
+  {
+    "question": "Alamat IP versi 4 terdiri dari … bit",
+    "options": ["16", "32", "64", "128"],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Medium"
+  },
+  {
+    "question": "IP versi 6 terdiri dari … bit",
+    "options": ["32", "64", "128", "256"],
+    "answerIndex": 2,
+    "category": "Network",
+    "level": "Medium"
+  },
+  {
+    "question": "NAT berfungsi untuk …",
+    "options": [
+      "Mengamankan data",
+      "Mengubah IP private ke publik",
+      "Menghapus virus",
+      "Mengatur bandwidth"
+    ],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Medium"
+  },
+  {
+    "question": "DHCP berfungsi untuk …",
+    "options": [
+      "Memberi IP otomatis",
+      "Mengamankan jaringan",
+      "Routing data",
+      "Enkripsi data"
+    ],
+    "answerIndex": 0,
+    "category": "Network",
+    "level": "Medium"
+  },
+  {
+    "question": "Firewall digunakan untuk …",
+    "options": ["Menghubungkan jaringan", "Melindungi jaringan", "Transfer file", "Mendesain web"],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Medium"
+  },
+  {
+    "question": "Ping digunakan untuk …",
+    "options": ["Transfer data", "Mengecek koneksi", "Menghapus cache", "Mengatur DNS"],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Medium"
+  },
+  {
+    "question": "Bandwidth adalah …",
+    "options": ["Jarak jaringan", "Kecepatan data maksimum", "Alamat IP", "Protokol"],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Medium"
+  },
+  {
+    "question": "Latency adalah …",
+    "options": ["Kecepatan download", "Waktu tunda", "Kapasitas data", "Keamanan jaringan"],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Medium"
+  },
+  {
+    "question": "Packet adalah …",
+    "options": ["Data utuh", "Potongan data", "Kabel", "Server"],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Medium"
+  },
+  {
+    "question": "VPN digunakan untuk …",
+    "options": ["Game online", "Jaringan privat aman", "Streaming", "Database"],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Medium"
+  },
+  {
+    "question": "QoS digunakan untuk …",
+    "options": ["Menghapus data", "Mengatur prioritas trafik", "Backup jaringan", "UI"],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Medium"
+  },
+  {
+    "question": "Access Point digunakan untuk …",
+    "options": ["Routing", "Menghubungkan perangkat wireless", "Firewall", "Switch"],
+    "answerIndex": 1,
+    "category": "Network",
+    "level": "Medium"
+  },  
+
+    {
+    "question": "UI adalah singkatan dari …",
+    "options": ["User Idea", "User Interface", "User Interaction", "Universal Interface"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+  {
+    "question": "UX adalah singkatan dari …",
+    "options": ["User Xperience", "User Experience", "User Execution", "Universal Experience"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+  {
+    "question": "Fokus utama UI adalah …",
+    "options": ["Pengalaman pengguna", "Tampilan visual", "Struktur database", "Algoritma"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+  {
+    "question": "Fokus utama UX adalah …",
+    "options": ["Warna", "Pengalaman pengguna", "Font", "Layout saja"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+  {
+    "question": "Contoh elemen UI adalah …",
+    "options": ["Flowchart", "Button", "Algoritma", "Database"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+  {
+    "question": "Wireframe adalah …",
+    "options": ["Desain akhir", "Kerangka desain", "Kode program", "Database"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+  {
+    "question": "Mockup adalah …",
+    "options": ["Sketsa kasar", "Desain visual mendekati final", "Kode backend", "Server"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+  {
+    "question": "Prototyping bertujuan untuk …",
+    "options": ["Testing pengalaman pengguna", "Menyimpan data", "Membuat database", "Hosting"],
+    "answerIndex": 0,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+  {
+    "question": "UX yang baik membuat pengguna merasa …",
+    "options": ["Bingung", "Nyaman", "Frustrasi", "Tersesat"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+  {
+    "question": "Warna merah biasanya melambangkan …",
+    "options": ["Tenang", "Bahaya atau peringatan", "Alam", "Netral"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+  {
+    "question": "Typography berhubungan dengan …",
+    "options": ["Warna", "Teks dan font", "Gambar", "Animasi"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+  {
+    "question": "Responsive design berarti …",
+    "options": ["Desain statis", "Menyesuaikan ukuran layar", "Warna berubah", "Animasi banyak"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+  {
+    "question": "White space berfungsi untuk …",
+    "options": ["Mengisi halaman kosong", "Meningkatkan keterbacaan", "Mengurangi teks", "Menambah warna"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+  {
+    "question": "Icon digunakan untuk …",
+    "options": ["Dekorasi saja", "Memperjelas fungsi", "Mengisi ruang", "Animasi"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+  {
+    "question": "UX writing berkaitan dengan …",
+    "options": ["Kode", "Teks antarmuka", "Database", "Server"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+  {
+    "question": "Call To Action (CTA) bertujuan untuk …",
+    "options": ["Menarik perhatian", "Mengarahkan tindakan pengguna", "Menghias halaman", "Testing"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+  {
+    "question": "Accessibility berarti …",
+    "options": ["Tampilan cantik", "Mudah diakses semua pengguna", "Cepat loading", "Aman"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+  {
+    "question": "Kontras warna penting untuk …",
+    "options": ["Estetika saja", "Keterbacaan", "Animasi", "Branding"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+  {
+    "question": "Layout adalah …",
+    "options": ["Warna utama", "Tata letak elemen", "Font", "Animasi"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+  {
+    "question": "Desain UI/UX yang buruk menyebabkan …",
+    "options": ["Pengguna betah", "Pengguna bingung", "Performa naik", "Data aman"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Easy"
+  },
+
+  {
+    "question": "User persona adalah …",
+    "options": ["Data teknis", "Representasi pengguna", "Database user", "Role admin"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Medium"
+  },
+  {
+    "question": "User journey menggambarkan …",
+    "options": ["Struktur database", "Alur pengalaman pengguna", "Warna desain", "Coding flow"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Medium"
+  },
+  {
+    "question": "Heuristic evaluation diperkenalkan oleh …",
+    "options": ["Steve Jobs", "Jakob Nielsen", "Don Norman", "Tim Berners-Lee"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Medium"
+  },
+  {
+    "question": "Prinsip 'visibility of system status' berarti …",
+    "options": ["Sistem selalu error", "Sistem memberi feedback", "Sistem tersembunyi", "Sistem lambat"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Medium"
+  },
+  {
+    "question": "Usability testing bertujuan untuk …",
+    "options": ["Menguji server", "Menguji kemudahan penggunaan", "Menguji database", "Menguji keamanan"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Medium"
+  },
+  {
+    "question": "A/B testing digunakan untuk …",
+    "options": ["Debugging", "Membandingkan desain", "Membuat wireframe", "Hosting"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Medium"
+  },
+  {
+    "question": "Consistency dalam UI berarti …",
+    "options": ["Warna selalu sama", "Pola desain seragam", "Tidak ada ikon", "Layout acak"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Medium"
+  },
+  {
+    "question": "Design system berisi …",
+    "options": ["Database", "Aturan dan komponen desain", "Server", "API"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Medium"
+  },
+  {
+    "question": "Grid system membantu …",
+    "options": ["Coding", "Tata letak konsisten", "Keamanan", "Database"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Medium"
+  },
+  {
+    "question": "Figma adalah tools untuk …",
+    "options": ["Backend", "UI/UX design", "Database", "Server"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Medium"
+  },
+  {
+    "question": "Low-fidelity prototype berarti …",
+    "options": ["Desain detail", "Desain sederhana", "Kode final", "UI animasi"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Medium"
+  },
+  {
+    "question": "High-fidelity prototype berarti …",
+    "options": ["Sketsa kasar", "Mirip produk akhir", "Tanpa warna", "Tanpa interaksi"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Medium"
+  },
+  {
+    "question": "Affordance dalam UI berarti …",
+    "options": ["Keindahan", "Petunjuk penggunaan", "Keamanan", "Loading cepat"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Medium"
+  },
+  {
+    "question": "Feedback dalam UI bertujuan untuk …",
+    "options": ["Estetika", "Memberi respon pada aksi user", "Menghias halaman", "Database"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Medium"
+  },
+  {
+    "question": "Cognitive load adalah …",
+    "options": ["Beban server", "Beban mental pengguna", "Beban jaringan", "Beban CPU"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Medium"
+  },
+  {
+    "question": "Breadcrumb digunakan untuk …",
+    "options": ["Navigasi", "Dekorasi", "Animasi", "Testing"],
+    "answerIndex": 0,
+    "category": "UI/UX Design",
+    "level": "Medium"
+  },
+  {
+    "question": "Heatmap digunakan untuk …",
+    "options": ["Warna desain", "Analisis interaksi user", "Database", "UI coding"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Medium"
+  },
+  {
+    "question": "UX research bertujuan untuk …",
+    "options": ["Mendesain warna", "Memahami kebutuhan pengguna", "Coding UI", "Hosting"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Medium"
+  },
+  {
+    "question": "Mobile-first design berarti …",
+    "options": ["Desktop utama", "Desain dimulai dari mobile", "UI berat", "Animasi banyak"],
+    "answerIndex": 1,
+    "category": "UI/UX Design",
+    "level": "Medium"
   }
 ]
