@@ -139,7 +139,7 @@ class _QuizScreenState extends State<QuizScreen> {
     }
   }
 
-  // ================= RESULT =================
+  // ================= RESULT ==========================
   void _showResult() {
     final totalTime =
         _timePerQuestion.fold(0, (a, b) => a + b);
