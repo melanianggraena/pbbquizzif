@@ -5,9 +5,12 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'models/question_model.dart';
 import 'package:hive/hive.dart';
 import 'data/seed_question.dart';
+import 'utils/audio_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  AudioController().playSFX('assets/audio/sfx/button_click.mp3');
 
   await Hive.initFlutter();
   Hive.registerAdapter(QuestionModelAdapter());

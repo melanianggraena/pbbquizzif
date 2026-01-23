@@ -32,6 +32,7 @@ dependencies:
     sdk: flutter
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  audioplayers: ^6.5.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -67,6 +68,13 @@ flutter:
   assets:
     - assets/
     - assets/data/questions.json
+    - assets/audio/music/home_bgm.mp3
+    - assets/audio/music/quiz_bgm.mp3
+    - assets/audio/sfx/button_click.mp3
+    - assets/audio/sfx/correct.mp3
+    - assets/audio/sfx/incorrect.mp3
+    - assets/audio/sfx/result.mp3
+    - assets/audio/sfx/next_question.mp3
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

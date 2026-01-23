@@ -4,6 +4,7 @@ import 'package:hive/hive.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'home.dart';
 import '../models/question_model.dart';
+import '../utils/audio_controller.dart';
 
 class QuizScreen extends StatefulWidget {
   final String mode;
@@ -46,11 +47,18 @@ class _QuizScreenState extends State<QuizScreen> {
   void initState() {
     super.initState();
     _loadQuestions();
+
+    // Play quiz BGM
+    AudioController().playBGM('assets/audio/music/quiz_bgm.mp3');
+    _loadQuestions();
   }
 
   @override
   void dispose() {
     _timer?.cancel();
+    super.dispose();
+
+    AudioController().stopBGM();
     super.dispose();
   }
 
@@ -145,6 +153,11 @@ class _QuizScreenState extends State<QuizScreen> {
       _showBanner = true;
       _isCorrect = index == correct;
       if (_isCorrect) _score++;
+
+      // SFX
+      AudioController().playSFX(
+        _isCorrect ? 'assets/audio/sfx/correct.mp3' : 'assets/audio/sfx/incorrect.mp3',
+      );
     });
 
     Future.delayed(const Duration(seconds: 1), _nextQuestion);
@@ -169,6 +182,9 @@ class _QuizScreenState extends State<QuizScreen> {
 
   // ================= RESULT ==========================
   void _showResult() {
+    // fx
+    AudioController().playSFX('assets/audio/sfx/result.mp3');
+
     final totalTime = _timePerQuestion.fold(0, (a, b) => a + b);
     final avgTime = _timePerQuestion.isNotEmpty
         ? (totalTime / _timePerQuestion.length).round()
@@ -333,12 +349,24 @@ class _QuizScreenState extends State<QuizScreen> {
                       Color bg = optionColors[i];
 
                       if (_answered) {
-                        if (i == correct) {
-                          bg = const Color(0xFF22C55E);
-                        } else if (i == _selectedAnswer) {
-                          bg = const Color(0xFFEF4444);
+                        if (_isCorrect) {
+                          // Kalau jawabannya benar, yang benar hijau, yang lain abu-abu
+                          if (i == correct) {
+                            bg = const Color(0xFF22C55E); // hijau
+                          } else {
+                             bg = const Color(0xFFEF4444); // yang lain
+                          }
                         } else {
-                          bg = Colors.grey;
+                          // Kalau jawabannya salah, semua jadi merah kecuali yang benar tetap hijau
+                          if (i == correct) {
+                            bg = const Color(
+                              0xFF22C55E,
+                            ); // jawaban benar tetap hijau
+                          } else {
+                            bg = const Color(
+                              0xFFEF4444,
+                            ); // semua salah jadi merah
+                          }
                         }
                       }
 
