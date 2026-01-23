@@ -28,7 +28,13 @@ class _QuizScreenState extends State<QuizScreen> {
   bool _showBanner = false;
   bool _isCorrect = false;
 
-  List<QuestionModel> _questions = []; // 🔑 WAJIB INIT KOSONG
+  List<QuestionModel> _questions = [];
+
+  // =======================
+  // ⏱ TIME TRACKING
+  // =======================
+  DateTime? _questionStartTime;
+  final List<int> _timePerQuestion = [];
 
   final List<Color> optionColors = [
     Color(0xFF3B82F6),
@@ -43,7 +49,7 @@ class _QuizScreenState extends State<QuizScreen> {
     _loadQuestions();
   }
 
-  // ================= LOAD SOAL DARI HIVE =================
+  // ================= LOAD SOAL =================
   void _loadQuestions() {
     final box = Hive.box<QuestionModel>('questionsBox');
 
@@ -52,8 +58,6 @@ class _QuizScreenState extends State<QuizScreen> {
         .toList();
 
     filtered.shuffle();
-
-    // 🔒 maksimal 20 soal
     _questions = filtered.length > 20 ? filtered.take(20).toList() : filtered;
 
     if (_questions.isNotEmpty) {
@@ -65,6 +69,7 @@ class _QuizScreenState extends State<QuizScreen> {
   void _startTimer() {
     _timer?.cancel();
     _timeLeft = 30;
+    _questionStartTime = DateTime.now(); // ⏱ mulai hitung waktu soal
 
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_timeLeft > 0) {
@@ -78,6 +83,8 @@ class _QuizScreenState extends State<QuizScreen> {
   void _handleTimeout() {
     if (_answered) return;
 
+    _saveQuestionTime();
+
     setState(() {
       _answered = true;
       _showBanner = true;
@@ -87,11 +94,22 @@ class _QuizScreenState extends State<QuizScreen> {
     Future.delayed(const Duration(seconds: 1), _nextQuestion);
   }
 
+  // ================= SIMPAN WAKTU =================
+  void _saveQuestionTime() {
+    if (_questionStartTime == null) return;
+    final end = DateTime.now();
+    final duration =
+        end.difference(_questionStartTime!).inSeconds;
+    _timePerQuestion.add(duration);
+  }
+
   // ================= JAWAB =================
   void _answerQuestion(int index) {
     if (_answered) return;
 
     final correct = _questions[_currentQuestionIndex].answerIndex;
+
+    _saveQuestionTime();
 
     setState(() {
       _selectedAnswer = index;
@@ -123,6 +141,13 @@ class _QuizScreenState extends State<QuizScreen> {
 
   // ================= RESULT =================
   void _showResult() {
+    final totalTime =
+        _timePerQuestion.fold(0, (a, b) => a + b);
+    final avgTime =
+        _timePerQuestion.isNotEmpty
+            ? (totalTime / _timePerQuestion.length).round()
+            : 0;
+
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
@@ -132,6 +157,7 @@ class _QuizScreenState extends State<QuizScreen> {
           mode: widget.mode,
           category: widget.category,
           level: widget.level,
+          avgTime: avgTime, // 🔥 REAL DATA
         ),
       ),
     );
@@ -142,9 +168,7 @@ class _QuizScreenState extends State<QuizScreen> {
   Widget build(BuildContext context) {
     if (_questions.isEmpty) {
       return const Scaffold(
-        body: Center(
-          child: Text('Soal belum tersedia', style: TextStyle(fontSize: 18)),
-        ),
+        body: Center(child: Text('Soal belum tersedia')),
       );
     }
 
@@ -152,14 +176,11 @@ class _QuizScreenState extends State<QuizScreen> {
     final correct = q.answerIndex;
 
     return Scaffold(
-      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
-            // ===== BANNER =====
             if (_showBanner)
               Container(
-                width: double.infinity,
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 color: _isCorrect
                     ? const Color(0xFF22C55E)
@@ -168,10 +189,9 @@ class _QuizScreenState extends State<QuizScreen> {
                   _isCorrect ? 'Correct!' : 'Incorrect!',
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
 
@@ -180,14 +200,10 @@ class _QuizScreenState extends State<QuizScreen> {
                 padding: const EdgeInsets.all(24),
                 child: Column(
                   children: [
-                    // ===== TOP BAR =====
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          '${_currentQuestionIndex + 1}/${_questions.length}',
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                        ),
+                        Text('${_currentQuestionIndex + 1}/${_questions.length}'),
                         Stack(
                           alignment: Alignment.center,
                           children: [
@@ -197,7 +213,6 @@ class _QuizScreenState extends State<QuizScreen> {
                               child: CircularProgressIndicator(
                                 value: _timeLeft / 30,
                                 strokeWidth: 4,
-                                color: const Color(0xFF2563EB),
                               ),
                             ),
                             Text('$_timeLeft'),
@@ -214,19 +229,15 @@ class _QuizScreenState extends State<QuizScreen> {
                     SvgPicture.asset('assets/intro2.svg', height: 90),
                     const SizedBox(height: 24),
 
-                    // ===== QUESTION =====
                     Text(
                       q.question,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.w700,
-                      ),
+                          fontSize: 22, fontWeight: FontWeight.w700),
                     ),
 
                     const SizedBox(height: 32),
 
-                    // ===== OPTIONS =====
                     ...List.generate(q.options.length, (i) {
                       Color bg = optionColors[i];
 
@@ -247,16 +258,10 @@ class _QuizScreenState extends State<QuizScreen> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: bg,
                             minimumSize: const Size(double.infinity, 56),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(28),
-                            ),
                           ),
                           child: Text(
                             q.options[i],
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                            ),
+                            style: const TextStyle(color: Colors.white),
                           ),
                         ),
                       );
@@ -272,6 +277,7 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 }
 
+
 // ==================== RESULT SCREEN ====================
 class ResultScreen extends StatelessWidget {
   final int score;
@@ -279,6 +285,7 @@ class ResultScreen extends StatelessWidget {
   final String mode;
   final String? category;
   final String? level;
+  final int avgTime; // 🔥 REAL AVG TIME (DETIK)
 
   const ResultScreen({
     Key? key,
@@ -287,6 +294,7 @@ class ResultScreen extends StatelessWidget {
     required this.mode,
     this.category,
     this.level,
+    required this.avgTime,
   }) : super(key: key);
 
   // =======================
@@ -296,6 +304,8 @@ class ResultScreen extends StatelessWidget {
     required String svgPath,
     required String value,
     required String label,
+    double iconSize = 40,
+    double valueSize = 32,
   }) {
     return Container(
       padding: const EdgeInsets.all(16),
@@ -307,22 +317,50 @@ class ResultScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // ===== SVG ICON =====
-          SvgPicture.asset(svgPath, width: 26, height: 26),
-
-          const Spacer(),
-
-          // ===== VALUE =====
-          Text(
-            value,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          // ICON + ANGKA
+          Row(
+            children: [
+              SvgPicture.asset(
+                svgPath,
+                width: iconSize,
+                height: iconSize,
+              ),
+              const SizedBox(width: 10),
+              Text(
+                value,
+                style: TextStyle(
+                  fontSize: valueSize,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
 
-          // ===== LABEL =====
-          Text(label, style: const TextStyle(color: Colors.grey, fontSize: 13)),
+          const SizedBox(height: 6),
+
+          // LABEL
+          Padding(
+            padding: const EdgeInsets.only(left: 50),
+            child: Text(
+              label,
+              style: const TextStyle(
+                color: Colors.grey,
+                fontSize: 16,
+              ),
+            ),
+          ),
         ],
       ),
     );
+  }
+
+  // =======================
+  // ⏱ FORMAT DETIK → mm:ss
+  // =======================
+  String _formatTime(int seconds) {
+    final m = seconds ~/ 60;
+    final s = seconds % 60;
+    return '${m.toString().padLeft(2, '0')}:${s.toString().padLeft(2, '0')}';
   }
 
   @override
@@ -333,9 +371,6 @@ class ResultScreen extends StatelessWidget {
     final correctQuestions = score;
     final xp = score * 10;
     final coins = score * 75;
-    final avgTime = 72; // dummy dulu
-    final iq = 3234; // placeholder UI
-    final rank = 269; // placeholder UI
 
     return Scaffold(
       backgroundColor: const Color(0xFFFFF7ED),
@@ -345,7 +380,7 @@ class ResultScreen extends StatelessWidget {
           child: Column(
             children: [
               // =======================
-              // ❌ CLOSE BUTTON + TITLE
+              // ❌ CLOSE + TITLE
               // =======================
               Row(
                 children: [
@@ -373,10 +408,10 @@ class ResultScreen extends StatelessWidget {
               const SizedBox(height: 20),
 
               // =======================
-              // 🏆 PIALA SVG BESAR
+              // 🏆 PIALA
               // =======================
               SizedBox(
-                height: 350,
+                height: 300,
                 child: SvgPicture.asset(
                   'assets/piala.svg',
                   fit: BoxFit.contain,
@@ -386,34 +421,32 @@ class ResultScreen extends StatelessWidget {
               const SizedBox(height: 24),
 
               // =======================
-              // 🏅 YOUR ACHIEVEMENTS
+              // 🏅 TITLE
               // =======================
               const Text(
                 'Your Achievements',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
 
               const SizedBox(height: 24),
 
               // =======================
-              // 📦 GRID ACHIEVEMENT (SVG ICONS)
+              // 📦 GRID ACHIEVEMENT
               // =======================
               Expanded(
                 child: GridView.count(
                   crossAxisCount: 2,
                   crossAxisSpacing: 16,
                   mainAxisSpacing: 16,
-                  childAspectRatio: 1.6,
+                  childAspectRatio: 1.8,
                   children: [
-                    _achievementCardSvg(
-                      svgPath: 'assets/iq.svg',
-                      value: iq.toString(),
-                      label: 'IQ',
-                    ),
                     _achievementCardSvg(
                       svgPath: 'assets/point.svg',
                       value: coins.toString(),
-                      label: 'Coins Earned',
+                      label: 'Coins',
                     ),
                     _achievementCardSvg(
                       svgPath: 'assets/xp.svg',
@@ -423,96 +456,45 @@ class ResultScreen extends StatelessWidget {
                     _achievementCardSvg(
                       svgPath: 'assets/centang.svg',
                       value: correctQuestions.toString(),
-                      label: 'Correct Questions',
-                    ),
-                    _achievementCardSvg(
-                      svgPath: 'assets/bumi.svg',
-                      value: rank.toString(),
-                      label: 'Rank',
+                      label: 'Correct',
                     ),
                     _achievementCardSvg(
                       svgPath: 'assets/jam.svg',
-                      value: avgTime.toString(),
-                      label: 'Avg time',
+                      value: _formatTime(avgTime), // 🔥 REAL AVG TIME
+                      label: 'Avg Time',
                     ),
                   ],
                 ),
               ),
 
               // =======================
-              // 🔘 BUTTONS
+              // 🔘 BUTTON HOME
               // =======================
-              Row(
-                children: [
-                  Expanded(
-                    child: ElevatedButton.icon(
-                      icon: const Icon(Icons.home, color: Colors.white),
-                      label: const Text('Home'),
-                      onPressed: () => Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(builder: (_) => const MainScreen()),
-                        (_) => false,
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF2563EB),
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                      ),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.home, color: Colors.white),
+                  label: const Text(
+                    'Back To Home',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () => Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (_) => const MainScreen()),
+                    (_) => false,
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF2563EB),
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: ElevatedButton.icon(
-                      icon: const Icon(Icons.send, color: Colors.white),
-                      label: const Text('Share'),
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF2563EB),
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               ),
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  // =======================
-  // 📦 CARD WIDGET
-  // =======================
-  Widget _achievementCard({
-    required IconData icon,
-    required String value,
-    required String label,
-    Color iconColor = Colors.orange,
-  }) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.black12),
-        color: Colors.white,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(icon, color: iconColor),
-          const Spacer(),
-          Text(
-            value,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          Text(label, style: const TextStyle(color: Colors.grey)),
-        ],
       ),
     );
   }
