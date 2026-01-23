@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 import 'quiz.dart';
 import 'arcade.dart';
 import 'profile.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'settings.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,6 +17,21 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   String userName = 'John Brown';
   String userAvatar = 'assets/ava1.svg';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadProfile();
+  }
+
+  // 🔹 LOAD PROFILE DARI SHARED PREFS
+  Future<void> _loadProfile() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      userName = prefs.getString('userName') ?? userName;
+      userAvatar = prefs.getString('userAvatar') ?? userAvatar;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -107,9 +125,24 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         const SizedBox(width: 10),
-                        const Icon(Icons.emoji_events,
-                            color: Colors.amber, size: 22),
-                        const SizedBox(width: 10),
+
+                        // const Icon(Icons.emoji_events,
+                        //     color: Colors.amber, size: 22),
+                        // const SizedBox(width: 6),
+
+                        // ⚙️ SETTINGS
+                        IconButton(
+                          icon: const Icon(Icons.settings,
+                              color: Colors.white),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const SettingsScreen(),
+                              ),
+                            );
+                          },
+                        ),
                       ],
                     ),
                   ],
@@ -296,7 +329,7 @@ class ModeSelectionScreen extends StatelessWidget {
     );
   }
 
-  Widget _modeButton({
+  static Widget _modeButton({
     required String text,
     required Color color,
     required String svgPath,
@@ -319,10 +352,10 @@ class ModeSelectionScreen extends StatelessWidget {
             SvgPicture.asset(
               svgPath,
               height: 22,
-              colorFilter: const ColorFilter.mode(
-                Colors.white,
-                BlendMode.srcIn,
-              ),
+              // colorFilter: const ColorFilter.mode(
+              //   Colors.white,
+              //   BlendMode.srcIn,
+              // ),
             ),
             const SizedBox(width: 10),
             Text(
