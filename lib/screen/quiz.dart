@@ -4,7 +4,7 @@ import 'package:hive/hive.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'home.dart';
 import '../models/question_model.dart';
-
+//tes
 class QuizScreen extends StatefulWidget {
   final String mode;
   final String? category;
@@ -48,15 +48,9 @@ class _QuizScreenState extends State<QuizScreen> {
     _loadQuestions();
   }
 
-<<<<<<< HEAD
   // ================= LOAD SOAL =================
   void _loadQuestions() {
     final box = Hive.box<QuestionModel>('questionsBox');
-=======
-  // ================= LOAD SOAL DARI HIVE =================
-void _loadQuestions() {
-  final box = Hive.box<QuestionModel>('questionsBox');
->>>>>>> 1dfa10e3eceb3b8e8282893540494297d897085e
 
   // ================= Classic Campuran =================
   if (widget.mode == 'classic') {
@@ -211,10 +205,7 @@ void _loadQuestions() {
           children: [
             if (_showBanner)
               Container(
-<<<<<<< HEAD
                 width: double.infinity, // 🔥 INI KUNCINYA
-=======
->>>>>>> 1dfa10e3eceb3b8e8282893540494297d897085e
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 color: _isCorrect
                     ? const Color(0xFF22C55E)
@@ -514,11 +505,7 @@ class ResultScreen extends StatelessWidget {
                   ),
                   onPressed: () => Navigator.pushAndRemoveUntil(
                     context,
-<<<<<<< HEAD
                     MaterialPageRoute(builder: (_) => const HomeScreen()),
-=======
-                    MaterialPageRoute(builder: (_) => const MainScreen()),
->>>>>>> 1dfa10e3eceb3b8e8282893540494297d897085e
                     (_) => false,
                   ),
                   style: ElevatedButton.styleFrom(
@@ -536,8 +523,4 @@ class ResultScreen extends StatelessWidget {
       ),
     );
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 1dfa10e3eceb3b8e8282893540494297d897085e
