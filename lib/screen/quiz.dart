@@ -492,8 +492,6 @@ class ResultScreen extends StatelessWidget {
                 svgPath,
                 width: 40,
                 height: 40,
-                colorFilter:
-                    ColorFilter.mode(iconColor, BlendMode.srcIn),
               ),
               const SizedBox(width: 8),
               Text(

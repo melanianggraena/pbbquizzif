@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'screen/intro.dart';
 import 'screen/signin.dart';
 import 'screen/home.dart';
-import 'screen/profile.dart';
-import 'screen/leaderboard.dart';
 import 'screen/settings.dart';
 
 void main() => runApp(const MyApp());
@@ -33,11 +31,9 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = [
-    const HomeScreen(),
-    const ProfileScreen(),
-    const LeaderboardScreen(),
-    const SettingsScreen(),
+  final List<Widget> _screens = const [
+    HomeScreen(),
+    SettingsScreen(),
   ];
 
   @override
@@ -46,16 +42,18 @@ class _MainScreenState extends State<MainScreen> {
       body: _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
-        onTap: (index) => setState(() => _selectedIndex = index),
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,
         type: BottomNavigationBarType.fixed,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.emoji_events),
-            label: 'Leaderboard',
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
