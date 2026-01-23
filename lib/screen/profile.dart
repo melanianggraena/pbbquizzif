@@ -11,7 +11,7 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   String selectedAvatar = 'assets/ava1.svg';
-  String userName = 'Nama Kamu';
+  String userName = ''; // Kosong di awal
 
   final TextEditingController _nameController = TextEditingController();
 
@@ -27,7 +27,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Future<void> _loadProfile() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
-      userName = prefs.getString('userName') ?? userName;
+      userName = prefs.getString('userName') ?? '';
       selectedAvatar = prefs.getString('userAvatar') ?? selectedAvatar;
     });
   }
@@ -48,6 +48,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
         content: TextField(
           controller: _nameController,
           autofocus: true,
+          decoration: const InputDecoration(
+            hintText: 'Masukkan nama Anda',
+          ),
         ),
         actions: [
           TextButton(
@@ -122,8 +125,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
 
-
-                            const SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // AVATAR
               CircleAvatar(
@@ -141,14 +143,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
               const SizedBox(height: 12),
 
-              // tes
-              // NAME 
+              // NAME - dengan opacity jika belum diisi
               GestureDetector(
                 onTap: _editName,
                 child: Text(
-                  userName,
-                  style: const TextStyle(
-                    color: Colors.white,
+                  userName.isEmpty ? 'Tap to set name' : userName,
+                  style: TextStyle(
+                    color: userName.isEmpty 
+                        ? Colors.white.withOpacity(0.4) // Transparan jika kosong
+                        : Colors.white, // Solid jika sudah diisi
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
