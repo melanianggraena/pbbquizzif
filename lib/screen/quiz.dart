@@ -49,21 +49,46 @@ class _QuizScreenState extends State<QuizScreen> {
     _loadQuestions();
   }
 
-  // ================= LOAD SOAL =================
-  void _loadQuestions() {
-    final box = Hive.box<QuestionModel>('questionsBox');
+  // ================= LOAD SOAL DARI HIVE =================
+void _loadQuestions() {
+  final box = Hive.box<QuestionModel>('questionsBox');
 
+  // ================= Classic Campuran =================
+  if (widget.mode == 'classic') {
+    // Ambil semua kategori yang ada
+    final categories = box.values.map((q) => q.category).toSet();
+
+    List<QuestionModel> selectedQuestions = [];
+
+    for (final cat in categories) {
+      // Filter: kategori sesuai, level Easy
+      final easyQuestions = box.values
+          .where((q) => q.category == cat && q.level == 'Easy')
+          .toList();
+      
+      easyQuestions.shuffle(); // acak soal
+
+      // Ambil max 4 soal dari tiap kategori
+      selectedQuestions.addAll(
+        easyQuestions.take(4)
+      );
+    }
+
+    selectedQuestions.shuffle(); // acak total soal
+    _questions = selectedQuestions;
+  } else {
+    // ================= Arcade / mode biasa =================
     final filtered = box.values
         .where((q) => q.category == widget.category && q.level == widget.level)
         .toList();
 
     filtered.shuffle();
     _questions = filtered.length > 20 ? filtered.take(20).toList() : filtered;
-
-    if (_questions.isNotEmpty) {
-      _startTimer();
-    }
   }
+
+  if (_questions.isNotEmpty) _startTimer();
+}
+
 
   // ================= TIMER =================
   void _startTimer() {
