@@ -131,24 +131,6 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                     ),
                     Row(
                       children: [
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Row(
-                            children: const [
-                              Icon(Icons.monetization_on, color: Color(0xFFFFC107), size: 18),
-                              SizedBox(width: 4),
-                              Text(
-                                '301',
-                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(width: 10),
                         IconButton(
                           icon: const Icon(Icons.settings, color: Colors.white),
                           onPressed: () async {

@@ -50,23 +50,20 @@ void _goToHome() {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
           child: Column(
             children: [
-              const SizedBox(height: 40),
+              const SizedBox(height: 10),
 
-              const Text(
-                'QUIZZIF',
-                style: TextStyle(
-                  fontSize: 56,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.white,
-                  letterSpacing: 1.5,
-                ),
+              // 🔥 LOGO SVG GANTI TEXT
+              SvgPicture.asset(
+                'assets/quizzif_logo.svg',
+                height: 280, // tinggal gede-kecilin di sini
+                fit: BoxFit.contain,
               ),
 
-              const Spacer(),
+              const SizedBox(height: 0), // atur jarak manual
 
               SvgPicture.asset(
                 'assets/intro1.svg',
-                height: 320,
+                height: 400,
                 fit: BoxFit.contain,
               ),
 

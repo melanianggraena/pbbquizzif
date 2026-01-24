@@ -7,6 +7,7 @@ import '../models/question_model.dart';
 import '../utils/audio_controller.dart';
 
 
+
 class QuizScreen extends StatefulWidget {
   final String mode;
   final String? category;
@@ -195,9 +196,7 @@ class _QuizScreenState extends State<QuizScreen> {
     AudioController().playSFX('audio/sfx/result.mp3');
 
     final totalTime = _timePerQuestion.fold(0, (a, b) => a + b);
-    final avgTime = _timePerQuestion.isNotEmpty
-        ? (totalTime / _timePerQuestion.length).round()
-        : 0;
+
 
     Navigator.pushReplacement(
       context,
@@ -208,7 +207,7 @@ class _QuizScreenState extends State<QuizScreen> {
           mode: widget.mode,
           category: widget.category,
           level: widget.level,
-          avgTime: avgTime, // 🔥 REAL DATA
+          totalTime: totalTime, // 🔥 TOTAL DURASI KUIS
         ),
       ),
     );
@@ -413,7 +412,7 @@ class ResultScreen extends StatelessWidget {
   final String mode;
   final String? category;
   final String? level;
-  final int avgTime; // 🔥 REAL AVG TIME (DETIK)
+  final int totalTime; // 🔥 REAL total TIME (DETIK)
 
   const ResultScreen({
     Key? key,
@@ -422,7 +421,8 @@ class ResultScreen extends StatelessWidget {
     required this.mode,
     this.category,
     this.level,
-    required this.avgTime,
+    required this.totalTime,
+
   }) : super(key: key);
 
   // =======================
@@ -497,8 +497,12 @@ class ResultScreen extends StatelessWidget {
     // 📊 HITUNG HASIL
     // =======================
     final correctQuestions = score;
-    final xp = score * 10;
-    final coins = score * 75;
+    final incorrectQuestions = totalQuestions - score;
+
+    // nilai 0–100
+    final int nilai = totalQuestions > 0
+        ? ((score / totalQuestions) * 100).round()
+        : 0;
 
     return Scaffold(
       backgroundColor: const Color(0xFFFFF7ED),
@@ -572,54 +576,91 @@ class ResultScreen extends StatelessWidget {
                   childAspectRatio: 1.8,
                   children: [
                     _achievementCardSvg(
-                      svgPath: 'assets/point.svg',
-                      value: coins.toString(),
-                      label: 'Coins',
-                    ),
-                    _achievementCardSvg(
-                      svgPath: 'assets/xp.svg',
-                      value: xp.toString(),
-                      label: 'XP',
-                    ),
-                    _achievementCardSvg(
                       svgPath: 'assets/centang.svg',
                       value: correctQuestions.toString(),
                       label: 'Correct',
                     ),
                     _achievementCardSvg(
+                      svgPath: 'assets/silang.svg', 
+                      value: incorrectQuestions.toString(),
+                      label: 'Incorrect',
+                    ),
+                    _achievementCardSvg(
+                      svgPath: 'assets/iq.svg', // 🎯 svg nilai
+                      value: '$nilai / 100',
+                      label: 'Score',
+                    ),
+                    _achievementCardSvg(
                       svgPath: 'assets/jam.svg',
-                      value: _formatTime(avgTime), // 🔥 REAL AVG TIME
-                      label: 'Avg Time',
+                      value: _formatTime(totalTime),
+                      label: 'Sum Time',
                     ),
                   ],
                 ),
               ),
 
               // =======================
-              // 🔘 BUTTON HOME
+              // 🔘 BUTTON HOME & repeat
               // =======================
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton.icon(
-                  icon: const Icon(Icons.home, color: Colors.white),
-                  label: const Text(
-                    'Back To Home',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: () => Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(builder: (_) => const HomeScreen()),
-                    (_) => false,
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF2563EB),
-                    padding: const EdgeInsets.symmetric(vertical: 14),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+              Row(
+                children: [
+                  // 🔁 REPEAT
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.refresh, color: Colors.white),
+                      label: const Text(
+                        'Repeat',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => QuizScreen(
+                              mode: mode,
+                              category: category,
+                              level: level,
+                            ),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF22C55E),
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
                     ),
                   ),
-                ),
+
+                  const SizedBox(width: 14),
+
+                  // 🏠 HOME
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.home, color: Colors.white),
+                      label: const Text(
+                        'Home',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      onPressed: () => Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (_) => const HomeScreen()),
+                        (_) => false,
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF2563EB),
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
+
             ],
           ),
         ),
