@@ -1,8 +1,7 @@
-// File: lib/controllers/audio_controller.dart
 import 'package:audioplayers/audioplayers.dart';
 
 class AudioController {
-  // Singleton supaya gampang dipanggil di mana aja
+  // ================= SINGLETON =================
   static final AudioController _instance = AudioController._internal();
   factory AudioController() => _instance;
   AudioController._internal();
@@ -10,35 +9,46 @@ class AudioController {
   AudioPlayer? _bgmPlayer;
   AudioPlayer? _sfxPlayer;
 
-  // =======================
-  // 🎵 BACKGROUND MUSIC
-  // =======================
-  void playBGM(String assetPath, {double volume = 0.5}) async {
+  // ================= STATE =================
+  bool musicEnabled = true;
+  bool sfxEnabled = true;
+
+  String? _currentBGM;
+
+  // ================= 🎵 BGM =================
+  Future<void> playBGM(String assetPath, {double volume = 0.5}) async {
+    _currentBGM = assetPath;
+
+    if (!musicEnabled) return;
+
     _bgmPlayer ??= AudioPlayer();
+    await _bgmPlayer!.stop();
     await _bgmPlayer!.setSource(AssetSource(assetPath));
-    _bgmPlayer!.setReleaseMode(ReleaseMode.loop);
-    _bgmPlayer!.setVolume(volume);
-    _bgmPlayer!.resume();
+    await _bgmPlayer!.setReleaseMode(ReleaseMode.loop);
+    await _bgmPlayer!.setVolume(volume);
+    await _bgmPlayer!.resume();
   }
 
-  void stopBGM() {
-    _bgmPlayer?.stop();
-    _bgmPlayer?.dispose();
-    _bgmPlayer = null;
+  Future<void> stopBGM() async {
+    await _bgmPlayer?.stop();
   }
 
-  void pauseBGM() => _bgmPlayer?.pause();
-  void resumeBGM() => _bgmPlayer?.resume();
+  Future<void> pauseBGM() async {
+    await _bgmPlayer?.pause();
+  }
 
-  // =======================
-  // 🔊 SOUND EFFECT
-  // =======================
-  void playSFX(String assetPath, {double volume = 1.0}) async {
+  Future<void> resumeLastBGM({double volume = 0.5}) async {
+    if (!musicEnabled || _currentBGM == null) return;
+    await playBGM(_currentBGM!, volume: volume);
+  }
+
+  // ================= 🔊 SFX =================
+  Future<void> playSFX(String assetPath, {double volume = 1.0}) async {
+    if (!sfxEnabled) return;
+
     _sfxPlayer ??= AudioPlayer();
-    await _sfxPlayer!.setSource(
-      AssetSource(assetPath),
-    ); // ini yang kamu tanyain
-    _sfxPlayer!.setVolume(volume);
-    _sfxPlayer!.resume(); // play
+    await _sfxPlayer!.setSource(AssetSource(assetPath));
+    await _sfxPlayer!.setVolume(volume);
+    await _sfxPlayer!.resume();
   }
 }

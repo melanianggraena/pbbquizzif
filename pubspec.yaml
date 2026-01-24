@@ -68,13 +68,8 @@ flutter:
   assets:
     - assets/
     - assets/data/questions.json
-    - assets/audio/music/home_bgm.mp3
-    - assets/audio/music/quiz_bgm.mp3
-    - assets/audio/sfx/button_click.mp3
-    - assets/audio/sfx/correct.mp3
-    - assets/audio/sfx/incorrect.mp3
-    - assets/audio/sfx/result.mp3
-    - assets/audio/sfx/next_question.mp3
+    - assets/audio/music/
+    - assets/audio/sfx/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

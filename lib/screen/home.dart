@@ -7,6 +7,9 @@ import 'arcade.dart';
 import 'profile.dart';
 import 'settings.dart';
 import '../utils/audio_controller.dart';
+import 'package:flutter/widgets.dart';
+import '../main.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,17 +18,46 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with RouteAware {
   String userName = 'John Brown';
   String userAvatar = 'assets/ava1.svg';
+  final AudioController _audio = AudioController();
+
+  @override
+  void didChangeDependencies() {
+  super.didChangeDependencies();
+
+    // subscribe ke route observer
+    routeObserver.subscribe(
+      this,
+      ModalRoute.of(context)! as PageRoute,
+    );
+  }
+
+  @override
+  void dispose() {
+    routeObserver.unsubscribe(this);
+    super.dispose();
+  }
+
+  @override
+  void didPopNext() {
+    // Dipanggil saat BALIK ke Home dari screen lain (Quiz)
+    _audio.playBGM('audio/music/home_bgm.mp3', volume: 0.5);
+  }
+
 
   @override
   void initState() {
     super.initState();
     _loadProfile();
+    _initAudio();
+  }
 
-    // 🔊 Mulai musik BGM Home
-    AudioController().playBGM('assets/audio/music/home_bgm.mp3', volume: 0.5);
+  Future<void> _initAudio() async {
+    // Delay kecil agar widget sudah build
+    await Future.delayed(const Duration(milliseconds: 500));
+    await _audio.playBGM('audio/music/home_bgm.mp3', volume: 0.5);
   }
 
   Future<void> _loadProfile() async {
@@ -52,22 +84,19 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               // ================= PROFILE HEADER =================
               Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 12,
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     GestureDetector(
                       onTap: () async {
+                        await _audio.playSFX('audio/sfx/button_click.mp3');
+                        await Future.delayed(const Duration(milliseconds: 100));
                         final result = await Navigator.push(
                           context,
-                          MaterialPageRoute(
-                            builder: (_) => const ProfileScreen(),
-                          ),
+                          MaterialPageRoute(builder: (_) => const ProfileScreen()),
                         );
-                        if (result != null) {
+                        if (result != null && mounted) {
                           setState(() {
                             userName = result['name'];
                             userAvatar = result['avatar'];
@@ -103,28 +132,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     Row(
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 6,
-                          ),
+                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Row(
                             children: const [
-                              Icon(
-                                Icons.monetization_on,
-                                color: Color(0xFFFFC107),
-                                size: 18,
-                              ),
+                              Icon(Icons.monetization_on, color: Color(0xFFFFC107), size: 18),
                               SizedBox(width: 4),
                               Text(
                                 '301',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12,
-                                ),
+                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
                               ),
                             ],
                           ),
@@ -132,13 +151,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         const SizedBox(width: 10),
                         IconButton(
                           icon: const Icon(Icons.settings, color: Colors.white),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => const SettingsScreen(),
-                              ),
-                            );
+                          onPressed: () async {
+                            await _audio.playSFX('audio/sfx/button_click.mp3');
+                            await Future.delayed(const Duration(milliseconds: 100));
+                            if (mounted) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (_) => const SettingsScreen()),
+                              );
+                            }
                           },
                         ),
                       ],
@@ -164,10 +185,7 @@ class _HomeScreenState extends State<HomeScreen> {
               // ================= TEXT CARD =================
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 24),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 24,
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
                 decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.15),
                   borderRadius: BorderRadius.circular(30),
@@ -194,18 +212,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: 300,
                       height: 50,
                       child: ElevatedButton(
-                        onPressed: () {
-                          // 🔊 SFX tombol klik
-                          AudioController().playSFX(
-                            'assets/audio/sfx/button_click.mp3',
-                          );
-
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const ModeSelectionScreen(),
-                            ),
-                          );
+                        onPressed: () async {
+                          await _audio.playSFX('audio/sfx/button_click.mp3');
+                          await Future.delayed(const Duration(milliseconds: 150));
+                          if (mounted) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (_) => const ModeSelectionScreen()),
+                            );
+                          }
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF22C55E),
@@ -216,11 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         child: const Text(
                           'Play Now',
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),
                         ),
                       ),
                     ),
@@ -237,8 +248,15 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 // ================= MODE SELECTION =================
-class ModeSelectionScreen extends StatelessWidget {
+class ModeSelectionScreen extends StatefulWidget {
   const ModeSelectionScreen({Key? key}) : super(key: key);
+
+  @override
+  State<ModeSelectionScreen> createState() => _ModeSelectionScreenState();
+}
+
+class _ModeSelectionScreenState extends State<ModeSelectionScreen> {
+  final AudioController _audio = AudioController();
 
   @override
   Widget build(BuildContext context) {
@@ -260,7 +278,11 @@ class ModeSelectionScreen extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: IconButton(
                     icon: const Icon(Icons.arrow_back, color: Colors.white),
-                    onPressed: () => Navigator.pop(context),
+                    onPressed: () async {
+                      await _audio.playSFX('audio/sfx/button_click.mp3');
+                      await Future.delayed(const Duration(milliseconds: 100));
+                      if (mounted) Navigator.pop(context);
+                    },
                   ),
                 ),
               ),
@@ -283,44 +305,40 @@ class ModeSelectionScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 24),
                     _modeButton(
+                      context: context,
                       text: 'Classic',
                       color: const Color(0xFFFFC107),
                       svgPath: 'assets/btn_classic.svg',
-                      onTap: () {
-                        // Stop musik Home, mulai musik Quiz
-                        AudioController().stopBGM();
-                        AudioController().playBGM(
-                          'assets/audio/music/quiz_bgm.mp3',
-                          volume: 0.5,
-                        );
-
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const QuizScreen(mode: 'classic'),
-                          ),
-                        );
+                      onTap: () async {
+                        await _audio.playSFX('audio/sfx/button_click.mp3');
+                        await Future.delayed(const Duration(milliseconds: 150));
+                        await _audio.stopBGM();
+                        await _audio.playBGM('audio/music/quiz_bgm.mp3', volume: 0.5);
+                        if (mounted) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (_) => const QuizScreen(mode: 'classic')),
+                          );
+                        }
                       },
                     ),
                     const SizedBox(height: 16),
                     _modeButton(
+                      context: context,
                       text: 'Arcade',
                       color: const Color(0xFF22C55E),
                       svgPath: 'assets/btn_arcade.svg',
-                      onTap: () {
-                        // Stop musik Home, mulai musik Quiz
-                        AudioController().stopBGM();
-                        AudioController().playBGM(
-                          'assets/audio/music/quiz_bgm.mp3',
-                          volume: 0.5,
-                        );
-
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const ArcadeCategoryScreen(),
-                          ),
-                        );
+                      onTap: () async {
+                        await _audio.playSFX('audio/sfx/button_click.mp3');
+                        await Future.delayed(const Duration(milliseconds: 150));
+                        await _audio.stopBGM();
+                        await _audio.playBGM('audio/music/quiz_bgm.mp3', volume: 0.5);
+                        if (mounted) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (_) => const ArcadeCategoryScreen()),
+                          );
+                        }
                       },
                     ),
                   ],
@@ -334,6 +352,7 @@ class ModeSelectionScreen extends StatelessWidget {
   }
 
   static Widget _modeButton({
+    required BuildContext context,
     required String text,
     required Color color,
     required String svgPath,
@@ -357,11 +376,7 @@ class ModeSelectionScreen extends StatelessWidget {
             const SizedBox(width: 10),
             Text(
               text,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
             ),
           ],
         ),

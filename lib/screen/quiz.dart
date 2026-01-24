@@ -6,6 +6,7 @@ import 'home.dart';
 import '../models/question_model.dart';
 import '../utils/audio_controller.dart';
 
+
 class QuizScreen extends StatefulWidget {
   final String mode;
   final String? category;
@@ -28,6 +29,7 @@ class _QuizScreenState extends State<QuizScreen> {
   bool _showBanner = false;
   bool _isCorrect = false;
 
+
   List<QuestionModel> _questions = [];
 
   // =======================
@@ -47,17 +49,21 @@ class _QuizScreenState extends State<QuizScreen> {
   void initState() {
     super.initState();
     _loadQuestions();
-
-    // Play quiz BGM
-    AudioController().playBGM('assets/audio/music/quiz_bgm.mp3');
-    _loadQuestions();
+      // ✅ START QUIZ BGM SAAT QUIZ BENAR-BENAR DIMULAI
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await AudioController().stopBGM();
+      await AudioController().playBGM(
+    'audio/music/quiz_bgm.mp3',
+    volume: 0.5,
+  );
+      });
   }
 
   @override
   void dispose() {
     _timer?.cancel();
-    super.dispose();
 
+    // 🔴 STOP quiz BGM saat keluar
     AudioController().stopBGM();
     super.dispose();
   }
@@ -83,7 +89,7 @@ class _QuizScreenState extends State<QuizScreen> {
 
         // Ambil max 4 soal dari tiap kategori
         selectedQuestions.addAll(
-          easyQuestions.take(4)
+          easyQuestions.take(1)
         );
       }
 
@@ -154,10 +160,13 @@ class _QuizScreenState extends State<QuizScreen> {
       _isCorrect = index == correct;
       if (_isCorrect) _score++;
 
-      // SFX
+      // sfx
       AudioController().playSFX(
-        _isCorrect ? 'assets/audio/sfx/correct.mp3' : 'assets/audio/sfx/incorrect.mp3',
-      );
+      _isCorrect
+        ? 'audio/sfx/correct.mp3'
+        : 'audio/sfx/incorrect.mp3',
+);
+
     });
 
     Future.delayed(const Duration(seconds: 1), _nextQuestion);
@@ -183,7 +192,7 @@ class _QuizScreenState extends State<QuizScreen> {
   // ================= RESULT ==========================
   void _showResult() {
     // fx
-    AudioController().playSFX('assets/audio/sfx/result.mp3');
+    AudioController().playSFX('audio/sfx/result.mp3');
 
     final totalTime = _timePerQuestion.fold(0, (a, b) => a + b);
     final avgTime = _timePerQuestion.isNotEmpty

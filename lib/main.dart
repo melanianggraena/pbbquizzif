@@ -5,18 +5,25 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'models/question_model.dart';
 import 'package:hive/hive.dart';
 import 'data/seed_question.dart';
-import 'utils/audio_controller.dart';
 
-void main() async {
+// =====================================================
+// 🔥 ROUTE OBSERVER (WAJIB GLOBAL, JANGAN DI DALAM CLASS)
+// =====================================================
+final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
+
+Future<void> main() async {
+  // Pastikan Flutter sudah siap
   WidgetsFlutterBinding.ensureInitialized();
 
-  AudioController().playSFX('assets/audio/sfx/button_click.mp3');
-
+  // ================= Hive =================
   await Hive.initFlutter();
   Hive.registerAdapter(QuestionModelAdapter());
   await Hive.openBox<QuestionModel>('questionsBox');
+
+  // Seed data pertanyaan
   await seedAllQuestions();
 
+  // ================= Run App =================
   runApp(const MyApp());
 }
 
@@ -32,6 +39,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Poppins',
       ),
+
+      // 🔥 PENTING: DAFTARKAN ROUTE OBSERVER
+      navigatorObservers: [routeObserver],
+
       home: const SplashScreen(),
     );
   }

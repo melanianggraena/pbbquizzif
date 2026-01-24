@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../utils/audio_controller.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -8,8 +9,19 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  bool musicOn = true;
-  bool soundOn = true;
+  final AudioController audio = AudioController();
+
+  late bool musicOn;
+  late bool soundOn;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // 🔥 AMBIL STATE GLOBAL DARI AudioController
+    musicOn = audio.musicEnabled;
+    soundOn = audio.sfxEnabled;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +45,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   children: [
                     IconButton(
                       icon: const Icon(Icons.arrow_back, color: Colors.white),
-                      onPressed: () => Navigator.pop(context),
+                      onPressed: () {
+                        audio.playSFX(
+                          'audio/sfx/button_click.mp3',
+                          volume: 0.8,
+                        );
+                        Navigator.pop(context);
+                      },
                     ),
                     const Text(
                       'Settings',
@@ -54,21 +72,35 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   children: [
+                    // ========= MUSIC =========
                     _switchItem(
                       title: 'Music',
                       value: musicOn,
-                      onChanged: (v) {
+                      onChanged: (v) async {
+                        audio.playSFX('audio/sfx/button_click.mp3');
+
                         setState(() => musicOn = v);
-                        // TODO: play / stop bg music
+                        audio.musicEnabled = v;
+
+                        if (v) {
+                          await audio.resumeLastBGM();
+                        } else {
+                          await audio.stopBGM();
+                        }
                       },
                     ),
+
                     const SizedBox(height: 16),
+
+                    // ========= SOUND EFFECT =========
                     _switchItem(
                       title: 'Sound Effects',
                       value: soundOn,
                       onChanged: (v) {
+                        audio.playSFX('audio/sfx/button_click.mp3');
+
                         setState(() => soundOn = v);
-                        // TODO: enable / disable SFX
+                        audio.sfxEnabled = v;
                       },
                     ),
                   ],

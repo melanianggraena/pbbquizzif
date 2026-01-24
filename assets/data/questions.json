@@ -1110,907 +1110,199 @@
     "level": "Hard"
   },
 
-  {
-    "question": "Informatika adalah bidang ilmu yang mempelajari tentang …",
-    "options": [
-      "Mesin industri",
-      "Pengolahan informasi",
-      "Alat komunikasi",
-      "Jaringan listrik"
-    ],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Easy"
-  },
-  {
-    "question": "Komputer generasi pertama menggunakan …",
-    "options": [
-      "Transistor",
-      "IC",
-      "Tabung vakum",
-      "Mikroprosesor"
-    ],
-    "answerIndex": 2,
-    "category": "Sejarah Informatika",
-    "level": "Easy"
-  },
-  {
-    "question": "Contoh komputer generasi pertama adalah …",
-    "options": ["ENIAC", "IBM PC", "Macintosh", "Laptop"],
-    "answerIndex": 0,
-    "category": "Sejarah Informatika",
-    "level": "Easy"
-  },
-  {
-    "question": "Komputer generasi kedua ditandai dengan penggunaan …",
-    "options": [
-      "Tabung vakum",
-      "Transistor",
-      "IC",
-      "CPU"
-    ],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Easy"
-  },
-  {
-    "question": "Komputer generasi ketiga menggunakan …",
-    "options": [
-      "Transistor",
-      "Tabung vakum",
-      "Integrated Circuit (IC)",
-      "Mikroprosesor"
-    ],
-    "answerIndex": 2,
-    "category": "Sejarah Informatika",
-    "level": "Easy"
-  },
-  {
-    "question": "Komputer generasi keempat menggunakan …",
-    "options": [
-      "IC",
-      "Transistor",
-      "Mikroprosesor",
-      "Tabung vakum"
-    ],
-    "answerIndex": 2,
-    "category": "Sejarah Informatika",
-    "level": "Easy"
-  },
-  {
-    "question": "Bahasa mesin menggunakan kode …",
-    "options": ["Huruf", "Angka desimal", "Biner", "Simbol"],
-    "answerIndex": 2,
-    "category": "Sejarah Informatika",
-    "level": "Easy"
-  },
-  {
-    "question": "Bahasa assembly merupakan bahasa …",
-    "options": [
-      "Tingkat tinggi",
-      "Mesin",
-      "Tingkat rendah",
-      "Alami"
-    ],
-    "answerIndex": 2,
-    "category": "Sejarah Informatika",
-    "level": "Easy"
-  },
-  {
-    "question": "Bahasa pemrograman tingkat tinggi pertama adalah …",
-    "options": ["Python", "Java", "Fortran", "C++"],
-    "answerIndex": 2,
-    "category": "Sejarah Informatika",
-    "level": "Easy"
-  },
-  {
-    "question": "Algoritma adalah …",
-    "options": [
-      "Bahasa pemrograman",
-      "Langkah-langkah penyelesaian masalah",
-      "Perangkat keras",
-      "Database"
-    ],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Easy"
-  },
 
-  {
-    "question": "Perbedaan utama komputer analog dan digital adalah …",
-    "options": [
-      "Ukuran",
-      "Cara pengolahan data",
-      "Harga",
-      "Warna"
-    ],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Medium"
-  },
-  {
-    "question": "Arsitektur komputer modern didasarkan pada konsep …",
-    "options": ["Harvard", "Von Neumann", "Turing", "Pascal"],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Medium"
-  },
-  {
-    "question": "Bahasa C diciptakan oleh …",
-    "options": [
-      "Dennis Ritchie",
-      "Ken Thompson",
-      "Bjarne Stroustrup",
-      "James Gosling"
-    ],
-    "answerIndex": 0,
-    "category": "Sejarah Informatika",
-    "level": "Medium"
-  },
-  {
-    "question": "Python dikembangkan oleh …",
-    "options": [
-      "Linus Torvalds",
-      "Guido van Rossum",
-      "Bill Gates",
-      "Steve Jobs"
-    ],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Medium"
-  },
-  {
-    "question": "Java dikembangkan oleh …",
-    "options": [
-      "Microsoft",
-      "Sun Microsystems",
-      "Google",
-      "IBM"
-    ],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Medium"
-  },
-  {
-    "question": "Linux dikembangkan oleh …",
-    "options": [
-      "Steve Jobs",
-      "Linus Torvalds",
-      "Mark Zuckerberg",
-      "Dennis Ritchie"
-    ],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Medium"
-  },
-  {
-    "question": "GUI pertama kali populer pada komputer …",
-    "options": [
-      "IBM PC",
-      "Apple Macintosh",
-      "ENIAC",
-      "Mainframe"
-    ],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Medium"
-  },
-  {
-    "question": "Istilah Artificial Intelligence diperkenalkan oleh …",
-    "options": [
-      "Alan Turing",
-      "John McCarthy",
-      "Marvin Minsky",
-      "Bill Gates"
-    ],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Medium"
-  },
-  {
-    "question": "Turing Test digunakan untuk mengukur …",
-    "options": [
-      "Kecepatan komputer",
-      "Kecerdasan mesin",
-      "Kapasitas memori",
-      "Jaringan"
-    ],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Medium"
-  },
-  {
-    "question": "Moore’s Law menyatakan bahwa …",
-    "options": [
-      "Harga komputer naik",
-      "Transistor bertambah dua kali lipat",
-      "Memori berkurang",
-      "CPU melambat"
-    ],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Medium"
-  },
-
-  {
-    "question": "ENIAC menggunakan sekitar … tabung vakum",
-    "options": ["1.000", "5.000", "18.000", "50.000"],
-    "answerIndex": 2,
-    "category": "Sejarah Informatika",
-    "level": "Hard"
-  },
-  {
-    "question": "Difference Engine dirancang untuk …",
-    "options": [
-      "Komunikasi",
-      "Perhitungan matematika",
-      "Penyimpanan data",
-      "Game"
-    ],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Hard"
-  },
-  {
-    "question": "Konsep stored-program diperkenalkan oleh …",
-    "options": [
-      "Turing",
-      "Von Neumann",
-      "Babbage",
-      "Leibniz"
-    ],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Hard"
-  },
-  {
-    "question": "Bahasa Lisp sangat berpengaruh pada pengembangan …",
-    "options": ["Sistem operasi", "AI", "Database", "Jaringan"],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Hard"
-  },
-  {
-    "question": "TCP/IP mulai digunakan secara luas pada tahun …",
-    "options": ["1970", "1983", "1990", "2000"],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Hard"
-  },
-  {
-    "question": "HTML pertama kali diperkenalkan pada tahun …",
-    "options": ["1985", "1991", "1998", "2005"],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Hard"
-  },
-  {
-    "question": "IBM PC pertama dirilis pada tahun …",
-    "options": ["1975", "1981", "1989", "1995"],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Hard"
-  },
-  {
-    "question": "GNU Project diprakarsai oleh …",
-    "options": [
-      "Linus Torvalds",
-      "Richard Stallman",
-      "Dennis Ritchie",
-      "Ken Thompson"
-    ],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Hard"
-  },
-  {
-    "question": "Quantum computer memanfaatkan prinsip …",
-    "options": [
-      "Mekanika klasik",
-      "Mekanika kuantum",
-      "Elektronika analog",
-      "Gelombang radio"
-    ],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Hard"
-  },
-  {
-    "question": "Sejarah informatika penting dipelajari untuk …",
-    "options": [
-      "Menghafal tanggal",
-      "Memahami perkembangan teknologi",
-      "Mendesain UI",
-      "Membuat database"
-    ],
-    "answerIndex": 1,
-    "category": "Sejarah Informatika",
-    "level": "Hard"
-  },
+  {"question":"Informatika adalah bidang ilmu yang mempelajari tentang …","options":["Mesin industri","Pengolahan informasi","Alat komunikasi","Jaringan listrik"],"answerIndex":1,"category":"Sejarah Informatika","level":"Easy"},
+  {"question":"Komputer generasi pertama menggunakan …","options":["Transistor","IC","Tabung vakum","Mikroprosesor"],"answerIndex":2,"category":"Sejarah Informatika","level":"Easy"},
+  {"question":"Contoh komputer generasi pertama adalah …","options":["ENIAC","IBM PC","Macintosh","Laptop"],"answerIndex":0,"category":"Sejarah Informatika","level":"Easy"},
+  {"question":"Komputer generasi kedua ditandai dengan penggunaan …","options":["Tabung vakum","Transistor","IC","CPU"],"answerIndex":1,"category":"Sejarah Informatika","level":"Easy"},
+  {"question":"Komputer generasi ketiga menggunakan …","options":["Transistor","Tabung vakum","Integrated Circuit (IC)","Mikroprosesor"],"answerIndex":2,"category":"Sejarah Informatika","level":"Easy"},
+  {"question":"Komputer generasi keempat menggunakan …","options":["IC","Transistor","Mikroprosesor","Tabung vakum"],"answerIndex":2,"category":"Sejarah Informatika","level":"Easy"},
+  {"question":"Bahasa mesin menggunakan kode …","options":["Huruf","Angka desimal","Biner","Simbol"],"answerIndex":2,"category":"Sejarah Informatika","level":"Easy"},
+  {"question":"Bahasa assembly merupakan bahasa …","options":["Tingkat tinggi","Mesin","Tingkat rendah","Alami"],"answerIndex":2,"category":"Sejarah Informatika","level":"Easy"},
+  {"question":"Bahasa pemrograman tingkat tinggi pertama adalah …","options":["Python","Java","Fortran","C++"],"answerIndex":2,"category":"Sejarah Informatika","level":"Easy"},
+  {"question":"Algoritma adalah …","options":["Bahasa pemrograman","Langkah-langkah penyelesaian masalah","Perangkat keras","Database"],"answerIndex":1,"category":"Sejarah Informatika","level":"Easy"},
+  {"question":"Tokoh yang dikenal sebagai bapak komputer adalah …","options":["Bill Gates","Alan Turing","Charles Babbage","Steve Jobs"],"answerIndex":2,"category":"Sejarah Informatika","level":"Easy"},
+  {"question":"Mesin analitik dikembangkan oleh …","options":["Alan Turing","Charles Babbage","John von Neumann","Tim Berners-Lee"],"answerIndex":1,"category":"Sejarah Informatika","level":"Easy"},
+  {"question":"Ada Lovelace dikenal sebagai …","options":["Programmer pertama","Ilmuwan jaringan","Penemu internet","Penemu transistor"],"answerIndex":0,"category":"Sejarah Informatika","level":"Easy"},
+  {"question":"Sistem bilangan biner ditemukan oleh …","options":["Newton","Leibniz","Pascal","Boole"],"answerIndex":1,"category":"Sejarah Informatika","level":"Easy"},
+  {"question":"Sistem operasi berfungsi untuk …","options":["Mengolah data","Mengatur perangkat keras","Mendesain UI","Menyimpan database"],"answerIndex":1,"category":"Sejarah Informatika","level":"Easy"},
+  {"question":"Contoh sistem operasi adalah …","options":["Microsoft Word","Windows","MySQL","Chrome"],"answerIndex":1,"category":"Sejarah Informatika","level":"Easy"},
+  {"question":"Internet pertama kali dikembangkan oleh …","options":["NASA","ARPANET","IBM","Google"],"answerIndex":1,"category":"Sejarah Informatika","level":"Easy"},
+  {"question":"WWW dikembangkan oleh …","options":["Bill Gates","Steve Jobs","Tim Berners-Lee","Mark Zuckerberg"],"answerIndex":2,"category":"Sejarah Informatika","level":"Easy"},
+  {"question":"Browser pertama adalah …","options":["Chrome","Mosaic","Firefox","Edge"],"answerIndex":1,"category":"Sejarah Informatika","level":"Easy"},
+  {"question":"Email pertama dikirim pada tahun …","options":["1969","1971","1980","1990"],"answerIndex":1,"category":"Sejarah Informatika","level":"Easy"},
+  
+  {"question":"Perbedaan utama komputer analog dan digital adalah …","options":["Ukuran","Cara pengolahan data","Harga","Warna"],"answerIndex":1,"category":"Sejarah Informatika","level":"Medium"},
+  {"question":"Arsitektur komputer modern didasarkan pada konsep …","options":["Harvard","Von Neumann","Turing","Pascal"],"answerIndex":1,"category":"Sejarah Informatika","level":"Medium"},
+  {"question":"John von Neumann berkontribusi pada …","options":["Internet","Arsitektur komputer","UI","Database"],"answerIndex":1,"category":"Sejarah Informatika","level":"Medium"},
+  {"question":"Bahasa C diciptakan oleh …","options":["Dennis Ritchie","Ken Thompson","Bjarne Stroustrup","James Gosling"],"answerIndex":0,"category":"Sejarah Informatika","level":"Medium"},
+  {"question":"Bahasa C++ dikembangkan oleh …","options":["Dennis Ritchie","James Gosling","Bjarne Stroustrup","Guido van Rossum"],"answerIndex":2,"category":"Sejarah Informatika","level":"Medium"},
+  {"question":"Python dikembangkan oleh …","options":["Linus Torvalds","Guido van Rossum","Bill Gates","Steve Jobs"],"answerIndex":1,"category":"Sejarah Informatika","level":"Medium"},
+  {"question":"Java dikembangkan oleh …","options":["Microsoft","Sun Microsystems","Google","IBM"],"answerIndex":1,"category":"Sejarah Informatika","level":"Medium"},
+  {"question":"Linux dikembangkan oleh …","options":["Steve Jobs","Linus Torvalds","Mark Zuckerberg","Dennis Ritchie"],"answerIndex":1,"category":"Sejarah Informatika","level":"Medium"},
+  {"question":"UNIX pertama kali dikembangkan di …","options":["IBM","AT&T Bell Labs","Microsoft","Apple"],"answerIndex":1,"category":"Sejarah Informatika","level":"Medium"},
+  {"question":"GUI pertama kali populer pada komputer …","options":["IBM PC","Apple Macintosh","ENIAC","Mainframe"],"answerIndex":1,"category":"Sejarah Informatika","level":"Medium"},
+  {"question":"Perkembangan internet di Indonesia dimulai sekitar tahun …","options":["1970-an","1980-an","1990-an","2000-an"],"answerIndex":2,"category":"Sejarah Informatika","level":"Medium"},
+  {"question":"Smartphone pertama yang populer adalah …","options":["iPhone","BlackBerry","Nokia Communicator","Android"],"answerIndex":2,"category":"Sejarah Informatika","level":"Medium"},
+  {"question":"Cloud computing mulai berkembang pesat pada era …","options":["1980-an","1990-an","2000-an","1970-an"],"answerIndex":2,"category":"Sejarah Informatika","level":"Medium"},
+  {"question":"Open source berarti …","options":["Gratis selamanya","Kode sumber terbuka","Tanpa lisensi","Tidak aman"],"answerIndex":1,"category":"Sejarah Informatika","level":"Medium"},
+  {"question":"Mozilla Firefox adalah contoh …","options":["Sistem operasi","Browser open source","DBMS","Bahasa pemrograman"],"answerIndex":1,"category":"Sejarah Informatika","level":"Medium"},
+  {"question":"Perkembangan AI dimulai sejak tahun …","options":["1940-an","1950-an","1960-an","1970-an"],"answerIndex":1,"category":"Sejarah Informatika","level":"Medium"},
+  {"question":"Istilah Artificial Intelligence diperkenalkan oleh …","options":["Alan Turing","John McCarthy","Marvin Minsky","Bill Gates"],"answerIndex":1,"category":"Sejarah Informatika","level":"Medium"},
+  {"question":"Turing Test digunakan untuk mengukur …","options":["Kecepatan komputer","Kecerdasan mesin","Kapasitas memori","Jaringan"],"answerIndex":1,"category":"Sejarah Informatika","level":"Medium"},
+  {"question":"Superkomputer digunakan untuk …","options":["Game","Komputasi berat","Desain UI","Database kecil"],"answerIndex":1,"category":"Sejarah Informatika","level":"Medium"},
+  {"question":"Moore’s Law menyatakan bahwa …","options":["Harga komputer naik","Transistor bertambah dua kali lipat","Memori berkurang","CPU melambat"],"answerIndex":1,"category":"Sejarah Informatika","level":"Medium"},
+  
+  {"question":"ENIAC menggunakan sekitar … tabung vakum","options":["1.000","5.000","18.000","50.000"],"answerIndex":2,"category":"Sejarah Informatika","level":"Hard"},
+  {"question":"Difference Engine dirancang untuk …","options":["Komunikasi","Perhitungan matematika","Penyimpanan data","Game"],"answerIndex":1,"category":"Sejarah Informatika","level":"Hard"},
+  {"question":"Konsep stored-program diperkenalkan oleh …","options":["Turing","Von Neumann","Babbage","Leibniz"],"answerIndex":1,"category":"Sejarah Informatika","level":"Hard"},
+  {"question":"Bahasa Lisp sangat berpengaruh pada pengembangan …","options":["Sistem operasi","AI","Database","Jaringan"],"answerIndex":1,"category":"Sejarah Informatika","level":"Hard"},
+  {"question":"ARPANET awalnya dibuat untuk …","options":["Pendidikan","Militer","Bisnis","Hiburan"],"answerIndex":1,"category":"Sejarah Informatika","level":"Hard"},
+  {"question":"TCP/IP mulai digunakan secara luas pada tahun …","options":["1970","1983","1990","2000"],"answerIndex":1,"category":"Sejarah Informatika","level":"Hard"},
+  {"question":"WWW berbeda dari internet karena …","options":["Lebih cepat","Salah satu layanan internet","Berdiri sendiri","Tidak butuh jaringan"],"answerIndex":1,"category":"Sejarah Informatika","level":"Hard"},
+  {"question":"HTML pertama kali diperkenalkan pada tahun …","options":["1985","1991","1998","2005"],"answerIndex":1,"category":"Sejarah Informatika","level":"Hard"},
+  {"question":"Konsep hypertext dipopulerkan oleh …","options":["Tim Berners-Lee","Ted Nelson","Alan Turing","Bill Gates"],"answerIndex":1,"category":"Sejarah Informatika","level":"Hard"},
+  {"question":"Sistem operasi time-sharing bertujuan untuk …","options":["Satu pengguna","Banyak pengguna","Offline","Game"],"answerIndex":1,"category":"Sejarah Informatika","level":"Hard"},
+  {"question":"IBM PC pertama dirilis pada tahun …","options":["1975","1981","1989","1995"],"answerIndex":1,"category":"Sejarah Informatika","level":"Hard"},
+  {"question":"Macintosh pertama dirilis pada tahun …","options":["1980","1982","1984","1986"],"answerIndex":2,"category":"Sejarah Informatika","level":"Hard"},
+  {"question":"UNIX memengaruhi pengembangan …","options":["Windows saja","Linux dan macOS","Android saja","iOS saja"],"answerIndex":1,"category":"Sejarah Informatika","level":"Hard"},
+  {"question":"GNU Project diprakarsai oleh …","options":["Linus Torvalds","Richard Stallman","Dennis Ritchie","Ken Thompson"],"answerIndex":1,"category":"Sejarah Informatika","level":"Hard"},
+  {"question":"Free Software Foundation didirikan pada tahun …","options":["1980","1985","1990","2000"],"answerIndex":1,"category":"Sejarah Informatika","level":"Hard"},
+  {"question":"Internet komersial mulai berkembang setelah …","options":["ARPANET ditutup","WWW diperkenalkan","Komputer ditemukan","Transistor dibuat"],"answerIndex":1,"category":"Sejarah Informatika","level":"Hard"},
+  {"question":"Evolusi komputer saat ini mengarah pada …","options":["Komputer analog","Komputasi kuantum","Tabung vakum","Mainframe"],"answerIndex":1,"category":"Sejarah Informatika","level":"Hard"},
+  {"question":"Quantum computer memanfaatkan prinsip …","options":["Mekanika klasik","Mekanika kuantum","Elektronika analog","Gelombang radio"],"answerIndex":1,"category":"Sejarah Informatika","level":"Hard"},
+  {"question":"IoT mulai berkembang pesat setelah …","options":["Internet ditemukan","Smartphone populer","Cloud computing","AI muncul"],"answerIndex":2,"category":"Sejarah Informatika","level":"Hard"},
+  {"question":"Sejarah informatika penting dipelajari untuk …","options":["Menghafal tanggal","Memahami perkembangan teknologi","Mendesain UI","Membuat database"],"answerIndex":1,"category":"Sejarah Informatika","level":"Hard"},
 
 
-  {
-    "question": "Jaringan komputer adalah …",
-    "options": [
-      "Kumpulan komputer yang berdiri sendiri",
-      "Kumpulan komputer yang saling terhubung",
-      "Satu komputer besar",
-      "Sistem operasi"
-    ],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Easy"
-  },
-  {
-    "question": "Tujuan utama jaringan komputer adalah …",
-    "options": [
-      "Memperbesar ukuran komputer",
-      "Berbagi sumber daya",
-      "Mengganti sistem operasi",
-      "Mendesain UI"
-    ],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Easy"
-  },
-  {
-    "question": "Contoh perangkat jaringan adalah …",
-    "options": ["Printer", "Scanner", "Router", "Keyboard"],
-    "answerIndex": 2,
-    "category": "Network",
-    "level": "Easy"
-  },
-  {
-    "question": "LAN adalah singkatan dari …",
-    "options": [
-      "Local Area Network",
-      "Large Area Network",
-      "Long Area Network",
-      "Light Area Network"
-    ],
-    "answerIndex": 0,
-    "category": "Network",
-    "level": "Easy"
-  },
-  {
-    "question": "Jaringan dengan jangkauan sangat luas disebut …",
-    "options": ["LAN", "MAN", "WAN", "PAN"],
-    "answerIndex": 2,
-    "category": "Network",
-    "level": "Easy"
-  },
-  {
-    "question": "Internet termasuk jenis jaringan …",
-    "options": ["LAN", "MAN", "WAN", "PAN"],
-    "answerIndex": 2,
-    "category": "Network",
-    "level": "Easy"
-  },
-  {
-    "question": "Topologi jaringan yang menggunakan satu kabel utama adalah …",
-    "options": ["Star", "Ring", "Bus", "Mesh"],
-    "answerIndex": 2,
-    "category": "Network",
-    "level": "Easy"
-  },
-  {
-    "question": "Topologi star memiliki ciri …",
-    "options": [
-      "Tanpa pusat",
-      "Semua node terhubung ke pusat",
-      "Satu kabel utama",
-      "Loop tertutup"
-    ],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Easy"
-  },
-  {
-    "question": "Perangkat yang menghubungkan jaringan berbeda adalah …",
-    "options": ["Hub", "Switch", "Router", "NIC"],
-    "answerIndex": 2,
-    "category": "Network",
-    "level": "Easy"
-  },
-  {
-    "question": "IP address berfungsi sebagai …",
-    "options": ["Nama komputer", "Alamat perangkat", "Sistem operasi", "Kabel jaringan"],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Easy"
-  },
-  {
-    "question": "Contoh IP address adalah …",
-    "options": ["256.10.1.1", "192.168.1.1", "999.1.1.1", "123.456.78.9"],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Easy"
-  },
-  {
-    "question": "Protokol adalah …",
-    "options": ["Perangkat keras", "Aturan komunikasi", "Sistem operasi", "Software desain"],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Easy"
-  },
-  {
-    "question": "HTTP digunakan untuk …",
-    "options": ["Mengirim email", "Transfer file", "Akses web", "Remote server"],
-    "answerIndex": 2,
-    "category": "Network",
-    "level": "Easy"
-  },
-  {
-    "question": "FTP digunakan untuk …",
-    "options": ["Chat", "Transfer file", "Streaming", "Gaming"],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Easy"
-  },
-  {
-    "question": "DNS berfungsi untuk …",
-    "options": ["Mengamankan jaringan", "Mengubah domain ke IP", "Mengirim email", "Mengatur bandwidth"],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Easy"
-  },
-  {
-    "question": "Perangkat yang memperkuat sinyal jaringan adalah …",
-    "options": ["Router", "Switch", "Repeater", "Bridge"],
-    "answerIndex": 2,
-    "category": "Network",
-    "level": "Easy"
-  },
-  {
-    "question": "Switch bekerja pada layer … OSI",
-    "options": ["Layer 1", "Layer 2", "Layer 3", "Layer 7"],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Easy"
-  },
-  {
-    "question": "Router bekerja pada layer … OSI",
-    "options": ["Layer 2", "Layer 3", "Layer 4", "Layer 1"],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Easy"
-  },
-  {
-    "question": "MAC address bersifat …",
-    "options": ["Dinamis", "Berubah-ubah", "Permanen", "Sementara"],
-    "answerIndex": 2,
-    "category": "Network",
-    "level": "Easy"
-  },
-  {
-    "question": "NIC adalah singkatan dari …",
-    "options": [
-      "Network Internet Card",
-      "Network Interface Card",
-      "Network Internal Cable",
-      "Node Interface Connector"
-    ],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Easy"
-  },
 
-  {
-    "question": "Model OSI terdiri dari … layer",
-    "options": ["5", "6", "7", "8"],
-    "answerIndex": 2,
-    "category": "Network",
-    "level": "Medium"
-  },
-  {
-    "question": "Layer OSI yang menangani routing adalah …",
-    "options": ["Data Link", "Network", "Transport", "Session"],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Medium"
-  },
-  {
-    "question": "TCP bersifat …",
-    "options": ["Connectionless", "Tidak andal", "Connection-oriented", "Cepat tanpa jaminan"],
-    "answerIndex": 2,
-    "category": "Network",
-    "level": "Medium"
-  },
-  {
-    "question": "UDP cocok digunakan untuk …",
-    "options": ["Email", "Streaming video", "File transfer", "Database"],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Medium"
-  },
-  {
-    "question": "Port default HTTP adalah …",
-    "options": ["20", "21", "80", "443"],
-    "answerIndex": 2,
-    "category": "Network",
-    "level": "Medium"
-  },
-  {
-    "question": "Port default HTTPS adalah …",
-    "options": ["80", "21", "25", "443"],
-    "answerIndex": 3,
-    "category": "Network",
-    "level": "Medium"
-  },
-  {
-    "question": "Subnetting bertujuan untuk …",
-    "options": ["Menghapus IP", "Membagi jaringan", "Menambah bandwidth", "Mengganti router"],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Medium"
-  },
-  {
-    "question": "Alamat IP versi 4 terdiri dari … bit",
-    "options": ["16", "32", "64", "128"],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Medium"
-  },
-  {
-    "question": "IP versi 6 terdiri dari … bit",
-    "options": ["32", "64", "128", "256"],
-    "answerIndex": 2,
-    "category": "Network",
-    "level": "Medium"
-  },
-  {
-    "question": "NAT berfungsi untuk …",
-    "options": [
-      "Mengamankan data",
-      "Mengubah IP private ke publik",
-      "Menghapus virus",
-      "Mengatur bandwidth"
-    ],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Medium"
-  },
-  {
-    "question": "DHCP berfungsi untuk …",
-    "options": [
-      "Memberi IP otomatis",
-      "Mengamankan jaringan",
-      "Routing data",
-      "Enkripsi data"
-    ],
-    "answerIndex": 0,
-    "category": "Network",
-    "level": "Medium"
-  },
-  {
-    "question": "Firewall digunakan untuk …",
-    "options": ["Menghubungkan jaringan", "Melindungi jaringan", "Transfer file", "Mendesain web"],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Medium"
-  },
-  {
-    "question": "Ping digunakan untuk …",
-    "options": ["Transfer data", "Mengecek koneksi", "Menghapus cache", "Mengatur DNS"],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Medium"
-  },
-  {
-    "question": "Bandwidth adalah …",
-    "options": ["Jarak jaringan", "Kecepatan data maksimum", "Alamat IP", "Protokol"],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Medium"
-  },
-  {
-    "question": "Latency adalah …",
-    "options": ["Kecepatan download", "Waktu tunda", "Kapasitas data", "Keamanan jaringan"],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Medium"
-  },
-  {
-    "question": "Packet adalah …",
-    "options": ["Data utuh", "Potongan data", "Kabel", "Server"],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Medium"
-  },
-  {
-    "question": "VPN digunakan untuk …",
-    "options": ["Game online", "Jaringan privat aman", "Streaming", "Database"],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Medium"
-  },
-  {
-    "question": "QoS digunakan untuk …",
-    "options": ["Menghapus data", "Mengatur prioritas trafik", "Backup jaringan", "UI"],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Medium"
-  },
-  {
-    "question": "Access Point digunakan untuk …",
-    "options": ["Routing", "Menghubungkan perangkat wireless", "Firewall", "Switch"],
-    "answerIndex": 1,
-    "category": "Network",
-    "level": "Medium"
-  },  
+  
+  {"question":"Jaringan komputer adalah …","options":["Kumpulan komputer yang berdiri sendiri","Kumpulan komputer yang saling terhubung","Satu komputer besar","Sistem operasi"],"answerIndex":1,"category":"Network","level":"Easy"},
+  {"question":"Tujuan utama jaringan komputer adalah …","options":["Memperbesar ukuran komputer","Berbagi sumber daya","Mengganti sistem operasi","Mendesain UI"],"answerIndex":1,"category":"Network","level":"Easy"},
+  {"question":"Contoh perangkat jaringan adalah …","options":["Printer","Scanner","Router","Keyboard"],"answerIndex":2,"category":"Network","level":"Easy"},
+  {"question":"LAN adalah singkatan dari …","options":["Local Area Network","Large Area Network","Long Area Network","Light Area Network"],"answerIndex":0,"category":"Network","level":"Easy"},
+  {"question":"Jaringan dengan jangkauan sangat luas disebut …","options":["LAN","MAN","WAN","PAN"],"answerIndex":2,"category":"Network","level":"Easy"},
+  {"question":"Internet termasuk jenis jaringan …","options":["LAN","MAN","WAN","PAN"],"answerIndex":2,"category":"Network","level":"Easy"},
+  {"question":"Topologi jaringan yang menggunakan satu kabel utama adalah …","options":["Star","Ring","Bus","Mesh"],"answerIndex":2,"category":"Network","level":"Easy"},
+  {"question":"Topologi star memiliki ciri …","options":["Tanpa pusat","Semua node terhubung ke pusat","Satu kabel utama","Loop tertutup"],"answerIndex":1,"category":"Network","level":"Easy"},
+  {"question":"Perangkat yang menghubungkan jaringan berbeda adalah …","options":["Hub","Switch","Router","NIC"],"answerIndex":2,"category":"Network","level":"Easy"},
+  {"question":"IP address berfungsi sebagai …","options":["Nama komputer","Alamat perangkat","Sistem operasi","Kabel jaringan"],"answerIndex":1,"category":"Network","level":"Easy"},
+  {"question":"Contoh IP address adalah …","options":["256.10.1.1","192.168.1.1","999.1.1.1","123.456.78.9"],"answerIndex":1,"category":"Network","level":"Easy"},
+  {"question":"Protokol adalah …","options":["Perangkat keras","Aturan komunikasi","Sistem operasi","Software desain"],"answerIndex":1,"category":"Network","level":"Easy"},
+  {"question":"HTTP digunakan untuk …","options":["Mengirim email","Transfer file","Akses web","Remote server"],"answerIndex":2,"category":"Network","level":"Easy"},
+  {"question":"FTP digunakan untuk …","options":["Chat","Transfer file","Streaming","Gaming"],"answerIndex":1,"category":"Network","level":"Easy"},
+  {"question":"DNS berfungsi untuk …","options":["Mengamankan jaringan","Mengubah domain ke IP","Mengirim email","Mengatur bandwidth"],"answerIndex":1,"category":"Network","level":"Easy"},
+  {"question":"Perangkat yang memperkuat sinyal jaringan adalah …","options":["Router","Switch","Repeater","Bridge"],"answerIndex":2,"category":"Network","level":"Easy"},
+  {"question":"Switch bekerja pada layer … OSI","options":["Layer 1","Layer 2","Layer 3","Layer 7"],"answerIndex":1,"category":"Network","level":"Easy"},
+  {"question":"Router bekerja pada layer … OSI","options":["Layer 2","Layer 3","Layer 4","Layer 1"],"answerIndex":1,"category":"Network","level":"Easy"},
+  {"question":"MAC address bersifat …","options":["Dinamis","Berubah-ubah","Permanen","Sementara"],"answerIndex":2,"category":"Network","level":"Easy"},
+  {"question":"NIC adalah singkatan dari …","options":["Network Internet Card","Network Interface Card","Network Internal Cable","Node Interface Connector"],"answerIndex":1,"category":"Network","level":"Easy"},
 
-    {
-    "question": "UI adalah singkatan dari …",
-    "options": ["User Idea", "User Interface", "User Interaction", "Universal Interface"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
-  {
-    "question": "UX adalah singkatan dari …",
-    "options": ["User Xperience", "User Experience", "User Execution", "Universal Experience"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
-  {
-    "question": "Fokus utama UI adalah …",
-    "options": ["Pengalaman pengguna", "Tampilan visual", "Struktur database", "Algoritma"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
-  {
-    "question": "Fokus utama UX adalah …",
-    "options": ["Warna", "Pengalaman pengguna", "Font", "Layout saja"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
-  {
-    "question": "Contoh elemen UI adalah …",
-    "options": ["Flowchart", "Button", "Algoritma", "Database"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
-  {
-    "question": "Wireframe adalah …",
-    "options": ["Desain akhir", "Kerangka desain", "Kode program", "Database"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
-  {
-    "question": "Mockup adalah …",
-    "options": ["Sketsa kasar", "Desain visual mendekati final", "Kode backend", "Server"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
-  {
-    "question": "Prototyping bertujuan untuk …",
-    "options": ["Testing pengalaman pengguna", "Menyimpan data", "Membuat database", "Hosting"],
-    "answerIndex": 0,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
-  {
-    "question": "UX yang baik membuat pengguna merasa …",
-    "options": ["Bingung", "Nyaman", "Frustrasi", "Tersesat"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
-  {
-    "question": "Warna merah biasanya melambangkan …",
-    "options": ["Tenang", "Bahaya atau peringatan", "Alam", "Netral"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
-  {
-    "question": "Typography berhubungan dengan …",
-    "options": ["Warna", "Teks dan font", "Gambar", "Animasi"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
-  {
-    "question": "Responsive design berarti …",
-    "options": ["Desain statis", "Menyesuaikan ukuran layar", "Warna berubah", "Animasi banyak"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
-  {
-    "question": "White space berfungsi untuk …",
-    "options": ["Mengisi halaman kosong", "Meningkatkan keterbacaan", "Mengurangi teks", "Menambah warna"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
-  {
-    "question": "Icon digunakan untuk …",
-    "options": ["Dekorasi saja", "Memperjelas fungsi", "Mengisi ruang", "Animasi"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
-  {
-    "question": "UX writing berkaitan dengan …",
-    "options": ["Kode", "Teks antarmuka", "Database", "Server"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
-  {
-    "question": "Call To Action (CTA) bertujuan untuk …",
-    "options": ["Menarik perhatian", "Mengarahkan tindakan pengguna", "Menghias halaman", "Testing"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
-  {
-    "question": "Accessibility berarti …",
-    "options": ["Tampilan cantik", "Mudah diakses semua pengguna", "Cepat loading", "Aman"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
-  {
-    "question": "Kontras warna penting untuk …",
-    "options": ["Estetika saja", "Keterbacaan", "Animasi", "Branding"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
-  {
-    "question": "Layout adalah …",
-    "options": ["Warna utama", "Tata letak elemen", "Font", "Animasi"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
-  {
-    "question": "Desain UI/UX yang buruk menyebabkan …",
-    "options": ["Pengguna betah", "Pengguna bingung", "Performa naik", "Data aman"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Easy"
-  },
+  {"question":"Model OSI terdiri dari … layer","options":["5","6","7","8"],"answerIndex":2,"category":"Network","level":"Medium"},
+  {"question":"Layer OSI yang menangani routing adalah …","options":["Data Link","Network","Transport","Session"],"answerIndex":1,"category":"Network","level":"Medium"},
+  {"question":"TCP bersifat …","options":["Connectionless","Tidak andal","Connection-oriented","Cepat tanpa jaminan"],"answerIndex":2,"category":"Network","level":"Medium"},
+  {"question":"UDP cocok digunakan untuk …","options":["Email","Streaming video","File transfer","Database"],"answerIndex":1,"category":"Network","level":"Medium"},
+  {"question":"Port default HTTP adalah …","options":["20","21","80","443"],"answerIndex":2,"category":"Network","level":"Medium"},
+  {"question":"Port default HTTPS adalah …","options":["80","21","25","443"],"answerIndex":3,"category":"Network","level":"Medium"},
+  {"question":"Subnetting bertujuan untuk …","options":["Menghapus IP","Membagi jaringan","Menambah bandwidth","Mengganti router"],"answerIndex":1,"category":"Network","level":"Medium"},
+  {"question":"Alamat IP versi 4 terdiri dari … bit","options":["16","32","64","128"],"answerIndex":1,"category":"Network","level":"Medium"},
+  {"question":"IP versi 6 terdiri dari … bit","options":["32","64","128","256"],"answerIndex":2,"category":"Network","level":"Medium"},
+  {"question":"NAT berfungsi untuk …","options":["Mengamankan data","Mengubah IP private ke publik","Menghapus virus","Mengatur bandwidth"],"answerIndex":1,"category":"Network","level":"Medium"},
+  {"question":"DHCP berfungsi untuk …","options":["Memberi IP otomatis","Mengamankan jaringan","Routing data","Enkripsi data"],"answerIndex":0,"category":"Network","level":"Medium"},
+  {"question":"Firewall digunakan untuk …","options":["Menghubungkan jaringan","Melindungi jaringan","Transfer file","Mendesain web"],"answerIndex":1,"category":"Network","level":"Medium"},
+  {"question":"Ping digunakan untuk …","options":["Transfer data","Mengecek koneksi","Menghapus cache","Mengatur DNS"],"answerIndex":1,"category":"Network","level":"Medium"},
+  {"question":"Bandwidth adalah …","options":["Jarak jaringan","Kecepatan data maksimum","Alamat IP","Protokol"],"answerIndex":1,"category":"Network","level":"Medium"},
+  {"question":"Latency adalah …","options":["Kecepatan download","Waktu tunda","Kapasitas data","Keamanan jaringan"],"answerIndex":1,"category":"Network","level":"Medium"},
+  {"question":"Packet adalah …","options":["Data utuh","Potongan data","Kabel","Server"],"answerIndex":1,"category":"Network","level":"Medium"},
+  {"question":"VPN digunakan untuk …","options":["Game online","Jaringan privat aman","Streaming","Database"],"answerIndex":1,"category":"Network","level":"Medium"},
+  {"question":"QoS digunakan untuk …","options":["Menghapus data","Mengatur prioritas trafik","Backup jaringan","UI"],"answerIndex":1,"category":"Network","level":"Medium"},
+  {"question":"Access Point digunakan untuk …","options":["Routing","Menghubungkan perangkat wireless","Firewall","Switch"],"answerIndex":1,"category":"Network","level":"Medium"},
+  {"question":"WiFi adalah standar …","options":["IEEE 802.3","IEEE 802.11","IEEE 802.15","IEEE 802.16"],"answerIndex":1,"category":"Network","level":"Medium"},
 
-  {
-    "question": "User persona adalah …",
-    "options": ["Data teknis", "Representasi pengguna", "Database user", "Role admin"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Medium"
-  },
-  {
-    "question": "User journey menggambarkan …",
-    "options": ["Struktur database", "Alur pengalaman pengguna", "Warna desain", "Coding flow"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Medium"
-  },
-  {
-    "question": "Heuristic evaluation diperkenalkan oleh …",
-    "options": ["Steve Jobs", "Jakob Nielsen", "Don Norman", "Tim Berners-Lee"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Medium"
-  },
-  {
-    "question": "Prinsip 'visibility of system status' berarti …",
-    "options": ["Sistem selalu error", "Sistem memberi feedback", "Sistem tersembunyi", "Sistem lambat"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Medium"
-  },
-  {
-    "question": "Usability testing bertujuan untuk …",
-    "options": ["Menguji server", "Menguji kemudahan penggunaan", "Menguji database", "Menguji keamanan"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Medium"
-  },
-  {
-    "question": "A/B testing digunakan untuk …",
-    "options": ["Debugging", "Membandingkan desain", "Membuat wireframe", "Hosting"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Medium"
-  },
-  {
-    "question": "Consistency dalam UI berarti …",
-    "options": ["Warna selalu sama", "Pola desain seragam", "Tidak ada ikon", "Layout acak"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Medium"
-  },
-  {
-    "question": "Design system berisi …",
-    "options": ["Database", "Aturan dan komponen desain", "Server", "API"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Medium"
-  },
-  {
-    "question": "Grid system membantu …",
-    "options": ["Coding", "Tata letak konsisten", "Keamanan", "Database"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Medium"
-  },
-  {
-    "question": "Figma adalah tools untuk …",
-    "options": ["Backend", "UI/UX design", "Database", "Server"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Medium"
-  },
-  {
-    "question": "Low-fidelity prototype berarti …",
-    "options": ["Desain detail", "Desain sederhana", "Kode final", "UI animasi"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Medium"
-  },
-  {
-    "question": "High-fidelity prototype berarti …",
-    "options": ["Sketsa kasar", "Mirip produk akhir", "Tanpa warna", "Tanpa interaksi"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Medium"
-  },
-  {
-    "question": "Affordance dalam UI berarti …",
-    "options": ["Keindahan", "Petunjuk penggunaan", "Keamanan", "Loading cepat"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Medium"
-  },
-  {
-    "question": "Feedback dalam UI bertujuan untuk …",
-    "options": ["Estetika", "Memberi respon pada aksi user", "Menghias halaman", "Database"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Medium"
-  },
-  {
-    "question": "Cognitive load adalah …",
-    "options": ["Beban server", "Beban mental pengguna", "Beban jaringan", "Beban CPU"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Medium"
-  },
-  {
-    "question": "Breadcrumb digunakan untuk …",
-    "options": ["Navigasi", "Dekorasi", "Animasi", "Testing"],
-    "answerIndex": 0,
-    "category": "UI/UX Design",
-    "level": "Medium"
-  },
-  {
-    "question": "Heatmap digunakan untuk …",
-    "options": ["Warna desain", "Analisis interaksi user", "Database", "UI coding"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Medium"
-  },
-  {
-    "question": "UX research bertujuan untuk …",
-    "options": ["Mendesain warna", "Memahami kebutuhan pengguna", "Coding UI", "Hosting"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Medium"
-  },
-  {
-    "question": "Mobile-first design berarti …",
-    "options": ["Desktop utama", "Desain dimulai dari mobile", "UI berat", "Animasi banyak"],
-    "answerIndex": 1,
-    "category": "UI/UX Design",
-    "level": "Medium"
-  }
+  {"question":"CIDR digunakan untuk …","options":["Mengganti IP","Routing fleksibel","Enkripsi","Firewall"],"answerIndex":1,"category":"Network","level":"Hard"},
+  {"question":"Routing protocol OSPF termasuk jenis …","options":["Distance vector","Link state","Path vector","Static"],"answerIndex":1,"category":"Network","level":"Hard"},
+  {"question":"BGP digunakan untuk …","options":["Jaringan lokal","Routing antar ISP","Transfer file","DNS"],"answerIndex":1,"category":"Network","level":"Hard"},
+  {"question":"MTU adalah …","options":["Ukuran paket maksimum","Kecepatan jaringan","IP address","Protokol"],"answerIndex":0,"category":"Network","level":"Hard"},
+  {"question":"ARP berfungsi untuk …","options":["IP ke MAC","MAC ke IP","DNS","Routing"],"answerIndex":0,"category":"Network","level":"Hard"},
+  {"question":"ICMP digunakan oleh …","options":["FTP","Ping","HTTP","SMTP"],"answerIndex":1,"category":"Network","level":"Hard"},
+  {"question":"SSL/TLS berfungsi untuk …","options":["Routing","Enkripsi data","Backup","UI"],"answerIndex":1,"category":"Network","level":"Hard"},
+  {"question":"Load balancing bertujuan untuk …","options":["Menghapus server","Membagi beban trafik","Memperlambat jaringan","Backup data"],"answerIndex":1,"category":"Network","level":"Hard"},
+  {"question":"VLAN digunakan untuk …","options":["Jaringan fisik","Segmentasi logis","Enkripsi","Routing publik"],"answerIndex":1,"category":"Network","level":"Hard"},
+  {"question":"Traceroute digunakan untuk …","options":["Mengukur bandwidth","Mengetahui jalur paket","Enkripsi data","Firewall"],"answerIndex":1,"category":"Network","level":"Hard"},
+  {"question":"IDS berfungsi untuk …","options":["Routing","Deteksi intrusi","Enkripsi","Backup"],"answerIndex":1,"category":"Network","level":"Hard"},
+  {"question":"IPS berbeda dari IDS karena …","options":["Lebih lambat","Dapat mencegah serangan","Hanya monitoring","Tidak otomatis"],"answerIndex":1,"category":"Network","level":"Hard"},
+  {"question":"Proxy server berfungsi untuk …","options":["Routing","Perantara client-server","Firewall","DNS"],"answerIndex":1,"category":"Network","level":"Hard"},
+  {"question":"DMZ digunakan untuk …","options":["Jaringan internal","Zona aman publik","Database","UI"],"answerIndex":1,"category":"Network","level":"Hard"},
+  {"question":"Zero Trust Network mengasumsikan …","options":["Semua aman","Tidak ada yang dipercaya","Jaringan lokal aman","Firewall cukup"],"answerIndex":1,"category":"Network","level":"Hard"},
+  {"question":"SDN adalah singkatan dari …","options":["Software Data Network","Software Defined Network","System Data Node","Secure Device Network"],"answerIndex":1,"category":"Network","level":"Hard"},
+  {"question":"MPLS digunakan untuk …","options":["Enkripsi","Routing cepat","UI","Backup"],"answerIndex":1,"category":"Network","level":"Hard"},
+  {"question":"Anycast digunakan untuk …","options":["Satu ke satu","Satu ke banyak","Mengirim ke node terdekat","Broadcast"],"answerIndex":2,"category":"Network","level":"Hard"},
+  {"question":"Network redundancy bertujuan untuk …","options":["Efisiensi","Keandalan","UI","Estetika"],"answerIndex":1,"category":"Network","level":"Hard"},
+  {"question":"Network automation memanfaatkan …","options":["Manual config","Script dan API","Hardware baru","Kabel tambahan"],"answerIndex":1,"category":"Network","level":"Hard"},
+
+
+
+  {"question":"UI adalah singkatan dari …","options":["User Idea","User Interface","User Interaction","Universal Interface"],"answerIndex":1,"category":"UI/UX Design","level":"Easy"},
+  {"question":"UX adalah singkatan dari …","options":["User Xperience","User Experience","User Execution","Universal Experience"],"answerIndex":1,"category":"UI/UX Design","level":"Easy"},
+  {"question":"Fokus utama UI adalah …","options":["Pengalaman pengguna","Tampilan visual","Struktur database","Algoritma"],"answerIndex":1,"category":"UI/UX Design","level":"Easy"},
+  {"question":"Fokus utama UX adalah …","options":["Warna","Pengalaman pengguna","Font","Layout saja"],"answerIndex":1,"category":"UI/UX Design","level":"Easy"},
+  {"question":"Contoh elemen UI adalah …","options":["Flowchart","Button","Algoritma","Database"],"answerIndex":1,"category":"UI/UX Design","level":"Easy"},
+  {"question":"Wireframe adalah …","options":["Desain akhir","Kerangka desain","Kode program","Database"],"answerIndex":1,"category":"UI/UX Design","level":"Easy"},
+  {"question":"Mockup adalah …","options":["Sketsa kasar","Desain visual mendekati final","Kode backend","Server"],"answerIndex":1,"category":"UI/UX Design","level":"Easy"},
+  {"question":"Prototyping bertujuan untuk …","options":["Testing pengalaman pengguna","Menyimpan data","Membuat database","Hosting"],"answerIndex":0,"category":"UI/UX Design","level":"Easy"},
+  {"question":"UX yang baik membuat pengguna merasa …","options":["Bingung","Nyaman","Frustrasi","Tersesat"],"answerIndex":1,"category":"UI/UX Design","level":"Easy"},
+  {"question":"Warna merah biasanya melambangkan …","options":["Tenang","Bahaya atau peringatan","Alam","Netral"],"answerIndex":1,"category":"UI/UX Design","level":"Easy"},
+  {"question":"Typography berhubungan dengan …","options":["Warna","Teks dan font","Gambar","Animasi"],"answerIndex":1,"category":"UI/UX Design","level":"Easy"},
+  {"question":"Responsive design berarti …","options":["Desain statis","Menyesuaikan ukuran layar","Warna berubah","Animasi banyak"],"answerIndex":1,"category":"UI/UX Design","level":"Easy"},
+  {"question":"White space berfungsi untuk …","options":["Mengisi halaman kosong","Meningkatkan keterbacaan","Mengurangi teks","Menambah warna"],"answerIndex":1,"category":"UI/UX Design","level":"Easy"},
+  {"question":"Icon digunakan untuk …","options":["Dekorasi saja","Memperjelas fungsi","Mengisi ruang","Animasi"],"answerIndex":1,"category":"UI/UX Design","level":"Easy"},
+  {"question":"UX writing berkaitan dengan …","options":["Kode","Teks antarmuka","Database","Server"],"answerIndex":1,"category":"UI/UX Design","level":"Easy"},
+  {"question":"Call To Action (CTA) bertujuan untuk …","options":["Menarik perhatian","Mengarahkan tindakan pengguna","Menghias halaman","Testing"],"answerIndex":1,"category":"UI/UX Design","level":"Easy"},
+  {"question":"Accessibility berarti …","options":["Tampilan cantik","Mudah diakses semua pengguna","Cepat loading","Aman"],"answerIndex":1,"category":"UI/UX Design","level":"Easy"},
+  {"question":"Kontras warna penting untuk …","options":["Estetika saja","Keterbacaan","Animasi","Branding"],"answerIndex":1,"category":"UI/UX Design","level":"Easy"},
+  {"question":"Layout adalah …","options":["Warna utama","Tata letak elemen","Font","Animasi"],"answerIndex":1,"category":"UI/UX Design","level":"Easy"},
+  {"question":"Desain UI/UX yang buruk menyebabkan …","options":["Pengguna betah","Pengguna bingung","Performa naik","Data aman"],"answerIndex":1,"category":"UI/UX Design","level":"Easy"},
+
+  {"question":"User persona adalah …","options":["Data teknis","Representasi pengguna","Database user","Role admin"],"answerIndex":1,"category":"UI/UX Design","level":"Medium"},
+  {"question":"User journey menggambarkan …","options":["Struktur database","Alur pengalaman pengguna","Warna desain","Coding flow"],"answerIndex":1,"category":"UI/UX Design","level":"Medium"},
+  {"question":"Heuristic evaluation diperkenalkan oleh …","options":["Steve Jobs","Jakob Nielsen","Don Norman","Tim Berners-Lee"],"answerIndex":1,"category":"UI/UX Design","level":"Medium"},
+  {"question":"Prinsip \"visibility of system status\" berarti …","options":["Sistem selalu error","Sistem memberi feedback","Sistem tersembunyi","Sistem lambat"],"answerIndex":1,"category":"UI/UX Design","level":"Medium"},
+  {"question":"Usability testing bertujuan untuk …","options":["Menguji server","Menguji kemudahan penggunaan","Menguji database","Menguji keamanan"],"answerIndex":1,"category":"UI/UX Design","level":"Medium"},
+  {"question":"A/B testing digunakan untuk …","options":["Debugging","Membandingkan desain","Membuat wireframe","Hosting"],"answerIndex":1,"category":"UI/UX Design","level":"Medium"},
+  {"question":"Consistency dalam UI berarti …","options":["Warna selalu sama","Pola desain seragam","Tidak ada ikon","Layout acak"],"answerIndex":1,"category":"UI/UX Design","level":"Medium"},
+  {"question":"Design system berisi …","options":["Database","Aturan dan komponen desain","Server","API"],"answerIndex":1,"category":"UI/UX Design","level":"Medium"},
+  {"question":"Grid system membantu …","options":["Coding","Tata letak konsisten","Keamanan","Database"],"answerIndex":1,"category":"UI/UX Design","level":"Medium"},
+  {"question":"Figma adalah tools untuk …","options":["Backend","UI/UX design","Database","Server"],"answerIndex":1,"category":"UI/UX Design","level":"Medium"},
+  {"question":"Low-fidelity prototype berarti …","options":["Desain detail","Desain sederhana","Kode final","UI animasi"],"answerIndex":1,"category":"UI/UX Design","level":"Medium"},
+  {"question":"High-fidelity prototype berarti …","options":["Sketsa kasar","Mirip produk akhir","Tanpa warna","Tanpa interaksi"],"answerIndex":1,"category":"UI/UX Design","level":"Medium"},
+  {"question":"Affordance dalam UI berarti …","options":["Keindahan","Petunjuk penggunaan","Keamanan","Loading cepat"],"answerIndex":1,"category":"UI/UX Design","level":"Medium"},
+  {"question":"Feedback dalam UI bertujuan untuk …","options":["Estetika","Memberi respon pada aksi user","Menghias halaman","Database"],"answerIndex":1,"category":"UI/UX Design","level":"Medium"},
+  {"question":"Cognitive load adalah …","options":["Beban server","Beban mental pengguna","Beban jaringan","Beban CPU"],"answerIndex":1,"category":"UI/UX Design","level":"Medium"},
+  {"question":"Breadcrumb digunakan untuk …","options":["Navigasi","Dekorasi","Animasi","Testing"],"answerIndex":0,"category":"UI/UX Design","level":"Medium"},
+  {"question":"Heatmap digunakan untuk …","options":["Warna desain","Analisis interaksi user","Database","UI coding"],"answerIndex":1,"category":"UI/UX Design","level":"Medium"},
+  {"question":"UX research bertujuan untuk …","options":["Mendesain warna","Memahami kebutuhan pengguna","Coding UI","Hosting"],"answerIndex":1,"category":"UI/UX Design","level":"Medium"},
+  {"question":"Mobile-first design berarti …","options":["Desktop utama","Desain dimulai dari mobile","UI berat","Animasi banyak"],"answerIndex":1,"category":"UI/UX Design","level":"Medium"},
+  {"question":"Dark mode bermanfaat untuk …","options":["Boros baterai","Kenyamanan mata","Error","Database"],"answerIndex":1,"category":"UI/UX Design","level":"Medium"},
+
+  {"question":"Nielsen’s 10 usability heuristics fokus pada …","options":["Estetika","Kemudahan penggunaan","Coding","Database"],"answerIndex":1,"category":"UI/UX Design","level":"Hard"},
+  {"question":"Fitts’s Law menyatakan bahwa …","options":["Warna memengaruhi UX","Jarak & ukuran target memengaruhi interaksi","UX subjektif","UI statis"],"answerIndex":1,"category":"UI/UX Design","level":"Hard"},
+  {"question":"Hick’s Law menyatakan bahwa …","options":["Banyak pilihan mempercepat keputusan","Banyak pilihan memperlambat keputusan","Warna memengaruhi keputusan","UI tidak penting"],"answerIndex":1,"category":"UI/UX Design","level":"Hard"},
+  {"question":"Gestalt principle menekankan pada …","options":["Kode","Persepsi visual","Database","Server"],"answerIndex":1,"category":"UI/UX Design","level":"Hard"},
+  {"question":"Accessibility WCAG bertujuan untuk …","options":["Estetika","Aksesibilitas pengguna disabilitas","Kecepatan","Branding"],"answerIndex":1,"category":"UI/UX Design","level":"Hard"},
+  {"question":"Microinteraction adalah …","options":["Animasi besar","Interaksi kecil spesifik","Layout utama","Database"],"answerIndex":1,"category":"UI/UX Design","level":"Hard"},
+  {"question":"Progressive disclosure bertujuan untuk …","options":["Menyembunyikan semua fitur","Menampilkan info bertahap","Menampilkan semua sekaligus","UI penuh"],"answerIndex":1,"category":"UI/UX Design","level":"Hard"},
+  {"question":"Design thinking terdiri dari tahapan …","options":["3","4","5","6"],"answerIndex":2,"category":"UI/UX Design","level":"Hard"},
+  {"question":"Empathy dalam UX berarti …","options":["Estetika","Memahami perasaan user","Coding","Database"],"answerIndex":1,"category":"UI/UX Design","level":"Hard"},
+  {"question":"Information architecture berfokus pada …","options":["Warna","Struktur informasi","Animasi","Server"],"answerIndex":1,"category":"UI/UX Design","level":"Hard"},
+  {"question":"Usability vs desirability berbeda pada …","options":["Fungsi vs emosi","Warna","Font","Database"],"answerIndex":0,"category":"UI/UX Design","level":"Hard"},
+  {"question":"Service design memperhatikan …","options":["UI saja","Keseluruhan pengalaman layanan","Coding","Database"],"answerIndex":1,"category":"UI/UX Design","level":"Hard"},
+  {"question":"UX metrics mencakup …","options":["CPU usage","Task success rate","Database size","RAM"],"answerIndex":1,"category":"UI/UX Design","level":"Hard"},
+  {"question":"Dark pattern adalah …","options":["Desain etis","Manipulasi pengguna","Accessibility","Branding"],"answerIndex":1,"category":"UI/UX Design","level":"Hard"},
+  {"question":"Emotional design berfokus pada …","options":["Logika","Perasaan pengguna","Kode","Database"],"answerIndex":1,"category":"UI/UX Design","level":"Hard"},
+  {"question":"Cross-platform consistency penting untuk …","options":["Estetika","Pengalaman konsisten","Database","Server"],"answerIndex":1,"category":"UI/UX Design","level":"Hard"},
+  {"question":"UX maturity menunjukkan …","options":["Umur produk","Kedewasaan praktik UX","Versi UI","Database"],"answerIndex":1,"category":"UI/UX Design","level":"Hard"},
+  {"question":"Gamification digunakan untuk …","options":["Debugging","Meningkatkan engagement","Hosting","Database"],"answerIndex":1,"category":"UI/UX Design","level":"Hard"},
+  {"question":"Ethical design menekankan pada …","options":["Profit","Kepentingan pengguna","Animasi","Branding"],"answerIndex":1,"category":"UI/UX Design","level":"Hard"},
+  {"question":"UX/UI yang baik berdampak pada …","options":["Penurunan user","Loyalitas pengguna","Error","Kompleksitas"],"answerIndex":1,"category":"UI/UX Design","level":"Hard"}
 ]
+
