@@ -10,7 +10,6 @@ import '../utils/audio_controller.dart';
 import 'package:flutter/widgets.dart';
 import '../main.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -25,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
 
   @override
   void didChangeDependencies() {
-  super.didChangeDependencies();
+    super.didChangeDependencies();
 
     // subscribe ke route observer
     routeObserver.subscribe(
@@ -45,7 +44,6 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
     // Dipanggil saat BALIK ke Home dari screen lain (Quiz)
     _audio.playBGM('audio/music/home_bgm.mp3', volume: 0.5);
   }
-
 
   @override
   void initState() {
@@ -84,17 +82,21 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
             children: [
               // ================= PROFILE HEADER =================
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     GestureDetector(
                       onTap: () async {
-                        await _audio.playSFX('audio/sfx/button_click.mp3');
-                        await Future.delayed(const Duration(milliseconds: 100));
+                        await _audio
+                            .playSFX('audio/sfx/button_click.mp3');
+                        await Future.delayed(
+                            const Duration(milliseconds: 100));
                         final result = await Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (_) => const ProfileScreen()),
+                          MaterialPageRoute(
+                              builder: (_) => const ProfileScreen()),
                         );
                         if (result != null && mounted) {
                           setState(() {
@@ -132,14 +134,19 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                     Row(
                       children: [
                         IconButton(
-                          icon: const Icon(Icons.settings, color: Colors.white),
+                          icon: const Icon(Icons.settings,
+                              color: Colors.white),
                           onPressed: () async {
-                            await _audio.playSFX('audio/sfx/button_click.mp3');
-                            await Future.delayed(const Duration(milliseconds: 100));
+                            await _audio
+                                .playSFX('audio/sfx/button_click.mp3');
+                            await Future.delayed(
+                                const Duration(milliseconds: 100));
                             if (mounted) {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (_) => const SettingsScreen()),
+                                MaterialPageRoute(
+                                    builder: (_) =>
+                                        const SettingsScreen()),
                               );
                             }
                           },
@@ -167,7 +174,8 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
               // ================= TEXT CARD =================
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 24),
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
                 decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.15),
                   borderRadius: BorderRadius.circular(30),
@@ -186,7 +194,8 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                     const SizedBox(height: 8),
                     const Text(
                       'Learn, play, and improve your skills!',
-                      style: TextStyle(color: Colors.white70, fontSize: 13),
+                      style:
+                          TextStyle(color: Colors.white70, fontSize: 13),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 20),
@@ -195,12 +204,16 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                       height: 50,
                       child: ElevatedButton(
                         onPressed: () async {
-                          await _audio.playSFX('audio/sfx/button_click.mp3');
-                          await Future.delayed(const Duration(milliseconds: 150));
+                          await _audio
+                              .playSFX('audio/sfx/button_click.mp3');
+                          await Future.delayed(
+                              const Duration(milliseconds: 150));
                           if (mounted) {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (_) => const ModeSelectionScreen()),
+                              MaterialPageRoute(
+                                  builder: (_) =>
+                                      const ModeSelectionScreen()),
                             );
                           }
                         },
@@ -213,7 +226,10 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                         ),
                         child: const Text(
                           'Play Now',
-                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
                         ),
                       ),
                     ),
@@ -259,17 +275,21 @@ class _ModeSelectionScreenState extends State<ModeSelectionScreen> {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: IconButton(
-                    icon: const Icon(Icons.arrow_back, color: Colors.white),
+                    icon: const Icon(Icons.arrow_back,
+                        color: Colors.white),
                     onPressed: () async {
-                      await _audio.playSFX('audio/sfx/button_click.mp3');
-                      await Future.delayed(const Duration(milliseconds: 100));
+                      await _audio
+                          .playSFX('audio/sfx/button_click.mp3');
+                      await Future.delayed(
+                          const Duration(milliseconds: 100));
                       if (mounted) Navigator.pop(context);
                     },
                   ),
                 ),
               ),
               const SizedBox(height: 20),
-              SvgPicture.asset('assets/home2.svg', width: 400, height: 400),
+              SvgPicture.asset('assets/home2.svg',
+                  width: 400, height: 400),
               const SizedBox(height: 20),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 24),
@@ -282,7 +302,8 @@ class _ModeSelectionScreenState extends State<ModeSelectionScreen> {
                   children: [
                     const Text(
                       'Pick your path Classic, or Arcade. Dive in!',
-                      style: TextStyle(color: Colors.white, fontSize: 16),
+                      style:
+                          TextStyle(color: Colors.white, fontSize: 16),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 24),
@@ -292,14 +313,21 @@ class _ModeSelectionScreenState extends State<ModeSelectionScreen> {
                       color: const Color(0xFFFFC107),
                       svgPath: 'assets/btn_classic.svg',
                       onTap: () async {
-                        await _audio.playSFX('audio/sfx/button_click.mp3');
-                        await Future.delayed(const Duration(milliseconds: 150));
+                        await _audio
+                            .playSFX('audio/sfx/button_click.mp3');
+                        await Future.delayed(
+                            const Duration(milliseconds: 150));
                         await _audio.stopBGM();
-                        await _audio.playBGM('audio/music/quiz_bgm.mp3', volume: 0.5);
+                        await _audio.playBGM(
+                            'audio/music/quiz_bgm.mp3',
+                            volume: 0.5);
                         if (mounted) {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (_) => const QuizScreen(mode: 'classic')),
+                            MaterialPageRoute(
+                              builder: (_) =>
+                                  const QuizScreen(mode: 'classic'),
+                            ),
                           );
                         }
                       },
@@ -311,14 +339,21 @@ class _ModeSelectionScreenState extends State<ModeSelectionScreen> {
                       color: const Color(0xFF22C55E),
                       svgPath: 'assets/btn_arcade.svg',
                       onTap: () async {
-                        await _audio.playSFX('audio/sfx/button_click.mp3');
-                        await Future.delayed(const Duration(milliseconds: 150));
+                        await _audio
+                            .playSFX('audio/sfx/button_click.mp3');
+                        await Future.delayed(
+                            const Duration(milliseconds: 150));
                         await _audio.stopBGM();
-                        await _audio.playBGM('audio/music/quiz_bgm.mp3', volume: 0.5);
+                        await _audio.playBGM(
+                            'audio/music/quiz_bgm.mp3',
+                            volume: 0.5);
                         if (mounted) {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (_) => const ArcadeCategoryScreen()),
+                            MaterialPageRoute(
+                              builder: (_) =>
+                                  const ArcadeCategoryScreen(),
+                            ),
                           );
                         }
                       },
@@ -358,7 +393,10 @@ class _ModeSelectionScreenState extends State<ModeSelectionScreen> {
             const SizedBox(width: 10),
             Text(
               text,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+              style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
             ),
           ],
         ),

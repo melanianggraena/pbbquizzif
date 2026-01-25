@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'home.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+  final bool isFirstTime;
+
+  const ProfileScreen({
+    Key? key,
+    this.isFirstTime = false,
+  }) : super(key: key);
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -11,10 +17,9 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   String selectedAvatar = 'assets/ava1.svg';
-  String userName = ''; // Kosong di awal
+  String userName = '';
 
   final TextEditingController _nameController = TextEditingController();
-
   final List<String> avatars =
       List.generate(12, (i) => 'assets/ava${i + 1}.svg');
 
@@ -32,10 +37,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
     });
   }
 
-  Future<void> _saveProfile() async {
+  Future<void> _saveProfile({bool markCompleted = false}) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('userName', userName);
     await prefs.setString('userAvatar', selectedAvatar);
+    if (markCompleted) {
+      await prefs.setBool('isProfileCompleted', true);
+    }
   }
 
   void _editName() {
@@ -73,12 +81,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  Future<void> _saveAndBack() async {
+  Future<void> _backToHome() async {
     await _saveProfile();
+    if (!mounted) return;
     Navigator.pop(context, {
       'name': userName,
       'avatar': selectedAvatar,
     });
+  }
+
+  Future<void> _continueFirstTime() async {
+    if (userName.isEmpty) return; // safety check
+    await _saveProfile(markCompleted: true);
+    if (!mounted) return;
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (_) => const HomeScreen()),
+    );
   }
 
   @override
@@ -95,17 +114,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: SafeArea(
           child: Column(
             children: [
-              // HEADER
+              // ================= HEADER =================
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                 child: Row(
                   children: [
-                    IconButton(
-                      icon: const Icon(Icons.arrow_back, color: Colors.white),
-                      onPressed: _saveAndBack,
-                    ),
-
-                    // JUDUL BENAR-BENAR TENGAH
+                    widget.isFirstTime
+                        ? const SizedBox(width: 48)
+                        : IconButton(
+                            icon: const Icon(Icons.arrow_back,
+                                color: Colors.white),
+                            onPressed: _backToHome,
+                          ),
                     const Expanded(
                       child: Center(
                         child: Text(
@@ -118,8 +139,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       ),
                     ),
-
-                    // DUMMY SPACE biar balance dengan IconButton kiri
                     const SizedBox(width: 48),
                   ],
                 ),
@@ -127,7 +146,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
               const SizedBox(height: 20),
 
-              // AVATAR
+              // ================= AVATAR =================
               CircleAvatar(
                 radius: 50,
                 backgroundColor: Colors.transparent,
@@ -143,15 +162,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
               const SizedBox(height: 12),
 
-              // NAME - dengan opacity jika belum diisi
+              // ================= NAME =================
               GestureDetector(
                 onTap: _editName,
                 child: Text(
                   userName.isEmpty ? 'Tap to set name' : userName,
                   style: TextStyle(
-                    color: userName.isEmpty 
-                        ? Colors.white.withOpacity(0.4) // Transparan jika kosong
-                        : Colors.white, // Solid jika sudah diisi
+                    color: userName.isEmpty
+                        ? Colors.white.withOpacity(0.4)
+                        : Colors.white,
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
@@ -167,7 +186,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
               const SizedBox(height: 20),
 
-              // GRID
+              // ================= GRID AVATAR =================
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -208,6 +227,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               ),
+
+              // ================= CONTINUE (FIRST TIME ONLY) =================
+              if (widget.isFirstTime)
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed:
+                          userName.isEmpty ? null : _continueFirstTime,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: const Color(0xFF2563EB),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
+                      child: const Text(
+                        'CONTINUE',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
             ],
           ),
         ),

@@ -1,4 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/foundation.dart'; // ini buat debugPrint
+
 
 class AudioController {
   // ================= SINGLETON =================
@@ -6,6 +8,7 @@ class AudioController {
   factory AudioController() => _instance;
   AudioController._internal();
 
+  // ================= AUDIO PLAYERS =================
   AudioPlayer? _bgmPlayer;
   AudioPlayer? _sfxPlayer;
 
@@ -16,25 +19,41 @@ class AudioController {
   String? _currentBGM;
 
   // ================= 🎵 BGM =================
+  /// Play background music (looping)
   Future<void> playBGM(String assetPath, {double volume = 0.5}) async {
-    _currentBGM = assetPath;
-
     if (!musicEnabled) return;
 
+    _currentBGM = assetPath;
+
     _bgmPlayer ??= AudioPlayer();
-    await _bgmPlayer!.stop();
-    await _bgmPlayer!.setSource(AssetSource(assetPath));
-    await _bgmPlayer!.setReleaseMode(ReleaseMode.loop);
-    await _bgmPlayer!.setVolume(volume);
-    await _bgmPlayer!.resume();
+    try {
+      await _bgmPlayer!.stop(); // stop dulu kalau lagi play
+      await _bgmPlayer!.setSource(AssetSource(assetPath));
+      await _bgmPlayer!.setReleaseMode(ReleaseMode.loop); // loop
+      await _bgmPlayer!.setVolume(volume);
+      await _bgmPlayer!.resume();
+      debugPrint('BGM playing: $assetPath');
+    } catch (e) {
+      debugPrint('Error playBGM: $e');
+    }
   }
 
   Future<void> stopBGM() async {
-    await _bgmPlayer?.stop();
+    try {
+      await _bgmPlayer?.stop();
+      debugPrint('BGM stopped');
+    } catch (e) {
+      debugPrint('Error stopBGM: $e');
+    }
   }
 
   Future<void> pauseBGM() async {
-    await _bgmPlayer?.pause();
+    try {
+      await _bgmPlayer?.pause();
+      debugPrint('BGM paused');
+    } catch (e) {
+      debugPrint('Error pauseBGM: $e');
+    }
   }
 
   Future<void> resumeLastBGM({double volume = 0.5}) async {
@@ -47,8 +66,13 @@ class AudioController {
     if (!sfxEnabled) return;
 
     _sfxPlayer ??= AudioPlayer();
-    await _sfxPlayer!.setSource(AssetSource(assetPath));
-    await _sfxPlayer!.setVolume(volume);
-    await _sfxPlayer!.resume();
+    try {
+      await _sfxPlayer!.setSource(AssetSource(assetPath));
+      await _sfxPlayer!.setVolume(volume);
+      await _sfxPlayer!.resume();
+      debugPrint('SFX played: $assetPath');
+    } catch (e) {
+      debugPrint('Error playSFX: $e');
+    }
   }
 }
