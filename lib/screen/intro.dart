@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'home.dart';
 import 'profile.dart';
@@ -14,22 +14,8 @@ class IntroScreen extends StatefulWidget {
 }
 
 class _IntroScreenState extends State<IntroScreen> {
-  bool _isLoading = true;
 
-  @override
-  void initState() {
-    super.initState();
-    // Loading singkat biar ada efek smooth
-    Future.delayed(const Duration(milliseconds: 300), () {
-      if (mounted) {
-        setState(() {
-          _isLoading = false;
-        });
-      }
-    });
-  }
-
-  // ================= START BUTTON LOGIC =================
+  // ================= START BUTTON =================
   Future<void> _onStart() async {
     final prefs = await SharedPreferences.getInstance();
     final bool isProfileCompleted =
@@ -37,8 +23,13 @@ class _IntroScreenState extends State<IntroScreen> {
 
     if (!mounted) return;
 
+    // 🎧 play BGM saat user klik START (AMAN)
+    await AudioController().playBGM(
+      'audio/music/home_bgm.mp3',
+      volume: 0.5,
+    );
+
     if (!isProfileCompleted) {
-      // 🔴 First time → Profile
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -46,7 +37,6 @@ class _IntroScreenState extends State<IntroScreen> {
         ),
       );
     } else {
-      // 🟢 Sudah pernah → Home
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (_) => const HomeScreen()),
@@ -56,7 +46,6 @@ class _IntroScreenState extends State<IntroScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // ================= INTRO SCREEN =================
     return Scaffold(
       backgroundColor: const Color(0xFF2563EB),
       body: SafeArea(
@@ -64,25 +53,27 @@ class _IntroScreenState extends State<IntroScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
           child: Column(
             children: [
-              const SizedBox(height: 10),
+
+              const SizedBox(height: 12),
 
               // ================= LOGO =================
               SvgPicture.asset(
                 'assets/quizzif_logo.svg',
-                height: 280,
+                height: 200,
                 fit: BoxFit.contain,
               ),
 
-              const SizedBox(height: 10),
+              const SizedBox(height: 12),
 
               // ================= ILLUSTRATION =================
-              SvgPicture.asset(
-                'assets/intro1.svg',
-                height: 400,
-                fit: BoxFit.contain,
+              Expanded(
+                child: SvgPicture.asset(
+                  'assets/intro1.svg',
+                  fit: BoxFit.contain,
+                ),
               ),
 
-              const Spacer(),
+              const SizedBox(height: 24),
 
               // ================= START BUTTON =================
               SizedBox(
@@ -107,7 +98,7 @@ class _IntroScreenState extends State<IntroScreen> {
                 ),
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 16),
 
               const Text(
                 "Copyright © 2026 Kelompok DDMT",
