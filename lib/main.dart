@@ -8,6 +8,7 @@ import 'package:hive/hive.dart';
 import 'data/seed_question.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'utils/audio_controller.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 // =====================================================
 // 🔥 ROUTE OBSERVER (WAJIB GLOBAL, JANGAN DI DALAM CLASS)
@@ -86,7 +87,7 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Logo / animasi splash
-            Image.asset('assets/sukses.svg', width: 180, height: 180),
+            SvgPicture.asset('assets/sukses.svg', width: 180, height: 180),
             const SizedBox(height: 20),
             const CircularProgressIndicator(
               color: Colors.white,
