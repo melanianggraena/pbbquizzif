@@ -19,7 +19,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // preload dan play BGM sebelum SplashScreen muncul
-  await AudioController().playBGM('audio/music/home_bgm.mp3', volume: 0.5);
+  // await AudioController().playBGM('audio/music/home_bgm.mp3', volume: 0.5);
 
   // ================= Hive =================
   await Hive.initFlutter();
@@ -45,6 +45,14 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    
+  // 🔥 START BGM DI SINI (BUKAN DI main())
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    AudioController().playBGM(
+      'assets/audio/music/home_bgm.mp3',
+      volume: 0.5,
+    );
+  });
     _goNext();
   }
 

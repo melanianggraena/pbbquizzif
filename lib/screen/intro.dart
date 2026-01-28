@@ -19,8 +19,6 @@ class _IntroScreenState extends State<IntroScreen> {
   @override
   void initState() {
     super.initState();
-    // pastikan BGM sudah jalan
-    // AudioController().resumeLastBGM(volume: 0.5);
     // Loading singkat biar ada efek smooth
     Future.delayed(const Duration(milliseconds: 300), () {
       if (mounted) {
