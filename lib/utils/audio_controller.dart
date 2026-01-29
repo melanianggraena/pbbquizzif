@@ -16,17 +16,18 @@ class AudioController {
   bool sfxEnabled = true;
 
   String? _currentBGM;
+  double _currentBGMVolume = 0.5;
 
   // ================= 🎵 BGM =================
   Future<void> playBGM(String assetPath, {double volume = 0.5}) async {
     if (!musicEnabled) {
-      debugPrint('🔇 Music disabled');
+      debugPrint('🔇 Music disabled, skipping BGM');
       return;
     }
 
     _bgmPlayer ??= AudioPlayer();
 
-    // ✅ Kalau lagu yang sama & sudah jalan → jangan restart
+    // ✅ Kalau lagu yang sama & sudah jalan → jangan restart (PENTING!)
     if (_currentBGM == assetPath &&
         _bgmPlayer!.state == PlayerState.playing) {
       debugPrint('🎧 BGM already playing: $assetPath');
@@ -34,12 +35,13 @@ class AudioController {
     }
 
     _currentBGM = assetPath;
+    _currentBGMVolume = volume;
 
     try {
+      await _bgmPlayer!.stop(); // Stop dulu kalau ada yang lagi jalan
       await _bgmPlayer!.setReleaseMode(ReleaseMode.loop);
       await _bgmPlayer!.setVolume(volume);
-      await _bgmPlayer!.setSource(AssetSource(assetPath));
-      await _bgmPlayer!.resume();
+      await _bgmPlayer!.play(AssetSource(assetPath)); // ✅ PLAY bukan RESUME
 
       debugPrint('🎵 BGM started: $assetPath');
     } catch (e) {
@@ -59,35 +61,62 @@ class AudioController {
   Future<void> stopBGM() async {
     try {
       await _bgmPlayer?.stop();
+      _currentBGM = null; // ✅ Clear current BGM
       debugPrint('⏹️ BGM stopped');
     } catch (e) {
       debugPrint('❌ Error stopBGM: $e');
     }
   }
 
-  Future<void> resumeLastBGM({double volume = 0.5}) async {
+  Future<void> resumeBGM() async {
+    if (!musicEnabled) {
+      debugPrint('🔇 Music disabled, skipping resume');
+      return;
+    }
+    
+    try {
+      await _bgmPlayer?.resume();
+      debugPrint('▶️ BGM resumed');
+    } catch (e) {
+      debugPrint('❌ Error resumeBGM: $e');
+    }
+  }
+
+  Future<void> resumeLastBGM({double? volume}) async {
     if (!musicEnabled || _currentBGM == null) {
-      debugPrint('ℹ️ No BGM to resume');
+      debugPrint('ℹ️ No BGM to resume or music disabled');
       return;
     }
 
-    await playBGM(_currentBGM!, volume: volume);
+    await playBGM(_currentBGM!, volume: volume ?? _currentBGMVolume);
   }
 
   // ================= 🔊 SFX =================
   Future<void> playSFX(String assetPath, {double volume = 1.0}) async {
-    if (!sfxEnabled) return;
+    if (!sfxEnabled) {
+      debugPrint('🔇 SFX disabled, skipping');
+      return;
+    }
 
     _sfxPlayer ??= AudioPlayer();
 
     try {
-      await _sfxPlayer!.setSource(AssetSource(assetPath));
+      await _sfxPlayer!.stop(); // Stop SFX sebelumnya
       await _sfxPlayer!.setVolume(volume);
-      await _sfxPlayer!.resume();
+      await _sfxPlayer!.play(AssetSource(assetPath));
 
       debugPrint('🔊 SFX played: $assetPath');
     } catch (e) {
       debugPrint('❌ Error playSFX: $e');
     }
+  }
+
+  // ================= 🧹 CLEANUP (OPTIONAL) =================
+  Future<void> dispose() async {
+    await _bgmPlayer?.dispose();
+    await _sfxPlayer?.dispose();
+    _bgmPlayer = null;
+    _sfxPlayer = null;
+    debugPrint('🗑️ AudioController disposed');
   }
 }

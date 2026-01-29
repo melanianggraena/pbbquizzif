@@ -8,12 +8,9 @@ import 'package:hive/hive.dart';
 import 'data/seed_question.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'utils/audio_controller.dart';
-<<<<<<< HEAD
 import 'package:ppbquizzif/screen/intro.dart';
-=======
+import 'package:ppbquizzif/screen/splash_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
->>>>>>> b710cc07c9f0672ee70f6020705193f58c784500
-
 // =====================================================
 // 🔥 ROUTE OBSERVER (WAJIB GLOBAL, JANGAN DI DALAM CLASS)
 // =====================================================
@@ -120,7 +117,7 @@ class MyApp extends StatelessWidget {
       // 🔥 PENTING: DAFTARKAN ROUTE OBSERVER
       navigatorObservers: [routeObserver],
 
-      home: const IntroScreen(),
+      home: const SplashScreen(),
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'quiz.dart';
 import 'arcade.dart';
+import 'classic.dart'; // ✅ IMPORT CLASSIC
 import 'profile.dart';
 import 'settings.dart';
 import '../utils/audio_controller.dart';
@@ -41,7 +42,10 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
 
   @override
   void didPopNext() {
-    // Dipanggil saat BALIK ke Home dari screen lain (Quiz)
+    // ✅ Dipanggil saat BALIK ke Home dari screen lain
+    // Tapi HANYA play kalau memang BGM-nya berbeda (dari Quiz)
+    // Kalau dari Settings/Profile, playBGM() akan auto-skip karena
+    // sudah ada check "already playing" di AudioController
     _audio.playBGM('audio/music/home_bgm.mp3', volume: 0.5);
   }
 
@@ -142,6 +146,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
                             await Future.delayed(
                                 const Duration(milliseconds: 100));
                             if (mounted) {
+                              // ✅ BGM tetap jalan, TIDAK stop
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -317,16 +322,13 @@ class _ModeSelectionScreenState extends State<ModeSelectionScreen> {
                             .playSFX('audio/sfx/button_click.mp3');
                         await Future.delayed(
                             const Duration(milliseconds: 150));
-                        await _audio.stopBGM();
-                        await _audio.playBGM(
-                            'audio/music/quiz_bgm.mp3',
-                            volume: 0.5);
+                        
+                        // ✅ KE LOADING SCREEN CLASSIC
                         if (mounted) {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) =>
-                                  const QuizScreen(mode: 'classic'),
+                              builder: (_) => const ClassicLoadingScreen(),
                             ),
                           );
                         }
@@ -343,10 +345,8 @@ class _ModeSelectionScreenState extends State<ModeSelectionScreen> {
                             .playSFX('audio/sfx/button_click.mp3');
                         await Future.delayed(
                             const Duration(milliseconds: 150));
-                        await _audio.stopBGM();
-                        await _audio.playBGM(
-                            'audio/music/quiz_bgm.mp3',
-                            volume: 0.5);
+                        
+                        // ✅ KE ARCADE (sudah ada loading di dalamnya)
                         if (mounted) {
                           Navigator.push(
                             context,

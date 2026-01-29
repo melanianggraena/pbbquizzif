@@ -213,69 +213,77 @@ class _QuizScreenState extends State<QuizScreen> {
     );
   }
 
-  // ================= KONFIRMASI KELUAR =================
-  void _showExitConfirmation() {
-    // Pause timer sementara
-    _timer?.cancel();
+// ================= KONFIRMASI KELUAR (FIXED) =================
+void _showExitConfirmation() {
+  // Pause timer sementara
+  _timer?.cancel();
+  
+  // ✅ PAUSE MUSIC juga saat dialog muncul
+  AudioController().pauseBGM();
 
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) => AlertDialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        title: Row(
-          children: [
-            Icon(Icons.warning_amber_rounded, color: Colors.orange, size: 28),
-            SizedBox(width: 10),
-            Text('Keluar Quiz?'),
-          ],
-        ),
-        content: Text(
-          'Progress kamu akan hilang. Yakin ingin keluar?',
-          style: TextStyle(fontSize: 16),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context); // Tutup dialog
-              // Resume timer
-              if (!_answered) {
-                _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-                  if (_timeLeft > 0) {
-                    setState(() => _timeLeft--);
-                  } else {
-                    _handleTimeout();
-                  }
-                });
-              }
-            },
-            child: Text(
-              'Batal',
-              style: TextStyle(fontSize: 16, color: Colors.grey),
-            ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pop(context); // Tutup dialog
-              Navigator.pop(context); // Keluar dari quiz
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-            child: Text(
-              'Keluar',
-              style: TextStyle(fontSize: 16, color: Colors.white),
-            ),
-          ),
+  showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (context) => AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      title: Row(
+        children: [
+          Icon(Icons.warning_amber_rounded, color: Colors.orange, size: 28),
+          SizedBox(width: 10),
+          Text('Keluar Quiz?'),
         ],
       ),
-    );
-  }
+      content: Text(
+        'Progress kamu akan hilang. Yakin ingin keluar?',
+        style: TextStyle(fontSize: 16),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.pop(context); // Tutup dialog
+            
+            // ✅ RESUME MUSIC saat klik Batal
+            AudioController().resumeBGM();
+            
+            // Resume timer
+            if (!_answered) {
+              _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+                if (_timeLeft > 0) {
+                  setState(() => _timeLeft--);
+                } else {
+                  _handleTimeout();
+                }
+              });
+            }
+          },
+          child: Text(
+            'Batal',
+            style: TextStyle(fontSize: 16, color: Colors.grey),
+          ),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context); // Tutup dialog
+            Navigator.pop(context); // Keluar dari quiz
+            // Music akan otomatis ganti ke home_bgm via didPopNext()
+          },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.red,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+          child: Text(
+            'Keluar',
+            style: TextStyle(fontSize: 16, color: Colors.white),
+          ),
+        ),
+      ],
+    ),
+  );
+}
 
   // ================= UI =================
   @override
